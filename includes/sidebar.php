@@ -25,7 +25,7 @@ if (isset($_REQUEST['p_cat']) && is_array($_REQUEST['p_cat'])) {
 
 ?>
 
-<div class="panel panel-default sidebar-menu"><!--- panel panel-default sidebar-menu Starts -->
+<div style="height:900px;" class="panel panel-default sidebar-menu"><!--- panel panel-default sidebar-menu Starts -->
 
 <div class="panel-heading"><!-- panel-heading Starts -->
 
@@ -57,15 +57,11 @@ Hide
 
 <div class="input-group"><!-- input-group Starts -->
 
-<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-p-cats" placeholder="Filter Product Categories">
-
-<a class="input-group-addon"> <i class="fa fa-search"></i> </a>
-
 </div><!-- input-group Ends -->
 
 </div><!-- panel-body Ends -->
 
-<div class="panel-body scroll-menu"><!-- panel-body scroll-menu Starts -->
+<div class="panel-body"><!-- panel-body scroll-menu Starts -->
 
 <ul class="nav nav-pills nav-stacked category-menu" id="dev-p-cats"><!-- nav nav-pills nav-stacked category-menu Starts -->
 
@@ -93,7 +89,7 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     echo "
 
-<li class='checkbox checkbox-primary' style='background:#dddddd;' >
+<li class='checkbox-primary'>
 
 <a>
 
@@ -103,7 +99,7 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     if (isset($aPCat[$p_cat_id])) {echo "checked='checked'";}
 
-    echo " type='checkbox' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
+    echo " type='hidden' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
 
 <span>
 
@@ -144,7 +140,7 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     echo "
 
-<li class='checkbox checkbox-primary'>
+<li class='checkbox-primary'>
 
 <a>
 
@@ -154,7 +150,7 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     if (isset($aPCat[$p_cat_id])) {echo "checked='checked'";}
 
-    echo " type='checkbox' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
+    echo " type='hidden' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
 
 <span>
 
