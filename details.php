@@ -55,23 +55,7 @@ if ($check_product == 0) {
 
     $pro_url = $row_product['product_url'];
 
-    if ($pro_label == "") {
 
-    } else {
-
-        $product_label = "
-
-<a class='label sale' href='#' style='color:black;'>
-
-<div class='thelabel'>$pro_label</div>
-
-<div class='label-background'> </div>
-
-</a>
-
-";
-
-    }
 
     $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
 
@@ -161,7 +145,7 @@ if ($check_product == 0) {
 
 </div><!-- mainImage Ends -->
 
-<?php echo $product_label; ?>
+
 
 </div><!-- col-sm-6 Ends -->
 

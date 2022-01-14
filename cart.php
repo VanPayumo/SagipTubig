@@ -385,23 +385,6 @@ while ($row_products = mysqli_fetch_array($run_products)) {
 
     }
 
-    if ($pro_label == "") {
-
-    } else {
-
-        $product_label = "
-
-<a class='label sale' href='#' style='color:black;'>
-
-<div class='thelabel'>$pro_label</div>
-
-<div class='label-background'> </div>
-
-</a>
-
-";
-
-    }
 
     echo "
 
@@ -438,7 +421,6 @@ while ($row_products = mysqli_fetch_array($run_products)) {
 
 </div>
 
-$product_label
 
 
 </div>
