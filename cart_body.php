@@ -2,10 +2,10 @@
 
 session_start();
 
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
-include("includes/main.php");
+include "includes/db.php";
+include "includes/header.php";
+include "functions/functions.php";
+include "includes/main.php";
 ?>
 
   <main>
@@ -39,7 +39,7 @@ $ip_add = getRealUserIp();
 
 $select_cart = "select * from cart where ip_add='$ip_add'";
 
-$run_cart = mysqli_query($con,$select_cart);
+$run_cart = mysqli_query($con, $select_cart);
 
 $count = mysqli_num_rows($run_cart);
 
@@ -78,33 +78,33 @@ $count = mysqli_num_rows($run_cart);
 
 $total = 0;
 
-while($row_cart = mysqli_fetch_array($run_cart)){
+while ($row_cart = mysqli_fetch_array($run_cart)) {
 
-$pro_id = $row_cart['p_id'];
+    $pro_id = $row_cart['p_id'];
 
-$pro_size = $row_cart['size'];
+    $pro_size = $row_cart['size'];
 
-$pro_qty = $row_cart['qty'];
+    $pro_qty = $row_cart['qty'];
 
-$only_price = $row_cart['p_price'];
+    $only_price = $row_cart['p_price'];
 
-$get_products = "select * from products where product_id='$pro_id'";
+    $get_products = "select * from products where product_id='$pro_id'";
 
-$run_products = mysqli_query($con,$get_products);
+    $run_products = mysqli_query($con, $get_products);
 
-while($row_products = mysqli_fetch_array($run_products)){
+    while ($row_products = mysqli_fetch_array($run_products)) {
 
-$product_title = $row_products['product_title'];
+        $product_title = $row_products['product_title'];
 
-$product_img1 = $row_products['product_img1'];
+        $product_img1 = $row_products['product_img1'];
 
-$sub_total = $only_price*$pro_qty;
+        $sub_total = $only_price * $pro_qty;
 
-$_SESSION['pro_qty'] = $pro_qty;
+        $_SESSION['pro_qty'] = $pro_qty;
 
-$total += $sub_total;
+        $total += $sub_total;
 
-?>
+        ?>
 
 <tr><!-- tr Starts -->
 
@@ -148,7 +148,7 @@ $<?php echo $sub_total; ?>.00
 
 </tr><!-- tr Ends -->
 
-<?php } } ?>
+<?php }}?>
 
 </tbody><!-- tbody Ends -->
 
@@ -220,122 +220,104 @@ Proceed to checkout <i class="fa fa-chevron-right"></i>
 
 <?php
 
-if(isset($_POST['apply_coupon'])){
+if (isset($_POST['apply_coupon'])) {
 
-$code = $_POST['code'];
+    $code = $_POST['code'];
 
-if($code == ""){
+    if ($code == "") {
 
+    } else {
 
-}
-else{
+        $get_coupons = "select * from coupons where coupon_code='$code'";
 
-$get_coupons = "select * from coupons where coupon_code='$code'";
+        $run_coupons = mysqli_query($con, $get_coupons);
 
-$run_coupons = mysqli_query($con,$get_coupons);
+        $check_coupons = mysqli_num_rows($run_coupons);
 
-$check_coupons = mysqli_num_rows($run_coupons);
+        if ($check_coupons == 1) {
 
-if($check_coupons == 1){
+            $row_coupons = mysqli_fetch_array($run_coupons);
 
-$row_coupons = mysqli_fetch_array($run_coupons);
+            $coupon_pro = $row_coupons['product_id'];
 
-$coupon_pro = $row_coupons['product_id'];
+            $coupon_price = $row_coupons['coupon_price'];
 
-$coupon_price = $row_coupons['coupon_price'];
+            $coupon_limit = $row_coupons['coupon_limit'];
 
-$coupon_limit = $row_coupons['coupon_limit'];
+            $coupon_used = $row_coupons['coupon_used'];
 
-$coupon_used = $row_coupons['coupon_used'];
+            if ($coupon_limit == $coupon_used) {
 
+                echo "<script>alert('Your Coupon Code Has Been Expired')</script>";
 
-if($coupon_limit == $coupon_used){
+            } else {
 
-echo "<script>alert('Your Coupon Code Has Been Expired')</script>";
+                $get_cart = "select * from cart where p_id='$coupon_pro' AND ip_add='$ip_add'";
 
-}
-else{
+                $run_cart = mysqli_query($con, $get_cart);
 
-$get_cart = "select * from cart where p_id='$coupon_pro' AND ip_add='$ip_add'";
+                $check_cart = mysqli_num_rows($run_cart);
 
-$run_cart = mysqli_query($con,$get_cart);
+                if ($check_cart == 1) {
 
-$check_cart = mysqli_num_rows($run_cart);
+                    $add_used = "update coupons set coupon_used=coupon_used+1 where coupon_code='$code'";
 
+                    $run_used = mysqli_query($con, $add_used);
 
-if($check_cart == 1){
+                    $update_cart = "update cart set p_price='$coupon_price' where p_id='$coupon_pro' AND ip_add='$ip_add'";
 
-$add_used = "update coupons set coupon_used=coupon_used+1 where coupon_code='$code'";
+                    $run_update = mysqli_query($con, $update_cart);
 
-$run_used = mysqli_query($con,$add_used);
+                    echo "<script>alert('Your Coupon Code Has Been Applied')</script>";
 
-$update_cart = "update cart set p_price='$coupon_price' where p_id='$coupon_pro' AND ip_add='$ip_add'";
+                    echo "<script>window.open('cart.php','_self')</script>";
 
-$run_update = mysqli_query($con,$update_cart);
+                } else {
 
-echo "<script>alert('Your Coupon Code Has Been Applied')</script>";
+                    echo "<script>alert('Product Does Not Exist In Cart')</script>";
 
-echo "<script>window.open('cart.php','_self')</script>";
+                }
 
-}
-else{
+            }
 
-echo "<script>alert('Product Does Not Exist In Cart')</script>";
+        } else {
 
-}
+            echo "<script> alert('Your Coupon Code Is Not Valid') </script>";
 
-}
+        }
 
-}
-else{
-
-echo "<script> alert('Your Coupon Code Is Not Valid') </script>";
+    }
 
 }
-
-}
-
-
-}
-
 
 ?>
 
 <?php
 
-function update_cart(){
+function update_cart()
+{
 
-global $con;
+    global $con;
 
-if(isset($_POST['update'])){
+    if (isset($_POST['update'])) {
 
-foreach($_POST['remove'] as $remove_id){
+        foreach ($_POST['remove'] as $remove_id) {
 
+            $delete_product = "delete from cart where p_id='$remove_id'";
 
-$delete_product = "delete from cart where p_id='$remove_id'";
+            $run_delete = mysqli_query($con, $delete_product);
 
-$run_delete = mysqli_query($con,$delete_product);
+            if ($run_delete) {
+                echo "<script>window.open('cart.php','_self')</script>";
+            }
 
-if($run_delete){
-echo "<script>window.open('cart.php','_self')</script>";
-}
+        }
 
-
-
-}
-
-
-
-
-}
-
-
+    }
 
 }
 
 echo @$up_cart = update_cart();
-
-
 
 ?>
 
@@ -357,73 +339,39 @@ echo @$up_cart = update_cart();
 
 $get_products = "select * from products order by rand() LIMIT 0,3";
 
-$run_products = mysqli_query($con,$get_products);
+$run_products = mysqli_query($con, $get_products);
 
-while($row_products=mysqli_fetch_array($run_products)){
+while ($row_products = mysqli_fetch_array($run_products)) {
 
-$pro_id = $row_products['product_id'];
+    $pro_id = $row_products['product_id'];
 
-$pro_title = $row_products['product_title'];
+    $pro_title = $row_products['product_title'];
 
-$pro_price = $row_products['product_price'];
+    $pro_price = $row_products['product_price'];
 
-$pro_img1 = $row_products['product_img1'];
+    $pro_img1 = $row_products['product_img1'];
 
-$pro_label = $row_products['product_label'];
+    $manufacturer_id = $row_products['manufacturer_id'];
 
-$manufacturer_id = $row_products['manufacturer_id'];
+    $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
 
-$get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
+    $run_manufacturer = mysqli_query($db, $get_manufacturer);
 
-$run_manufacturer = mysqli_query($db,$get_manufacturer);
+    $row_manufacturer = mysqli_fetch_array($run_manufacturer);
 
-$row_manufacturer = mysqli_fetch_array($run_manufacturer);
+    $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
-$manufacturer_name = $row_manufacturer['manufacturer_title'];
+    $pro_psp_price = $row_products['product_psp_price'];
 
-$pro_psp_price = $row_products['product_psp_price'];
-
-$pro_url = $row_products['product_url'];
-
-
-if($pro_label == "Sale" or $pro_label == "Gift"){
-
-$product_price = "<del> $$pro_price </del>";
-
-$product_psp_price = "| $$pro_psp_price";
-
-}
-else{
-
-$product_psp_price = "";
-
-$product_price = "$$pro_price";
-
-}
-
-
-if($pro_label == ""){
-
-
-}
-else{
-
-$product_label = "
-
-<a class='label sale' href='#' style='color:black;'>
-
-<div class='thelabel'>$pro_label</div>
-
-<div class='label-background'> </div>
+    $pro_url = $row_products['product_url'];
 
 </a>
 
 ";
 
-}
+    }
 
-
-echo "
+    echo "
 
 <div class='col-md-3 col-sm-6 center-responsive' >
 
@@ -436,12 +384,6 @@ echo "
 </a>
 
 <div class='text' >
-
-<center>
-
-<p class='btn btn-primary'> $manufacturer_name </p>
-
-</center>
 
 <hr>
 
@@ -473,11 +415,7 @@ $product_label
 
 ";
 
-
 }
-
-
-
 
 ?>
 
@@ -556,7 +494,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <?php
 
-include("includes/footer.php");
+include "includes/footer.php";
 
 ?>
 

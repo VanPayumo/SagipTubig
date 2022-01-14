@@ -2,10 +2,10 @@
 
 session_start();
 
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
-include("includes/main.php");
+include "includes/db.php";
+include "includes/header.php";
+include "functions/functions.php";
+include "includes/main.php";
 
 ?>
   <!-- MAIN -->
@@ -32,14 +32,14 @@ include("includes/main.php");
 
 <div class="col-md-3"><!-- col-md-3 Starts -->
 
-<?php include("includes/sidebar.php"); ?>
+<?php include "includes/sidebar.php";?>
 
 </div><!-- col-md-3 Ends -->
 
 <div class="col-md-9" ><!-- col-md-9 Starts --->
 
 
-<?php getProducts(); ?>
+<?php getProducts();?>
 
 </div><!-- row Ends -->
 
@@ -47,7 +47,7 @@ include("includes/main.php");
 
 <ul class="pagination" ><!-- pagination Starts -->
 
-<?php getPaginator(); ?>
+<?php getPaginator();?>
 
 </ul><!-- pagination Ends -->
 
@@ -68,7 +68,7 @@ include("includes/main.php");
 
 <?php
 
-include("includes/footer.php");
+include "includes/footer.php";
 
 ?>
 
@@ -171,43 +171,6 @@ $(document).ready(function(){
 
   function getProducts(){
 
-  // Manufacturers Code Starts
-
-    var sPath = '';
-
-var aInputs = $('li').find('.get_manufacturer');
-
-var aKeys = Array();
-
-var aValues = Array();
-
-iKey = 0;
-
-$.each(aInputs,function(key,oInput){
-
-if(oInput.checked){
-
-aKeys[iKey] =  oInput.value
-
-};
-
-iKey++;
-
-});
-
-if(aKeys.length>0){
-
-var sPath = '';
-
-for(var i = 0; i < aKeys.length; i++){
-
-sPath = sPath + 'man[]=' + aKeys[i]+'&';
-
-}
-
-}
-
-// Manufacturers Code ENDS
 
 // Products Categories Code Starts
 

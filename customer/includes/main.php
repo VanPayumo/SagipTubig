@@ -9,13 +9,11 @@
         <div class="currency">
           <a class="currency__change" href="my_account.php?my_orders">
           <?php
-          if(!isset($_SESSION['customer_email'])){
-          echo "Welcome :Guest"; 
-         } 
-          else
-          { 
-              echo "Welcome : " . $_SESSION['customer_email'] . "";
-            }
+if (!isset($_SESSION['customer_email'])) {
+    echo "Welcome :Guest";
+} else {
+    echo "Welcome : " . $_SESSION['customer_email'] . "";
+}
 ?>
           </a>
         </div>
@@ -23,41 +21,37 @@
         <div class="basket">
           <a href="../cart.php" class="btn btn--basket">
             <i class="icon-basket"></i>
-            <?php items(); ?> items
+            <?php items();?> items
           </a>
         </div>
-        
-        
+
+
         <ul class="login">
 
           <li class="login__item">
           <?php
-          if(!isset($_SESSION['customer_email'])){
-            echo '<a href="../customer_register.php" class="login__link">Register</a>';
-          } 
-            else
-            { 
-                echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
-            }   
-?>  
+if (!isset($_SESSION['customer_email'])) {
+    echo '<a href="../customer_register.php" class="login__link">Register</a>';
+} else {
+    echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
+}
+?>
           </li>
 
 
           <li class="login__item">
           <?php
-          if(!isset($_SESSION['customer_email'])){
-            echo '<a href="../checkout.php" class="login__link">Sign In</a>';
-          } 
-            else
-            { 
-                echo '<a href="../logout.php" class="login__link">Log out</a>';
-            }   
-?>  
-            
+if (!isset($_SESSION['customer_email'])) {
+    echo '<a href="../checkout.php" class="login__link">Sign In</a>';
+} else {
+    echo '<a href="../logout.php" class="login__link">Log out</a>';
+}
+?>
+
           </li>
         </ul>
-      
-      
+
+
       </div>
     </div>
     <!-- bottomline -->
@@ -74,28 +68,8 @@
           <ul class="categories">
 
             <li class="categories__item">
-              <a class="categories__link" href="#">
-                Mens
-                <i class="icon-down-open-1"></i>
-              </a>
-              </li>
-
-            <li class="categories__item">
-              <a class="categories__link" href="#">
-                Womens
-            
-              </a>
-            </li>
-
-            <li class="categories__item">
-              <a class="categories__link categories__link--active" href="shop.php">
+              <a class="categories__link categories__link--active" href="../shop.php">
                 Shop
-              </a>
-            </li>
-
-            <li class="categories__item">
-              <a class="categories__link" href="../about.php">
-                About us
               </a>
             </li>
 
@@ -135,7 +109,7 @@
                     </ul>
                   </div>
                 </div>
-             
+
 
               </div>
 
