@@ -4,15 +4,15 @@
 		<div class="container clearfix">
 
 			<div class="copyright">
-				&copy; 2018 Avenue Fashion&trade;
+				&copy; 2022 SagipTubig&trade;
 			</div>
 
 			<div class="developer">
-				Dev by Yasser Dalouzi
+				Dev by G3 BSCS-3A
 			</div>
 
 			<div class="designby">
-				Design by Yasser Dalouzi
+				Design by LALS, MTC
 			</div>
 		</div>
 	</div>

@@ -35,16 +35,6 @@ Products Categories
 
 <div class="pull-right"><!-- pull-right Starts -->
 
-<a href="#" style="color:black;">
-
-<span class="nav-toggle hide-show">
-
-Hide
-
-</span>
-
-</a>
-
 </div><!-- pull-right Ends -->
 
 </h3><!-- panel-title Ends -->
@@ -67,7 +57,7 @@ Hide
 
 <?php
 
-$get_p_cats = "select * from product_categories where p_cat_top='yes'";
+$get_p_cats = "select * from product_categories";
 
 $run_p_cats = mysqli_query($con, $get_p_cats);
 
@@ -89,11 +79,9 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     echo "
 
-<li class='checkbox-primary'>
+<li>
 
 <a>
-
-<label>
 
 <input ";
 
@@ -101,65 +89,12 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
     echo " type='hidden' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
 
-<span>
+<span style='font-weight:bold; pointer-events:none;'>
 
 $p_cat_image
 $p_cat_title
 
 </span>
-
-</label>
-
-</a>
-
-</li>
-
-";
-
-}
-
-$get_p_cats = "select * from product_categories where p_cat_top='no'";
-
-$run_p_cats = mysqli_query($con, $get_p_cats);
-
-while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
-
-    $p_cat_id = $row_p_cats['p_cat_id'];
-
-    $p_cat_title = $row_p_cats['p_cat_title'];
-
-    $p_cat_image = $row_p_cats['p_cat_image'];
-
-    if ($p_cat_image == "") {
-
-    } else {
-
-        $p_cat_image = "<img src='admin_area/other_images/$p_cat_image' width='20'> &nbsp;";
-
-    }
-
-    echo "
-
-<li class='checkbox-primary'>
-
-<a>
-
-<label>
-
-<input ";
-
-    if (isset($aPCat[$p_cat_id])) {echo "checked='checked'";}
-
-    echo " type='hidden' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
-
-<span>
-
-$p_cat_image
-$p_cat_title
-
-</span>
-
-</label>
 
 </a>
 

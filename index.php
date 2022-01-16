@@ -45,15 +45,15 @@ getPro();
         <div class="container clearfix">
 
           <div class="copyright">
-            &copy; <?php echo date("Y"); ?> Ecommerce Website-PHP&trade;
+            &copy; <?php echo date("Y"); ?> SagipTubig&trade;
           </div>
 
           <div class="developer">
-            Developed by Yasser Dalouzi
+            Developed by G3 BSCS-3A
           </div>
 
           <div class="designby">
-            Design by Yasser Dalouzi
+            Design by LALS, MTC
           </div>
 
         </div>

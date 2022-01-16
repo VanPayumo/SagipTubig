@@ -130,7 +130,7 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 
 <td>
 
-$<?php echo $only_price; ?>.00
+₱<?php echo $only_price; ?>.00
 
 </td>
 
@@ -146,7 +146,7 @@ $<?php echo $only_price; ?>.00
 
 <td>
 
-$<?php echo $sub_total; ?>.00
+₱<?php echo $sub_total; ?>.00
 
 </td>
 
@@ -162,7 +162,7 @@ $<?php echo $sub_total; ?>.00
 
 <th colspan="5"> Total </th>
 
-<th colspan="2"> $<?php echo $total; ?>.00 </th>
+<th colspan="2"> ₱<?php echo $total; ?>.00 </th>
 
 </tr>
 
@@ -331,107 +331,11 @@ echo @$up_cart = update_cart();
 
 <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Starts -->
 
-<div class="box same-height headline"><!-- box same-height headline Starts -->
-
-<h3 class="text-center"> You may like these Products </h3>
+<div><!-- box same-height headline Starts --><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div><!-- box same-height headline Ends -->
 
 </div><!-- col-md-3 col-sm-6 Ends -->
-
-<?php
-
-$get_products = "select * from products order by rand() LIMIT 0,3";
-
-$run_products = mysqli_query($con, $get_products);
-
-while ($row_products = mysqli_fetch_array($run_products)) {
-
-    $pro_id = $row_products['product_id'];
-
-    $pro_title = $row_products['product_title'];
-
-    $pro_price = $row_products['product_price'];
-
-    $pro_img1 = $row_products['product_img1'];
-
-    $pro_label = $row_products['product_label'];
-
-    $manufacturer_id = $row_products['manufacturer_id'];
-
-    $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
-
-    $run_manufacturer = mysqli_query($db, $get_manufacturer);
-
-    $row_manufacturer = mysqli_fetch_array($run_manufacturer);
-
-    $manufacturer_name = $row_manufacturer['manufacturer_title'];
-
-    $pro_psp_price = $row_products['product_psp_price'];
-
-    $pro_url = $row_products['product_url'];
-
-    if ($pro_label == "Sale" or $pro_label == "Gift") {
-
-        $product_price = "<del> $$pro_price </del>";
-
-        $product_psp_price = "| $$pro_psp_price";
-
-    } else {
-
-        $product_psp_price = "";
-
-        $product_price = "$$pro_price";
-
-    }
-
-
-    echo "
-
-<div class='col-md-3 col-sm-6 center-responsive' >
-
-<div class='product' >
-
-<a href='$pro_url' >
-
-<img src='admin_area/product_images/$pro_img1' class='img-responsive' >
-
-</a>
-
-<div class='text' >
-
-<hr>
-
-<h3><a href='$pro_url' >$pro_title</a></h3>
-
-<p class='price' > $product_price $product_psp_price </p>
-
-<p class='buttons' >
-
-<a href='$pro_url' class='btn btn-default' >View Details</a>
-
-<a href='$pro_url' class='btn btn-danger'>
-
-<i class='fa fa-shopping-cart'></i> Add To Cart
-
-</a>
-
-
-</p>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-";
-
-}
-
-?>
 
 
 </div><!-- row same-height-row Ends -->
@@ -463,7 +367,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Order Subtotal </td>
 
-<th> $<?php echo $total; ?>.00 </th>
+<th>₱<?php echo $cart_total = $total * 0.88; ?>.00 </th>
 
 </tr>
 
@@ -471,7 +375,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Shipping and handling </td>
 
-<th>$0.00</th>
+<th>₱50.00</th>
 
 </tr>
 
@@ -479,7 +383,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Tax</td>
 
-<th>$0.00</th>
+<th>₱<?php echo $tax = $total * 0.12; ?>.00</th>
 
 </tr>
 
@@ -487,7 +391,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Total</td>
 
-<th>$<?php echo $total; ?>.00</th>
+<th>₱<?php echo $total_with_shipping = $total + 50; ?>.00</th>
 
 </tr>
 
