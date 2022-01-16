@@ -162,7 +162,7 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 
 <th colspan="5"> Total </th>
 
-<th colspan="2"> ₱<?php echo $total; ?>.00 </th>
+<th colspan="2"> ₱<?php echo number_format($total, 2); ?> </th>
 
 </tr>
 
@@ -367,7 +367,9 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Order Subtotal </td>
 
-<th>₱<?php echo $cart_total = $total * 0.88; ?>.00 </th>
+<?php $cart_total = $total * 0.88;?>
+
+<th>₱<?php echo number_format($cart_total, 2) ?> </th>
 
 </tr>
 
@@ -383,7 +385,9 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Tax</td>
 
-<th>₱<?php echo $tax = $total * 0.12; ?>.00</th>
+<?php $tax = $total * 0.12;?>
+
+<th>₱<?php echo number_format($tax, 2) ?></th>
 
 </tr>
 
@@ -391,7 +395,9 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Total</td>
 
-<th>₱<?php echo $total_with_shipping = $total + 50; ?>.00</th>
+<?php $total_with_shipping = $total + 50;?>
+
+<th>₱<?php echo number_format($total_with_shipping, 2) ?></th>
 
 </tr>
 
