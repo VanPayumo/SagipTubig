@@ -79,11 +79,11 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 
     if ($order_status == 'pending') {
 
-        $order_status = "<b style='color:red;'>Unpaid</b>";
+        $order_status = "<b style='color:red;'>Shipping</b>";
 
     } else {
 
-        $order_status = "<b style='color:green;'>Paid</b>";
+        $order_status = "<b style='color:green;'>Received</b>";
 
     }
 
@@ -108,9 +108,22 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 <td><?php echo $order_status; ?></td>
 
 <td>
-<a href="confirm.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-success btn-xs" > Confirm If Paid </a>
-</td>
 
+<?php
+
+    if ($order_status == "<b style='color:red;'>Shipping</b>") {
+
+        echo '<a href="confirm.php?order_id=' . $order_id . '&invoice_no=' . $invoice_no . '&due_amount=' . $due_amount . '&order_date=' . $order_date . '" target="blank" class="btn btn-success btn-xs" > Received </a>';
+
+    } else {
+
+        echo "<b style='color:green;'>Received</b>";
+
+    }
+
+    ?>
+
+</td>
 
 </tr><!-- tr Ends -->
 

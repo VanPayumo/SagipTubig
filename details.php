@@ -55,8 +55,6 @@ if ($check_product == 0) {
 
     $pro_url = $row_product['product_url'];
 
-
-
     $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
 
     $run_p_cat = mysqli_query($con, $get_p_cat);
@@ -228,9 +226,9 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_qty" class="form-control" >
+<select name="product_qty" class="form-control" required>
 
-<option>Select quantity</option>
+<option hidden="" disabled="disabled" selected="selected" value="">Select quantity</option>
 <option>1</option>
 <option>2</option>
 <option>3</option>
@@ -250,9 +248,9 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_size" class="form-control" >
+<select name="product_size" class="form-control" required>
 
-<option>Select a Size</option>
+<option hidden="" disabled="disabled" selected="selected" value="">Select a Size</option>
 <option>Small</option>
 <option>Medium</option>
 <option>Large</option>

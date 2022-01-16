@@ -2,25 +2,27 @@
 
 session_start();
 
-if(!isset($_SESSION['customer_email'])){
+if (!isset($_SESSION['customer_email'])) {
 
-echo "<script>window.open('../checkout.php','_self')</script>";
+    echo "<script>window.open('../checkout.php','_self')</script>";
 
+} else {
 
-}else {
+    include "includes/db.php";
+    include "includes/header.php";
+    include "functions/functions.php";
+    include "includes/main.php";
 
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
-include("includes/main.php");
+    if (isset($_GET['order_id'])) {
 
-if(isset($_GET['order_id'])){
+        $order_id = $_GET['order_id'];
+        $invoice_no = $_GET['invoice_no'];
+        $due_amount = $_GET['due_amount'];
+        $order_date = $_GET['order_date'];
 
-$order_id = $_GET['order_id'];
+    }
 
-}
-
-?>
+    ?>
 
 
 
@@ -30,7 +32,7 @@ $order_id = $_GET['order_id'];
 
 <div class="col-md-3"><!-- col-md-3 Starts -->
 
-<?php include("includes/sidebar.php"); ?>
+<?php include "includes/sidebar.php";?>
 
 </div><!-- col-md-3 Ends -->
 
@@ -38,7 +40,7 @@ $order_id = $_GET['order_id'];
 
 <div class="box"><!-- box Starts -->
 
-<h1 align="center"> Please Confirm Your Payment </h1>
+<h1 align="center"> Confirm Received </h1>
 
 
 <form action="confirm.php?update_id=<?php echo $order_id; ?>" method="post" enctype="multipart/form-data"><!--- form Starts -->
@@ -47,7 +49,7 @@ $order_id = $_GET['order_id'];
 
 <label>Invoice No:</label>
 
-<input type="text" class="form-control" name="invoice_no" required>
+<input type="text" class="form-control" name="invoice_no" value="<?php echo $invoice_no ?>">
 
 </div><!-- form-group Ends -->
 
@@ -56,7 +58,7 @@ $order_id = $_GET['order_id'];
 
 <label>Amount Sent:</label>
 
-<input type="text" class="form-control" name="amount_sent" required>
+<input type="text" class="form-control" name="amount_sent" value="<?php echo $due_amount ?>">
 
 </div><!-- form-group Ends -->
 
@@ -77,27 +79,17 @@ $order_id = $_GET['order_id'];
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label>Transaction/Reference Id:</label>
+</div><!-- form-group Ends -->
 
-<input type="text" class="form-control" name="ref_no" required>
 
 </div><!-- form-group Ends -->
 
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label>Omni Code:</label>
+<label>Order Date:</label>
 
-<input type="text" class="form-control" name="code" required>
-
-</div><!-- form-group Ends -->
-
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Payment Date:</label>
-
-<input type="text" class="form-control" name="date" required>
+<input type="text" class="form-control" name="date" value="<?php echo $order_date ?>">
 
 </div><!-- form-group Ends -->
 
@@ -115,51 +107,43 @@ $order_id = $_GET['order_id'];
 
 <?php
 
-if(isset($_POST['confirm_payment'])){
+    if (isset($_POST['confirm_payment'])) {
 
-$update_id = $_GET['update_id'];
+        $update_id = $_GET['update_id'];
 
-$invoice_no = $_POST['invoice_no'];
+        $invoice_no = $_POST['invoice_no'];
 
-$amount = $_POST['amount_sent'];
+        $amount = $_POST['amount_sent'];
 
-$payment_mode = $_POST['payment_mode'];
+        $payment_mode = $_POST['payment_mode'];
 
-$ref_no = $_POST['ref_no'];
+        $payment_date = $_POST['date'];
 
-$code = $_POST['code'];
+        $complete = "Complete";
 
-$payment_date = $_POST['date'];
+        $insert_payment = "insert into payments (invoice_no,amount,payment_mode,payment_date) values ('$invoice_no','$amount','$payment_mode', CURRENT_TIMESTAMP)";
 
-$complete = "Complete";
+        $run_payment = mysqli_query($con, $insert_payment);
 
-$insert_payment = "insert into payments (invoice_no,amount,payment_mode,ref_no,code,payment_date) values ('$invoice_no','$amount','$payment_mode','$ref_no','$code','$payment_date')";
+        $update_customer_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
 
-$run_payment = mysqli_query($con,$insert_payment);
+        $run_customer_order = mysqli_query($con, $update_customer_order);
 
-$update_customer_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
+        $update_pending_order = "update pending_orders set order_status='$complete' where order_id='$update_id'";
 
-$run_customer_order = mysqli_query($con,$update_customer_order);
+        $run_pending_order = mysqli_query($con, $update_pending_order);
 
-$update_pending_order = "update pending_orders set order_status='$complete' where order_id='$update_id'";
+        if ($run_pending_order) {
 
-$run_pending_order = mysqli_query($con,$update_pending_order);
+            echo "<script>alert('your Payment has been received,order will be completed within 24 hours')</script>";
 
-if($run_pending_order){
+            echo "<script>window.open('my_account.php?my_orders','_self')</script>";
 
-echo "<script>alert('your Payment has been received,order will be completed within 24 hours')</script>";
+        }
 
-echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+    }
 
-}
-
-
-
-}
-
-
-
-?>
+    ?>
 
 
 </div><!-- box Ends -->
@@ -170,12 +154,8 @@ echo "<script>window.open('my_account.php?my_orders','_self')</script>";
 </div><!-- content Ends -->
 
 
-
-<?php
-
-include("includes/footer.php");
-
-?>
+<br><br><br><br><br><br><br><br><br>
+<?php include "../includes/footer.php";?>
 
 <script src="js/jquery.min.js"> </script>
 
@@ -184,4 +164,4 @@ include("includes/footer.php");
 </body>
 </html>
 
-<?php } ?>
+<?php }?>
