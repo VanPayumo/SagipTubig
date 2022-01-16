@@ -51,7 +51,7 @@ include("includes/main.php");
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label>Customer Name</label>
+<label>Name</label>
 
 <input type="text" class="form-control" name="c_name" required>
 
@@ -59,7 +59,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Email</label>
+<label>Email</label>
 
 <input type="text" class="form-control" name="c_email" required>
 
@@ -67,7 +67,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Password </label>
+<label>Password </label>
 
 <div class="input-group"><!-- input-group Starts -->
 
@@ -121,7 +121,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Country </label>
+<label> Country </label>
 
 <input type="text" class="form-control" name="c_country" required>
 
@@ -129,7 +129,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer City </label>
+<label>City </label>
 
 <input type="text" class="form-control" name="c_city" required>
 
@@ -137,7 +137,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Contact </label>
+<label>Contact Number </label>
 
 <input type="text" class="form-control" name="c_contact" required>
 
@@ -145,7 +145,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Address </label>
+<label> Address </label>
 
 <input type="text" class="form-control" name="c_address" required>
 
@@ -153,7 +153,7 @@ include("includes/main.php");
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label> Customer Image </label>
+<label> Profile Image </label>
 
 <input type="file" class="form-control" name="c_image" required>
 
