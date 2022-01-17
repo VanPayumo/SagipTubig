@@ -125,7 +125,7 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 </td>
 
 <td>
-<input type="text" name="quantity" value="<?php echo $_SESSION['pro_qty']; ?>" data-product_id="<?php echo $pro_id; ?>" class="quantity form-control">
+<?php echo $_SESSION['pro_qty']; ?>
 </td>
 
 <td>

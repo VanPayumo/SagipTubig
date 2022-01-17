@@ -2,7 +2,7 @@
 
 session_start();
 
-include("includes/db.php");
+include "includes/db.php";
 
 ?>
 <!DOCTYPE HTML>
@@ -49,32 +49,37 @@ Log in
 
 <?php
 
-if(isset($_POST['admin_login'])){
+if (isset($_POST['admin_login'])) {
 
-$admin_email = mysqli_real_escape_string($con,$_POST['admin_email']);
+    $admin_email = mysqli_real_escape_string($con, $_POST['admin_email']);
 
-$admin_pass = mysqli_real_escape_string($con,$_POST['admin_pass']);
+    $admin_pass = mysqli_real_escape_string($con, $_POST['admin_pass']);
 
-$get_admin = "select * from admins where admin_email='$admin_email' AND admin_pass='$admin_pass'";
+    $get_admin = "select * from admins where admin_email='$admin_email' AND admin_pass='$admin_pass' limit 1";
+    //$get_admin_info = "select admin_contact from admins where admin_email='$admin_email' AND admin_pass='$admin_pass'";
 
-$run_admin = mysqli_query($con,$get_admin);
+    $run_admin = mysqli_query($con, $get_admin);
+    //$run_admin_info = mysqli_query($con, $get_admin_info);
 
-$count = mysqli_num_rows($run_admin);
+    $count = mysqli_num_rows($run_admin);
 
-if($count==1){
+    if ($count == 1) {
 
-$_SESSION['admin_email']=$admin_email;
+        $admin_contacc = mysqli_fetch_array($run_admin);
+        $admin_contact = $admin_contacc['admin_contact'];
 
-echo "<script>alert('You are Logged in into admin panel')</script>";
+        $_SESSION['admin_email'] = $admin_email;
+        $_SESSION['admin_contact'] = $admin_contact;
 
-echo "<script>window.open('index.php?dashboard','_self')</script>";
+        echo "<script>alert('You are Logged in into admin panel')</script>";
 
-}
-else {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
 
-echo "<script>alert('Email or Password is Wrong')</script>";
+    } else {
 
-}
+        echo "<script>alert('Email or Password is Wrong')</script>";
+
+    }
 
 }
 
