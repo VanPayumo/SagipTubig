@@ -11,9 +11,9 @@
           <a class="currency__change" href="customer/my_account.php?my_orders">
           <?php
 if (!isset($_SESSION['customer_email'])) {
-    echo "Welcome :Guest";
+    echo "Welcome: Guest";
 } else {
-    echo "Welcome : " . $_SESSION['customer_email'] . "";
+    echo "Welcome: " . $_SESSION['customer_email'] . "";
 }
 ?>
           </a>
