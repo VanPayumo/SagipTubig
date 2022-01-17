@@ -54,6 +54,23 @@ getPro();
 
 ?>
 
+<br>
+<img src="images/wave.png" alt="wave" style="float:right; margin:15px 0px">
+    <img src="images/fish.png" alt="fish" style="float:left; margin:15px 0px">
+    <div class="wrapper">
+      <br> <br>
+        <h1> <b>HOW #</b>SAGIP<b>TUBIG WORKS</b><h1>
+      </div>
+      <img src="images/wave.png" alt="wave" style="float:left; margin: -50px 10px">
+      <br>
+      <center>
+      <img src="images/ship.png" alt="ship">
+      <br><br>
+      <img src="images/divider.png" alt="divider">
+      </center>
+
+      <br><br>
+
     </div><!-- row Ends -->
 
     </div><!-- container Ends -->
