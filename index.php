@@ -13,6 +13,30 @@ include "includes/main.php";
   <!-- Cover -->
   <main>
     <div class="hero">
+
+    <?php
+      for ($i = 0; $i < 54; $i++) {
+          echo "&nbsp;";
+      }
+      ?>
+
+    <img style="padding-bottom:1em;" src="images/cloud1.png" alt="cloud1">
+
+    <?php
+        for ($i = 0; $i < 160; $i++) {
+            echo "&nbsp;";
+        }
+    ?>
+
+    <img  src="images/cloud2.png" alt="cloud2">
+    <?php
+        for ($i = 0; $i < 85; $i++) {
+            echo "&nbsp;";
+        }
+    ?>
+
+    <img style="padding-bottom:4em;" src="images/cloud3.png" alt="cloud3">
+
       <h1>#SAGIP<b>TUBIG</b> </h1>
       <p>Take part in helping our marine species breath freely again by using our merch! </p>
       <br>
