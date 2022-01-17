@@ -16,7 +16,8 @@ include("includes/main.php");
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">Register</span> AT AVE
+        <span class="nero__bold">REGISTER</span>
+        <p>Register New Account</p>
       </div>
       <p class="nero__text">
       </p>
@@ -27,25 +28,10 @@ include("includes/main.php");
 <div id="content" ><!-- content Starts -->
 <div class="container" ><!-- container Starts -->
 
-
-
-
-
 <div class="col-md-12" ><!-- col-md-12 Starts -->
 
 <div class="box" ><!-- box Starts -->
 
-<div class="box-header" ><!-- box-header Starts -->
-
-<center><!-- center Starts -->
-
-<h2> Register A New Account </h2>
-
-
-
-</center><!-- center Ends -->
-
-</div><!-- box-header Ends -->
 
 <form action="customer_register.php" method="post" enctype="multipart/form-data" ><!-- form Starts -->
 

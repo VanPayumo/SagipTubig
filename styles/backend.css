@@ -7,7 +7,6 @@ html {
 
 * {
     font-family: 'Montserrat';
-    ;
 }
 
 body {
@@ -568,9 +567,9 @@ img {
     width: 467px;
     padding: 10px;
     padding-top: 10px;
-    padding-left: 27px;
+    padding-left: 10px;
     background-color: #f8f8f8;
-    box-shadow: 0 17px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 17px 17px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -932,11 +931,14 @@ img {
     padding-bottom: 100px;
     font-family: "montserratlight", sans-serif;
     text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    background: #666 url("../images/hero2.png") no-repeat;
+    color: #0007A5;
+    background: rgba(160, 185, 235, 0.56) url("../images/hero2.png") no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.nero p {
+    font-size: 15px;
 }
 
 .nero__heading {
