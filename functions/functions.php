@@ -153,7 +153,7 @@ function getPro()
 
 <a href='$pro_url' class='btn btn-default' >View Details</a>
 
-<a href='$pro_url' class='btn btn-danger'>
+<a style='background-color:#577BC1; border-color:#577BC1;' href='$pro_url' class='btn btn-danger'>
 
 <i class='fa fa-shopping-cart'></i> Add To Cart
 
