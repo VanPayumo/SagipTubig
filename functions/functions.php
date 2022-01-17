@@ -133,7 +133,7 @@ function getPro()
 
 <div class='col-md-4 col-sm-6 single' >
 
-<div class='product' >
+<div style='background-color:#E0E0E0;' class='product' >
 
 <a href='$pro_url' >
 
@@ -151,9 +151,9 @@ function getPro()
 
 <p class='buttons' >
 
-<a href='$pro_url' class='btn btn-default' >View Details</a>
+<a href='$pro_url' style='color:#577BC1;' class='btn btn-default' >View Details</a>
 
-<a href='$pro_url' class='btn btn-danger'>
+<a style='background-color:#577BC1; border-color:#577BC1;' href='$pro_url' class='btn btn-danger'>
 
 <i class='fa fa-shopping-cart'></i> Add To Cart
 

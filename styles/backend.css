@@ -435,7 +435,7 @@ img {
 .page-header__topline .currency__change {
     display: block;
     color: #000957;
-    font-size: 20px;
+    font-size: 13px;
     line-height: 45px;
     text-decoration: none;
     -webkit-transition: color 0.3s;
@@ -468,7 +468,7 @@ img {
 
 .page-header__topline .login__link {
     display: flex;
-    font-size: 20px;
+    font-size: 13px;
     color: #000957;
     line-height: 45px;
     text-decoration: none;
@@ -988,8 +988,8 @@ img {
     left: 200px;
     top: 20px;
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     font-weight: bold;
     border-radius: 10px;
 }
@@ -1060,4 +1060,8 @@ img {
 
 tac {
     text-align: center;
+}
+
+.itm{
+    font-size: 2px;
 }
