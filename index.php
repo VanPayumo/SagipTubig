@@ -18,9 +18,15 @@ include "includes/main.php";
       <br>
         <p> <b> <i>THEY NEED OUR HELP! 🐠🐡 </i></b>  </p>
 
+
       <a href="shop.php" class="btn1">Shop now</a>
-      <img src="./sa" alt="">
-      <img src="..../images/wave.png" alt="wave">
+      <br><br><br><br>
+      <?php
+for ($i = 0; $i < 54; $i++) {
+    echo "&nbsp;";
+}
+?>
+      <img src="images/wave.png" alt="wave">
     </div>
     <!-- Main -->
 
