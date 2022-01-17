@@ -20,7 +20,7 @@ include "includes/main.php";
         <p> <b> <i>THEY NEED OUR HELP! 🐠🐡 </i></b>  </p>
 
 
-      <a href="shop.php" class="btn1">Shop now</a>
+      <a href="shop.php" class="btn1"><i class='fa fa-shopping-cart'></i> Shop now</a>
       <br><br><br><br>
       <?php
 for ($i = 0; $i < 54; $i++) {
