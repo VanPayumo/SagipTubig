@@ -5,7 +5,7 @@
   <header class="page-header">
     <!-- topline -->
     <div class="page-header__topline">
-      <div class="container clearfix">
+      <div class=" clearfix">
 
         <div class="currency">
           <a class="currency__change" href="customer/my_account.php?my_orders">
@@ -55,12 +55,12 @@ if (!isset($_SESSION['customer_email'])) {
       </div>
     </div>
     <!-- bottomline -->
-    <div class="page-header__bottomline">
-      <div class="container clearfix">
+    <div  class="page-header__bottomline">
+      <div class="clearfix">
 
         <div class="logo">
           <a class="logo__link" href="index.php">
-            <img class="logo__img" src="images/logo.png" alt="Avenue fashion logotype" width="237" height="19">
+            <img style="padding-bottom:2em" class="logo__img" src="images/component.png" alt="Avenue fashion logotype" width="100">
           </a>
         </div>
 

@@ -13,12 +13,24 @@ include "includes/main.php";
   <!-- Cover -->
   <main>
     <div class="hero">
-      <a href="shop.php" class="btn1">View all products
-</a>
+      <h1>#SAGIP<b>TUBIG</b> </h1>
+      <p>Take part in helping our marine species breath freely again by using our merch! </p>
+      <br>
+        <p> <b> <i>THEY NEED OUR HELP! 🐠🐡 </i></b>  </p>
+
+      <a href="shop.php" class="btn1">Shop now</a>
+      <img src="./sa" alt="">
+      <img src="..../images/wave.png" alt="wave">
     </div>
     <!-- Main -->
+
     <div class="wrapper">
-            <h1>Featured Collection<h1>
+            <h1> <b> GET TO KNOW #</b>SAGIP<b>TUBIG</b><h1>
+              <p>WELCOME  TO <b>#SAGIPTUBIG</b> MERCH STORE! 90% of the proceeds goes straightly to <b>#SAGIPTUBIG</b> FOUNDATION.</p>
+
+      </div>
+    <div class="wrapper">
+            <h2> <b>CHECK OUR PRODUCTS</b><h2>
 
       </div>
 
@@ -42,7 +54,7 @@ getPro();
 
 
       <div class="page-footer__subline">
-        <div class="container clearfix">
+        <div class="clearfix">
 
           <div class="copyright">
             &copy; <?php echo date("Y"); ?> SagipTubig&trade;
