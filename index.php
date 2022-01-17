@@ -12,6 +12,7 @@ include "includes/main.php";
 
   <!-- Cover -->
   <main>
+ 
     <div class="hero">
 
       <h1>#SAGIP<b>TUBIG</b> </h1>
