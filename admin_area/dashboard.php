@@ -1,19 +1,13 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
+    echo "<script>window.open('login.php','_self')</script>";
 
-if(!isset($_SESSION['admin_email'])){
+} else {
+    $hideme = 'display:none;'
 
-echo "<script>window.open('login.php','_self')</script>";
-
-}
-
-else {
-
-
-
-
-?>
+    ?>
 
 <div class="row"><!-- 1 row Starts -->
 
@@ -224,90 +218,90 @@ else {
     <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 Starts -->
 
         <div class="panel panel-success"><!-- panel panel-red Starts -->
-        
+
         <div class="panel-heading"><!-- panel-heading Starts -->
-        
+
         <div class="row"><!-- panel-heading row Starts -->
-        
+
         <div class="col-xs-3"><!-- col-xs-3 Starts -->
-        
+
         <i class="fa fa-dollar fa-5x"> </i>
-        
+
         </div><!-- col-xs-3 Ends -->
-        
+
         <div class="col-xs-9 text-right"><!-- col-xs-9 text-right Starts -->
-        
+
         <div class="huge"> <?php echo $count_total_earnings ?> </div>
-        
+
         <div>Earnings</div>
-        
+
         </div><!-- col-xs-9 text-right Ends -->
-        
+
         </div><!-- panel-heading row Ends -->
-        
+
         </div><!-- panel-heading Ends -->
-        
+
         <a href="index.php?view_orders">
-        
+
         <div class="panel-footer"><!-- panel-footer Starts -->
-        
+
         <span class="pull-left"> View Details </span>
-        
+
         <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
-        
+
         <div class="clearfix"></div>
-        
+
         </div><!-- panel-footer Ends -->
-        
+
         </a>
-        
+
         </div><!-- panel panel-red Ends -->
-        
+
         </div><!-- col-lg-3 col-md-6 Ends -->
 
 
         <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 Starts -->
 
             <div class="panel panel-warning"><!-- panel panel-red Starts -->
-            
+
             <div class="panel-heading"><!-- panel-heading Starts -->
-            
+
             <div class="row"><!-- panel-heading row Starts -->
-            
+
             <div class="col-xs-3"><!-- col-xs-3 Starts -->
-            
+
             <i class="fa fa-spinner fa-5x"> </i>
-            
+
             </div><!-- col-xs-3 Ends -->
-            
+
             <div class="col-xs-9 text-right"><!-- col-xs-9 text-right Starts -->
-            
+
             <div class="huge"> <?php echo $count_pending_orders ?> </div>
-            
+
             <div>Pending Orders</div>
-            
+
             </div><!-- col-xs-9 text-right Ends -->
-            
+
             </div><!-- panel-heading row Ends -->
-            
+
             </div><!-- panel-heading Ends -->
-            
+
             <a href="index.php?view_orders">
-            
+
             <div class="panel-footer"><!-- panel-footer Starts -->
-            
+
             <span class="pull-left"> View Details </span>
-            
+
             <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
-            
+
             <div class="clearfix"></div>
-            
+
             </div><!-- panel-footer Ends -->
-            
+
             </a>
-            
+
             </div><!-- panel panel-red Ends -->
-            
+
             </div><!-- col-lg-3 col-md-6 Ends -->
 
 
@@ -315,45 +309,45 @@ else {
             <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 Starts -->
 
                 <div class="panel panel-info"><!-- panel panel-red Starts -->
-                
+
                 <div class="panel-heading"><!-- panel-heading Starts -->
-                
+
                 <div class="row"><!-- panel-heading row Starts -->
-                
+
                 <div class="col-xs-3"><!-- col-xs-3 Starts -->
-                
+
                 <i class="fa fa-check fa-5x"> </i>
-                
+
                 </div><!-- col-xs-3 Ends -->
-                
+
                 <div class="col-xs-9 text-right"><!-- col-xs-9 text-right Starts -->
-                
+
                 <div class="huge"> <?php echo $count_completed_orders ?> </div>
-                
+
                 <div>Completed Orders</div>
-                
+
                 </div><!-- col-xs-9 text-right Ends -->
-                
+
                 </div><!-- panel-heading row Ends -->
-                
+
                 </div><!-- panel-heading Ends -->
-                
+
                 <a href="index.php?view_orders">
-                
+
                 <div class="panel-footer"><!-- panel-footer Starts -->
-                
+
                 <span class="pull-left"> View Details </span>
-                
+
                 <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
-                
+
                 <div class="clearfix"></div>
-                
+
                 </div><!-- panel-footer Ends -->
-                
+
                 </a>
-                
+
                 </div><!-- panel panel-red Ends -->
-                
+
                 </div><!-- col-lg-3 col-md-6 Ends -->
 
 
@@ -361,45 +355,45 @@ else {
                 <div class="col-lg-3 col-md-6"><!-- col-lg-3 col-md-6 Starts -->
 
                     <div class="panel panel-danger"><!-- panel panel-red Starts -->
-                    
+
                     <div class="panel-heading"><!-- panel-heading Starts -->
-                    
+
                     <div class="row"><!-- panel-heading row Starts -->
-                    
+
                     <div class="col-xs-3"><!-- col-xs-3 Starts -->
-                    
+
                     <i class="fa fa-percent fa-5x"> </i>
-                    
+
                     </div><!-- col-xs-3 Ends -->
-                    
+
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right Starts -->
-                    
+
                     <div class="huge"> <?php echo $count_coupons; ?> </div>
-                    
+
                     <div>Total Coupons</div>
-                    
+
                     </div><!-- col-xs-9 text-right Ends -->
-                    
+
                     </div><!-- panel-heading row Ends -->
-                    
+
                     </div><!-- panel-heading Ends -->
-                    
+
                     <a href="index.php?view_orders">
-                    
+
                     <div class="panel-footer"><!-- panel-footer Starts -->
-                    
+
                     <span class="pull-left"> View Details </span>
-                    
+
                     <span class="pull-right"> <i class="fa fa-arrow-circle-right"></i> </span>
-                    
+
                     <div class="clearfix"></div>
-                    
+
                     </div><!-- panel-footer Ends -->
-                    
+
                     </a>
-                    
+
                     </div><!-- panel panel-red Ends -->
-                    
+
                     </div><!-- col-lg-3 col-md-6 Ends -->
 </div>
 
@@ -445,32 +439,30 @@ else {
 
 <?php
 
-$i = 0;
+    $i = 0;
 
-$get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
-$run_order = mysqli_query($con,$get_order);
+    $get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
+    $run_order = mysqli_query($con, $get_order);
 
-while($row_order=mysqli_fetch_array($run_order)){
+    while ($row_order = mysqli_fetch_array($run_order)) {
 
+        $order_id = $row_order['order_id'];
 
-$order_id = $row_order['order_id'];
+        $c_id = $row_order['customer_id'];
 
-$c_id = $row_order['customer_id'];
+        $invoice_no = $row_order['invoice_no'];
 
-$invoice_no = $row_order['invoice_no'];
+        $product_id = $row_order['product_id'];
 
-$product_id = $row_order['product_id'];
+        $qty = $row_order['qty'];
 
-$qty = $row_order['qty'];
+        $size = $row_order['size'];
 
-$size = $row_order['size'];
+        $order_status = $row_order['order_status'];
 
-$order_status = $row_order['order_status'];
+        $i++;
 
-
-$i++;
-
-?>
+        ?>
 
 <tr>
 
@@ -479,12 +471,12 @@ $i++;
 <td>
 <?php
 
-$get_customer = "select * from customers where customer_id='$c_id'";
-$run_customer = mysqli_query($con,$get_customer);
-$row_customer = mysqli_fetch_array($run_customer);
-$customer_email = $row_customer['customer_email'];
-echo $customer_email;
-?>
+        $get_customer = "select * from customers where customer_id='$c_id'";
+        $run_customer = mysqli_query($con, $get_customer);
+        $row_customer = mysqli_fetch_array($run_customer);
+        $customer_email = $row_customer['customer_email'];
+        echo $customer_email;
+        ?>
 </td>
 
 <td><?php echo $invoice_no; ?></td>
@@ -493,23 +485,22 @@ echo $customer_email;
 <td><?php echo $size; ?></td>
 <td>
 <?php
-if($order_status=='pending'){
+if ($order_status == 'pending') {
 
-echo $order_status='pending';
+            echo $order_status = 'pending';
 
-}
-else {
+        } else {
 
-echo $order_status='Complete';
+            echo $order_status = 'Complete';
 
-}
+        }
 
-?>
+        ?>
 </td>
 
 </tr>
 
-<?php } ?>
+<?php }?>
 
 </tbody><!-- tbody Ends -->
 
@@ -547,4 +538,4 @@ View All Orders <i class="fa fa-arrow-circle-right" ></i>
 
 </div><!-- 3 row Ends -->
 
-<?php } ?>
+<?php }?>

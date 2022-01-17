@@ -1,18 +1,12 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
-if(!isset($_SESSION['admin_email'])){
+    echo "<script>window.open('login.php','_self')</script>";
 
-echo "<script>window.open('login.php','_self')</script>";
+} else {
 
-}
-
-else {
-
-
-
-
-?>
+    ?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" ><!-- navbar navbar-inverse navbar-fixed-top Starts -->
 
@@ -67,7 +61,7 @@ else {
 
 <a href="index.php?view_products" >
 
-<i class="fa fa-fw fa-envelope" ></i> Products 
+<i class="fa fa-fw fa-envelope" ></i> Products
 
 <span class="badge" ><?php echo $count_products; ?></span>
 
@@ -410,11 +404,11 @@ else {
 <ul id="terms" class="collapse"><!-- ul collapse Starts -->
 
 <li>
-<a href="index.php?insert_term"> Insert Terms </a> 
+<a href="index.php?insert_term"> Insert Terms </a>
 </li>
 
 <li>
-<a href="index.php?view_terms"> View Terms </a> 
+<a href="index.php?view_terms"> View Terms </a>
 </li>
 
 </ul><!-- ul collapse Ends -->
@@ -487,7 +481,7 @@ else {
 
 <a href="logout.php">
 
-<i class="fa fa-fw fa-power-off"></i> Log Out
+<i class="fa fa-fw fa-power-off"></i> Log Out <?php echo $_SESSION['admin_contact'] ?>
 
 </a>
 
@@ -499,4 +493,4 @@ else {
 
 </nav><!-- navbar navbar-inverse navbar-fixed-top Ends -->
 
-<?php } ?>
+<?php }?>
