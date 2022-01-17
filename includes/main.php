@@ -20,7 +20,7 @@ if (!isset($_SESSION['customer_email'])) {
         </div>
 
         <div class="basket">
-          <a href="cart.php" class="btn btn--basket">
+          <a href="cart.php" class="login__link">
             <i class="icon-basket"></i>
             <?php items();?> items
           </a>

@@ -91,6 +91,8 @@ function getPro()
 
         $pro_title = $row_products['product_title'];
 
+        $pro_stock = $row_products['product_stock'];
+
         $pro_price = $row_products['product_price'];
 
         $pro_img1 = $row_products['product_img1'];

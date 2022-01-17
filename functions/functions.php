@@ -91,6 +91,8 @@ function getPro()
 
         $pro_label = $row_products['product_label'];
 
+        $pro_stock = $row_products['product_stock'];
+
         $manufacturer_id = $row_products['manufacturer_id'];
 
         $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
@@ -145,17 +147,31 @@ function getPro()
 
 <hr>
 
-<h3><a href='$pro_url' >$pro_title</a></h3>
+<h3><a href='$pro_url' >$pro_title</a></h3>";
 
-<p class='price' > $product_price $product_psp_price </p>
+        if ($pro_stock <= 0) {
+            echo "<p style='font-weight:bold;' class='price' > Out of stock </p>
 
-<p class='buttons' >
+            <p class='buttons' >
 
-<a href='$pro_url' style='color:#577BC1;' class='btn btn-default' >View Details</a>
+            <a style='color:#577BC1;' class='btn btn-default' disabled>View Details</a>
 
-<a style='background-color:#577BC1; border-color:#577BC1;' href='$pro_url' class='btn btn-danger'>
+            <a style='background-color:#577BC1; border-color:#577BC1;' class='btn btn-danger' disabled>
 
-<i class='fa fa-shopping-cart'></i> Add To Cart
+            <i class='fa fa-shopping-cart'></i> Add To Cart";
+        } else {
+            echo "<p style='font-weight:bold;' class='price' > $product_price $product_psp_price </p>
+
+            <p class='buttons' >
+
+            <a href='$pro_url' style='color:#577BC1;' class='btn btn-default' >View Details</a>
+
+            <a style='background-color:#577BC1; border-color:#577BC1;' href='$pro_url' class='btn btn-danger'>
+
+            <i class='fa fa-shopping-cart'></i> Add To Cart";
+        }
+
+        echo "
 
 </a>
 

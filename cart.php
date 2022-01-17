@@ -377,7 +377,15 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Shipping and handling </td>
 
-<th>₱50.00</th>
+<th>
+<?php
+if ($total != 0) {
+    echo "₱50.00";
+} else {
+    echo "₱0.00";
+}
+?>
+</th>
 
 </tr>
 
@@ -395,7 +403,12 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Total</td>
 
-<?php $total_with_shipping = $total + 50;?>
+<?php if ($total != 0) {
+    $total_with_shipping = $total + 50;
+} else {
+    $total_with_shipping = $total;
+}
+;?>
 
 <th>₱<?php echo number_format($total_with_shipping, 2) ?></th>
 
