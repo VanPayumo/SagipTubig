@@ -434,18 +434,6 @@ $manufacturer_title
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Bundle Label </label>
-
-<div class="col-md-6" >
-
-<input type="text" name="product_label" class="form-control" required value="<?php echo $p_label; ?>">
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
 <label class="col-md-3 control-label" ></label>
 
 <div class="col-md-6" >

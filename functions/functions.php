@@ -109,16 +109,18 @@ function getPro()
 
         $pro_url = $row_products['product_url'];
 
-        if ($pro_label == "Sale" or $pro_label == "Gift") {
+        if ($status == "bundle") {
+
+            $product_psp_price = "";
+
+            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
+
+        } else if ($pro_label == "Sale" or $pro_label == "Gift") {
 
             $product_price = "<del> $$pro_price </del>";
 
             $product_psp_price = "| $$pro_psp_price";
 
-        } else if ($status == "bundle") {
-            $product_psp_price = "";
-
-            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
         } else {
 
             $product_psp_price = "";
@@ -282,16 +284,18 @@ function getProducts()
 
         $pro_url = $row_products['product_url'];
 
-        if ($pro_label == "Sale" or $pro_label == "Gift") {
+        if ($status == "bundle") {
+
+            $product_psp_price = "";
+
+            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
+
+        } else if ($pro_label == "Sale" or $pro_label == "Gift") {
 
             $product_price = "<del> $$pro_price </del>";
 
             $product_psp_price = "| $$pro_psp_price";
 
-        } else if ($status == "bundle") {
-            $product_psp_price = "";
-
-            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
         } else {
 
             $product_psp_price = "";

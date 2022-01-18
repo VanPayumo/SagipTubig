@@ -66,12 +66,10 @@ if (!isset($_SESSION['customer_email'])) {
 
 <label>Select Payment Mode:</label>
 
-<select name="payment_mode" class="form-control"><!-- select Starts -->
+<select name="payment_mode" class="form-control" required><!-- select Starts -->
 
-<option>Select Payment Mode</option>
-<option>Bank Code</option>
-<option>UBL/Omni</option>
-<option>Western Union</option>
+<option hidden="" disabled="disabled" selected="selected" value="">Select Payment Mode (other payment modes coming soon) </option>
+<option>Cash On Delivery (COD)</option>
 
 </select><!-- select Ends -->
 

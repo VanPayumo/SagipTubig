@@ -341,18 +341,6 @@ $manufacturer_title
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Bundle Label </label>
-
-<div class="col-md-6" >
-
-<input type="text" name="product_label" class="form-control" required >
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
 <label class="col-md-3 control-label" ></label>
 
 <div class="col-md-6" >
@@ -394,7 +382,7 @@ $manufacturer_title
 
         $psp_price = $_POST['psp_price'];
 
-        $product_label = $_POST['product_label'];
+        $product_label = "New";
 
         $product_url = $_POST['product_url'];
 
