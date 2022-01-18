@@ -21,7 +21,7 @@ body {
     color: #fff;
 }
 
-#top .offer .btn {
+#top .offer {
     text-transform: uppercase;
 }
 
@@ -110,8 +110,8 @@ body {
 
 .btn-primary {
     color: rgb(255, 255, 255);
-    background-color: rgb(79, 191, 168);
-    border-color: rgb(65, 179, 156);
+    background-color: #577BC1;
+    border-color: #577BC1
 }
 
 #search .navbar-form {
@@ -201,7 +201,6 @@ body {
 
 #content {
     padding-left: 25px;
-    background-color: ;
 }
 
 .single {

@@ -17,7 +17,6 @@ include("includes/main.php");
     <div class="nero">
       <div class="nero__heading">
         <span class="nero__bold">REGISTER</span>
-        <p>Register New Account</p>
       </div>
       <p class="nero__text">
       </p>
@@ -26,32 +25,33 @@ include("includes/main.php");
 
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
 
-<div class="col-md-12" ><!-- col-md-12 Starts -->
+<div class="ncontainer" ><!-- container Starts -->
 
-<div class="box" ><!-- box Starts -->
+<div class="ncol-md-12" ><!-- col-md-12 Starts -->
+
+<div class="nbox" ><!-- box Starts -->
 
 
 <form action="customer_register.php" method="post" enctype="multipart/form-data" ><!-- form Starts -->
 
-<div class="form-group" ><!-- form-group Starts -->
+<div class="nform-group" ><!-- form-group Starts -->
 
 <label>Name</label>
 
-<input type="text" class="form-control" name="c_name" required>
+<input type="text" class="nform-control" name="c_name" required>
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label>Email</label>
 
-<input type="text" class="form-control" name="c_email" required>
+<input type="text" class="nform-control" name="c_email" required>
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label>Password </label>
 
@@ -65,11 +65,11 @@ include("includes/main.php");
 
 </span><!-- input-group-addon Ends -->
 
-<input type="password" class="form-control" id="pass" name="c_pass" required>
+<input type="password" class="nform-control" id="pass" name="c_pass" required>
 
 <span class="input-group-addon"><!-- input-group-addon Starts -->
 
-<div id="meter_wrapper"><!-- meter_wrapper Starts -->
+<div id="meter_wrapper" ><!-- meter_wrapper Starts -->
 
 <span id="pass_type"> </span>
 
@@ -84,7 +84,7 @@ include("includes/main.php");
 </div><!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label> Confirm Password </label>
 
@@ -92,61 +92,66 @@ include("includes/main.php");
 
 <span class="input-group-addon"><!-- input-group-addon Starts -->
 
-<i class="fa fa-check tick2"> </i>
+<i class="fa fa-check tick2"> </i> <!-- input-group-addon Starts -->
 
 <i class="fa fa-times cross2"> </i>
 
 </span><!-- input-group-addon Ends -->
 
-<input type="password" class="form-control confirm" id="con_pass" required>
+<input type="password" class="nform-control confirm" id="con_pass" required>
 
 </div><!-- input-group Ends -->
 
 </div><!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label> Country </label>
 
-<input type="text" class="form-control" name="c_country" required>
+<select id="country" type="text" class="nform-control" name="c_country" required >
+      <option value="australia">Philippines</option>
+    </select>
+
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label>City </label>
 
-<input type="text" class="form-control" name="c_city" required>
+<input type="text" class="nform-control" name="c_city" required>
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label>Contact Number </label>
 
-<input type="text" class="form-control" name="c_contact" required>
+<input type="text" class="nform-control" name="c_contact" required>
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label> Address </label>
 
-<input type="text" class="form-control" name="c_address" required>
+<input type="text" class="nform-control" name="c_address" required>
 
 </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label> Profile Image </label>
 
-<input type="file" class="form-control" name="c_image" required>
+<input type="file" class="nform-control" name="c_image" required>
 
 </div><!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
+
+
 
 <center>
 
@@ -158,12 +163,13 @@ include("includes/main.php");
 
 </div><!-- form-group Ends -->
 
+<br><br>
 
 <div class="text-center"><!-- text-center Starts -->
 
-<button type="submit" name="register" class="btn btn-primary">
+<button type="submit" name="register" class="btn nbtn-primary">
 
-<i class="fa fa-user-md"></i> Register
+<i class="fa fa-user-md"></i> <b></b>REGISTER</b> 
 
 </button>
 
