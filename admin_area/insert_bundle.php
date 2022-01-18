@@ -325,7 +325,7 @@ $manufacturer_title
 
 <br>
 
-<textarea name="product_video" class="form-control" rows="15">
+<textarea name="product_stock" class="form-control" rows="15">
 
 
 </textarea>

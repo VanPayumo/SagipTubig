@@ -56,7 +56,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         $p_features = $row_edit['product_features'];
 
-        $p_video = $row_edit['product_video'];
+        $p_stock = $row_edit['product_stock'];
 
     }
 
@@ -366,6 +366,18 @@ $manufacturer_title
 
 <div class="form-group" ><!-- form-group Starts -->
 
+<label class="col-md-3 control-label" > Product Stock </label>
+
+<div class="col-md-6" >
+
+<input type="text" name="product_stock" class="form-control" required value="<?php echo $p_stock; ?>" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group" ><!-- form-group Starts -->
+
 <label class="col-md-3 control-label" > Product Tabs </label>
 
 <div class="col-md-6" >
@@ -412,20 +424,6 @@ $manufacturer_title
 </textarea>
 
 </div><!-- features tab-pane fade in Ends -->
-
-
-<div id="video" class="tab-pane fade in"><!-- video tab-pane fade in Starts -->
-
-<br>
-
-<textarea name="product_video" class="form-control" rows="15">
-
-<?php echo $p_video; ?>
-
-</textarea>
-
-</div><!-- video tab-pane fade in Ends -->
-
 
 </div><!-- tab-content Ends -->
 
@@ -494,7 +492,7 @@ $manufacturer_title
 
         $product_features = $_POST['product_features'];
 
-        $product_video = $_POST['product_video'];
+        $product_stock = $_POST['product_stock'];
 
         $status = "product";
 
@@ -528,7 +526,7 @@ $manufacturer_title
         move_uploaded_file($temp_name2, "product_images/$product_img2");
         move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-        $update_product = "update products set p_cat_id='$product_cat',cat_id='$cat',manufacturer_id='$manufacturer_id',date=NOW(),product_title='$product_title',product_url='$product_url',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img3',product_price='$product_price',product_psp_price='$psp_price',product_desc='$product_desc',product_features='$product_features',product_video='$product_video',product_keywords='$product_keywords',product_label='$product_label',status='$status' where product_id='$p_id'";
+        $update_product = "update products set p_cat_id='$product_cat',cat_id='$cat',manufacturer_id='$manufacturer_id',date=NOW(),product_title='$product_title',product_url='$product_url',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img3',product_price='$product_price',product_psp_price='$psp_price',product_desc='$product_desc',product_features='$product_features',product_stock='$product_stock',product_keywords='$product_keywords',product_label='$product_label',status='$status' where product_id='$p_id'";
 
         $run_product = mysqli_query($con, $update_product);
 
