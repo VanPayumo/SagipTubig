@@ -35,6 +35,8 @@ if ($check_product == 0) {
 
     $pro_price = $row_product['product_price'];
 
+    $pro_stock = $row_product['product_stock'];
+
     $pro_desc = $row_product['product_desc'];
 
     $pro_img1 = $row_product['product_img1'];
@@ -168,11 +170,37 @@ if ($check_product == 0) {
 
         $run_check = mysqli_query($con, $check_product);
 
+        $check_bundle = "select * from cart where ip_add='$ip_add' AND p_bundle='bundle'";
+
+        $run_bundle_check = mysqli_query($con, $check_bundle);
+
         if (mysqli_num_rows($run_check) > 0) {
 
-            echo "<script>alert('This Product is already added in cart')</script>";
+            $get_price = "select * from products where product_id='$p_id'";
 
-            echo "<script>window.open('$pro_url','_self')</script>";
+            $run_price = mysqli_query($con, $get_price);
+
+            $row_price = mysqli_fetch_array($run_price);
+
+            $pro_psp_price = $row_price['product_psp_price'];
+
+            $pro_bundle = $row_price['status'];
+
+            if (mysqli_num_rows($run_bundle_check) > 1 and $pro_bundle == "bundle") {
+
+                $query = "update cart set qty = $product_qty, p_price = $pro_psp_price , size = ' $product_size ' where ip_add='$ip_add' AND p_id='$p_id'";
+
+                $run_query = mysqli_query($db, $query);
+
+                echo "<script>alert('Bundle Price updated in cart')</script>";
+
+            } else {
+
+                echo "<script>alert('This Product is already added in cart')</script>";
+
+                echo "<script>window.open('$pro_url','_self')</script>";
+
+            }
 
         } else {
 
@@ -184,21 +212,37 @@ if ($check_product == 0) {
 
             $pro_price = $row_price['product_price'];
 
+            $pro_stock = $row_price['product_stock'];
+
             $pro_psp_price = $row_price['product_psp_price'];
 
             $pro_label = $row_price['product_label'];
 
+            $pro_bundle = $row_price['status'];
+
             if ($pro_label == "Sale" or $pro_label == "Gift") {
 
                 $product_price = $pro_psp_price;
+                $pro_stock = $pro_stock;
 
+                echo "<script>alert('Promo item Successfully added to cart')</script>";
+
+            } else if (mysqli_num_rows($run_bundle_check) >= 1 and $pro_bundle == "bundle") {
+
+                $product_price = $pro_psp_price;
+                $pro_stock = $pro_stock;
+
+                echo "<script>alert('Bundle item Successfully added to cart')</script>";
             } else {
 
                 $product_price = $pro_price;
+                $pro_stock = $pro_stock;
+
+                echo "<script>alert('Item Successfully added to cart')</script>";
 
             }
 
-            $query = "insert into cart (p_id,ip_add,qty,p_price,size) values ('$p_id','$ip_add','$product_qty','$product_price','$product_size')";
+            $query = "insert into cart (p_id,ip_add,qty,p_price,size,p_bundle) values ('$p_id','$ip_add','$product_qty','$product_price','$product_size','$pro_bundle')";
 
             $run_query = mysqli_query($db, $query);
 
@@ -224,7 +268,15 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_qty" class="form-control" required>
+<?php
+if ($pro_stock <= 0) {
+            echo '<select name="product_qty" class="form-control" disabled>';
+        } else {
+            echo '<select name="product_qty" class="form-control" required>';
+        }
+        ?>
+
+
 
 <option hidden="" disabled="disabled" selected="selected" value="">Select quantity</option>
 <option>1</option>
@@ -246,7 +298,13 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_size" class="form-control" required>
+<?php
+if ($pro_stock <= 0) {
+            echo '<select name="product_size" class="form-control" disabled>';
+        } else {
+            echo '<select name="product_size" class="form-control" required>';
+        }
+        ?>
 
 <option hidden="" disabled="disabled" selected="selected" value="">Select a Size</option>
 <option>Small</option>
@@ -270,7 +328,15 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_qty" class="form-control" required>
+<?php if ($pro_stock <= 0) {
+        echo '<select name="product_qty" class="form-control" disabled>';
+    } else {
+        echo '<select name="product_qty" class="form-control" required>';
+    }
+
+        ?>
+
+
 
 <option hidden="" disabled="disabled" selected="selected" value="">Select quantity</option>
 <option>1</option>
@@ -292,7 +358,13 @@ if ($check_product == 0) {
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_size" class="form-control" required>
+<?php if ($pro_stock <= 0) {
+            echo '<select name="product_size" class="form-control" disabled>';
+        } else {
+            echo '<select name="product_size" class="form-control" required>';
+        }
+
+        ?>
 
 <option hidden="" disabled="disabled" selected="selected" value="">Select a Size</option>
 <option>Small</option>
@@ -313,9 +385,41 @@ if ($check_product == 0) {
 
 <?php
 
-    if ($status == "product") {
+    if ($status == "bundle") {
 
-        if ($pro_label == "Sale" or $pro_label == "Gift") {
+        if ($pro_label == "New" or $pro_label == "Sale") {
+
+            echo "
+
+<p class='price'>
+
+Regular Price : <del> $$pro_price </del><br>
+
+Bundle sale Price : $$pro_psp_price
+
+</p>
+
+";
+
+        } else {
+
+            echo "
+
+<p class='price'>
+
+Product Price : $$pro_price
+
+</p>
+
+";
+
+        }
+
+    } else {
+
+        if ($pro_stock <= 0) {
+            echo " <p class='price'> Out of Stock </p>";
+        } else if ($pro_label == "Sale" or $pro_label == "Gift") {
 
             echo "
 
@@ -343,45 +447,22 @@ Product Price : $$pro_price
 
         }
 
-    } else {
-
-        if ($pro_label == "Sale" or $pro_label == "Gift") {
-
-            echo "
-
-<p class='price'>
-
-Bundle Price : <del> $$pro_price </del><br>
-
-Bundle sale Price : $$pro_psp_price
-
-</p>
-
-";
-
-        } else {
-
-            echo "
-
-<p class='price'>
-
-Bundle Price : $$pro_price
-
-</p>
-
-";
-
-        }
-
     }
 
     ?>
 
 <p class="text-center buttons" ><!-- text-center buttons Starts -->
 
-<button class="btn btn-danger" type="submit" name="add_cart">
 
-<i class="fa fa-shopping-cart" ></i> Add to Cart
+<?php
+if ($pro_stock <= 0) {
+        echo '<button class="btn btn-danger" type="submit" name="add_cart" disabled>';
+    } else {
+        echo '<button class="btn btn-danger" type="submit" name="add_cart">';
+    }
+    ?>
+
+<i class="fa fa-shopping-cart"></i> Add to Cart
 
 </button>
 

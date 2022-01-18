@@ -90,6 +90,9 @@ if (!isset($_SESSION['customer_email'])) {
                         <a href="customer/my_account.php?my_orders" class="dropdown__link">My Orders</a>
                       </li>
                       <li class="dropdown__item">
+                        <a href="my_account.php?log_history" class="dropdown__link">View Log History</a>
+                      </li>
+                      <li class="dropdown__item">
                         <a href="cart.php" class="dropdown__link">View Shopping Cart</a>
                       </li>
                     </ul>
@@ -106,6 +109,15 @@ if (!isset($_SESSION['customer_email'])) {
                       <li class="dropdown__item">
                         <a href="customer/my_account.php?delete_account" class="dropdown__link">Delete Account</a>
                       </li>
+                      <?php if (!isset($_SESSION['customer_email'])) {
+    echo '<li class="dropdown__item">
+                                <a href="checkout.php" class="dropdown__link">Sign in</a>
+                              </li>';
+} else {
+    echo '<li class="dropdown__item">
+                                <a href="logout.php" class="dropdown__link">Logout</a>
+                              </li>';
+}?>
                     </ul>
                   </div>
                 </div>

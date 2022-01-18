@@ -24,6 +24,14 @@ $select_cart = "select * from cart where ip_add='$ip_add'";
 
 $run_cart = mysqli_query($con, $select_cart);
 
+$count = mysqli_num_rows($run_cart);
+
+if ($count <= 0) {
+    echo "<script>alert('Your cart is still empty!')</script>";
+
+    echo "<script>window.open('shop.php','_self')</script>";
+}
+
 while ($row_cart = mysqli_fetch_array($run_cart)) {
 
     $pro_id = $row_cart['p_id'];

@@ -36,6 +36,8 @@ if (!isset($_SESSION['admin_email'])) {
 
         $p_image3 = $row_edit['product_img3'];
 
+        $p_status = $row_edit['status'];
+
         $new_p_image1 = $row_edit['product_img1'];
 
         $new_p_image2 = $row_edit['product_img2'];
@@ -291,6 +293,30 @@ $manufacturer_title
 
 <div class="form-group" ><!-- form-group Starts -->
 
+<label class="col-md-3 control-label" > Bundle </label>
+
+<div class="col-md-6" >
+
+<select name="status" class="form-control" >
+
+<option><?php if ($p_status == 'product') {
+        echo 'product</option>
+        <option>bundle</option>';
+    } else if ($p_status == 'bundle') {
+        echo 'bundle</option>
+        <option>product</option>';
+    }
+
+    ?></option>
+
+</select>
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group" ><!-- form-group Starts -->
+
 <label class="col-md-3 control-label" > Product Image 1 </label>
 
 <div class="col-md-6" >
@@ -437,12 +463,21 @@ $manufacturer_title
 
 <div class="col-md-6" >
 
-<input type="text" name="product_label" class="form-control" required value="<?php echo $p_label; ?>">
+<select name="product_label" class="form-control" required >
+<?php if ($p_label == 'New') {
+        echo '<option> New </option>
+    <option> Sale </option>';
+    } else {
+        echo '<option> Sale </option>
+    <option> New </option>';
+    }?>
+
+
+</select>
 
 </div>
 
 </div><!-- form-group Ends -->
-
 <div class="form-group" ><!-- form-group Starts -->
 
 <label class="col-md-3 control-label" ></label>
@@ -478,6 +513,7 @@ $manufacturer_title
 
         $product_title = $_POST['product_title'];
         $product_cat = $_POST['product_cat'];
+        $status = $_POST['status'];
         $cat = $_POST['cat'];
         $manufacturer_id = $_POST['manufacturer'];
         $product_price = $_POST['product_price'];
@@ -493,8 +529,6 @@ $manufacturer_title
         $product_features = $_POST['product_features'];
 
         $product_stock = $_POST['product_stock'];
-
-        $status = "product";
 
         $product_img1 = $_FILES['product_img1']['name'];
         $product_img2 = $_FILES['product_img2']['name'];

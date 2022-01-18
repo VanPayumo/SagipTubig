@@ -1,16 +1,12 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
+    echo "<script>window.open('login.php','_self')</script>";
 
-if(!isset($_SESSION['admin_email'])){
+} else {
 
-echo "<script>window.open('login.php','_self')</script>";
-
-}
-
-else {
-
-?>
+    ?>
 
 
 <div class="row"><!--  1 row Starts -->
@@ -63,7 +59,7 @@ else {
 <th>Price</th>
 <th>Sold</th>
 <th>Keywords</th>
-<th>Date</th>
+<th>Last Modified</th>
 <th>Delete</th>
 <th>Edit</th>
 
@@ -77,29 +73,29 @@ else {
 
 <?php
 
-$i = 0;
+    $i = 0;
 
-$get_pro = "select * from products where status='product'";
+    $get_pro = "select * from products where status='product'";
 
-$run_pro = mysqli_query($con,$get_pro);
+    $run_pro = mysqli_query($con, $get_pro);
 
-while($row_pro=mysqli_fetch_array($run_pro)){
+    while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-$pro_id = $row_pro['product_id'];
+        $pro_id = $row_pro['product_id'];
 
-$pro_title = $row_pro['product_title'];
+        $pro_title = $row_pro['product_title'];
 
-$pro_image = $row_pro['product_img1'];
+        $pro_image = $row_pro['product_img1'];
 
-$pro_price = $row_pro['product_price'];
+        $pro_price = $row_pro['product_price'];
 
-$pro_keywords = $row_pro['product_keywords'];
+        $pro_keywords = $row_pro['product_keywords'];
 
-$pro_date = $row_pro['date'];
+        $pro_date = $row_pro['date'];
 
-$i++;
+        $i++;
 
-?>
+        ?>
 
 <tr>
 
@@ -114,11 +110,11 @@ $i++;
 <td>
 <?php
 
-$get_sold = "select * from pending_orders where product_id='$pro_id'";
-$run_sold = mysqli_query($con,$get_sold);
-$count = mysqli_num_rows($run_sold);
-echo $count;
-?>
+        $get_sold = "select * from pending_orders where product_id='$pro_id'";
+        $run_sold = mysqli_query($con, $get_sold);
+        $count = mysqli_num_rows($run_sold);
+        echo $count;
+        ?>
 </td>
 
 <td> <?php echo $pro_keywords; ?> </td>
@@ -147,7 +143,7 @@ echo $count;
 
 </tr>
 
-<?php } ?>
+<?php }?>
 
 
 </tbody>
@@ -168,4 +164,4 @@ echo $count;
 
 
 
-<?php } ?>
+<?php }?>

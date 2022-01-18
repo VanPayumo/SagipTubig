@@ -81,16 +81,19 @@ if (!isset($_SESSION['customer_email'])) {
               <div class="dropdown dropdown--lookbook">
                 <div class="clearfix">
                   <div class="dropdown__half">
-                  <div class="dropdown__heading">Account Settings</div>
+                    <div class="dropdown__heading">Account Settings</div>
                     <ul class="dropdown__items">
                       <li class="dropdown__item">
-                        <a href="my_account.php?my_wishlist" class="dropdown__link">My Wishlist</a>
+                        <a href="customer/my_account.php?my_wishlist" class="dropdown__link">My Wishlist</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="my_account.php?my_orders" class="dropdown__link">My Orders</a>
+                        <a href="customer/my_account.php?my_orders" class="dropdown__link">My Orders</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="../cart.php" class="dropdown__link">View Shopping Cart</a>
+                        <a href="my_account.php?log_history" class="dropdown__link">View Log History</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="cart.php" class="dropdown__link">View Shopping Cart</a>
                       </li>
                     </ul>
                   </div>
@@ -98,13 +101,16 @@ if (!isset($_SESSION['customer_email'])) {
                     <div class="dropdown__heading"></div>
                     <ul class="dropdown__items">
                       <li class="dropdown__item">
-                        <a href="my_account.php?edit_account" class="dropdown__link">Edit Account</a>
+                        <a href="customer/my_account.php?edit_account" class="dropdown__link">Edit Account</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="my_account.php?change_pass" class="dropdown__link">Change Password</a>
+                        <a href="customer/my_account.php?change_pass" class="dropdown__link">Change Password</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="my_account.php?delete_account" class="dropdown__link">Delete Account</a>
+                        <a href="customer/my_account.php?delete_account" class="dropdown__link">Delete Account</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="logout.php" class="dropdown__link">Logout</a>
                       </li>
                     </ul>
                   </div>

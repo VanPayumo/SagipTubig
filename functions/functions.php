@@ -93,6 +93,8 @@ function getPro()
 
         $pro_stock = $row_products['product_stock'];
 
+        $status = $row_products['status'];
+
         $manufacturer_id = $row_products['manufacturer_id'];
 
         $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
@@ -113,6 +115,10 @@ function getPro()
 
             $product_psp_price = "| $$pro_psp_price";
 
+        } else if ($status == "bundle") {
+            $product_psp_price = "";
+
+            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
         } else {
 
             $product_psp_price = "";
@@ -154,7 +160,7 @@ function getPro()
 
             <p class='buttons' >
 
-            <a style='color:#577BC1;' class='btn btn-default' disabled>View Details</a>
+            <a href='$pro_url' style='color:#577BC1;' class='btn btn-default'>View Details</a>
 
             <a style='background-color:#577BC1; border-color:#577BC1;' class='btn btn-danger' disabled>
 
@@ -260,6 +266,8 @@ function getProducts()
 
         $pro_stock = $row_products['product_stock'];
 
+        $status = $row_products['status'];
+
         $manufacturer_id = $row_products['manufacturer_id'];
 
         $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
@@ -280,6 +288,10 @@ function getProducts()
 
             $product_psp_price = "| $$pro_psp_price";
 
+        } else if ($status == "bundle") {
+            $product_psp_price = "";
+
+            $product_price = "$$pro_price ($$pro_psp_price Bundle)";
         } else {
 
             $product_psp_price = "";
@@ -321,7 +333,7 @@ function getProducts()
 
     <p class='buttons' >
 
-    <a style='color:#577BC1;' class='btn btn-default' disabled>View Details</a>
+    <a href='$pro_url' style='color:#577BC1;' class='btn btn-default'>View Details</a>
 
     <a style='background-color:#577BC1; border-color:#577BC1;' class='btn btn-danger' disabled>
 
