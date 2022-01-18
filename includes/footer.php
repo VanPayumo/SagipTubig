@@ -8,11 +8,11 @@
 			</div>
 
 			<div class="developer">
-				Dev by G3 BSCS-3A
+				Developed by G3 CS3A
 			</div>
 
 			<div class="designby">
-				Design by LALS, MTC
+				Design by LALS, MTC, ACMDG
 			</div>
 		</div>
 	</div>

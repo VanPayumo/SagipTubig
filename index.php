@@ -12,7 +12,7 @@ include "includes/main.php";
 
   <!-- Cover -->
   <main>
- 
+
     <div class="hero">
 
       <h1>#SAGIP<b>TUBIG</b> </h1>
@@ -75,27 +75,31 @@ getPro();
 
     </div><!-- container Ends -->
     <!-- FOOTER -->
-    <footer class="page-footer">
+    <?php
 
+include "includes/footer.php";
 
-      <div class="page-footer__subline">
-        <div class="clearfix">
+?>
+    <!-- <footer class="page-footer">
 
-          <div class="copyright">
-            &copy; <?php echo date("Y"); ?> SagipTubig&trade;
-          </div>
+	<div class="page-footer__subline">
+		<div class="container clearfix">
 
-          <div class="developer">
-            Developed by G3 CS3A
-          </div>
+			<div class="copyright">
+				&copy; 2022 SagipTubig&trade;
+			</div>
 
-          <div class="designby">
-            Design by LALS, MTC, ACMDG
-          </div>
+			<div class="developer">
+				Developed by G3 CS3A
+			</div>
 
-        </div>
-      </div>
-    </footer>
+			<div class="designby">
+				Design by LALS, MTC, ACMDG
+			</div>
+		</div>
+	</div>
+</footer> -->
+
 </body>
 
 </html>

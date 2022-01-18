@@ -454,6 +454,12 @@ Product Price : $$pro_price
 <p class="text-center buttons" ><!-- text-center buttons Starts -->
 
 
+<button class="btn btn-warning" type="submit" name="add_wishlist">
+
+<i class="fa fa-heart" ></i> Add to Wishlist
+
+</button>
+
 <?php
 if ($pro_stock <= 0) {
         echo '<button class="btn btn-danger" type="submit" name="add_cart" disabled>';
@@ -463,12 +469,6 @@ if ($pro_stock <= 0) {
     ?>
 
 <i class="fa fa-shopping-cart"></i> Add to Cart
-
-</button>
-
-<button class="btn btn-warning" type="submit" name="add_wishlist">
-
-<i class="fa fa-heart" ></i> Add to Wishlist
 
 </button>
 
