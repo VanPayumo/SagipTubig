@@ -97,7 +97,7 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 
 <td>₱<?php echo $due_amount; ?></td>
 
-<td><?php echo bar128($invoice_no); ?></div></td>
+<td><?php echo bar128($invoice_no); ?></td>
 
 <td><?php echo $qty; ?></td>
 

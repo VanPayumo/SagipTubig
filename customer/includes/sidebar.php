@@ -6,11 +6,15 @@
 
 $customer_session = $_SESSION['customer_email'];
 
+$customer_id = $_SESSION['customer_id'];
+
 $get_customer = "select * from customers where customer_email='$customer_session'";
 
 $run_customer = mysqli_query($con, $get_customer);
 
 $row_customer = mysqli_fetch_array($run_customer);
+
+$customer_session = $_SESSION['customer_email'];
 
 $customer_image = $row_customer['customer_image'];
 
@@ -65,6 +69,12 @@ if (!isset($_SESSION['customer_email'])) {
 <li class="<?php if (isset($_GET['my_wishlist'])) {echo "active";}?>">
 
 <a href="my_account.php?my_wishlist"> <i class="fa fa-heart"></i> My WishList </a>
+
+</li>
+
+<li class="<?php if (isset($_GET['log_history'])) {echo "active";}?>">
+
+<a href="my_account.php?log_history"> Log History </a>
 
 </li>
 

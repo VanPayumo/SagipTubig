@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2022 at 08:47 AM
+-- Generation Time: Jan 18, 2022 at 10:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -192,6 +192,29 @@ INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `cust
 (5, 'Fracis', 'test@customer.com', 'Password123', 'US', 'Demo City', '780000000', '112 Bleck Street', 'userav-min.png', '::1', '1634138674'),
 (6, 'Sample Customer', 'customer@mail.com', 'Password123', 'Sample Country', 'Sample City', '7800000000', 'Sample Address', 'user-icn-min.png', '::1', '174829126'),
 (7, 'Customer Two', 'c2@mail.com', 'c2', 'PH', 'Pampanga', '0912987634', 'Pampanga, PH', 'user-icn-min.png', '::1', '576691161');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_log_history`
+--
+
+CREATE TABLE `customer_log_history` (
+  `log_id` int(11) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `c_email` varchar(255) NOT NULL,
+  `log_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `activity` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer_log_history`
+--
+
+INSERT INTO `customer_log_history` (`log_id`, `cid`, `c_email`, `log_time`, `activity`) VALUES
+(1, 2, 'user@ave.com', '2022-01-18 09:18:43', 'Logged in'),
+(2, 7, 'c2@mail.com', '2022-01-18 09:25:32', 'Logged in'),
+(3, 2, 'user@ave.com', '2022-01-18 09:26:05', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -548,6 +571,12 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
+-- Indexes for table `customer_log_history`
+--
+ALTER TABLE `customer_log_history`
+  ADD PRIMARY KEY (`log_id`);
+
+--
 -- Indexes for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
@@ -652,6 +681,12 @@ ALTER TABLE `coupons`
 --
 ALTER TABLE `customers`
   MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `customer_log_history`
+--
+ALTER TABLE `customer_log_history`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer_orders`

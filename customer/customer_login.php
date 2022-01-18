@@ -84,6 +84,10 @@ if (isset($_POST['login'])) {
 
     $run_customer = mysqli_query($con, $select_customer);
 
+    $row_customer = mysqli_fetch_array($run_customer);
+
+    $customer_id = $row_customer['customer_id'];
+
     $get_ip = getRealUserIp();
 
     $check_customer = mysqli_num_rows($run_customer);
@@ -106,6 +110,12 @@ if (isset($_POST['login'])) {
 
         $_SESSION['customer_email'] = $customer_email;
 
+        $_SESSION['customer_id'] = $customer_id;
+
+        $insert_log_history = "INSERT INTO customer_log_history (cid, c_email, log_time, activity) VALUES ($customer_id, '$customer_email', NOW(), 'Logged in')";
+
+        $run_insert_log = mysqli_query($con, $insert_log_history);
+
         echo "<script>alert('You are Logged In')</script>";
 
         echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
@@ -113,6 +123,12 @@ if (isset($_POST['login'])) {
     } else {
 
         $_SESSION['customer_email'] = $customer_email;
+
+        $_SESSION['customer_id'] = $customer_id;
+
+        $insert_log_history = "INSERT INTO customer_log_history (cid, c_email, log_time, activity) VALUES ($customer_id, '$customer_email', NOW(), 'Logged in')";
+
+        $run_insert_log = mysqli_query($con, $insert_log_history);
 
         echo "<script>alert('You are Logged In')</script>";
 

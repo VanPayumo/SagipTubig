@@ -90,7 +90,7 @@ if (!isset($_SESSION['customer_email'])) {
                         <a href="customer/my_account.php?my_orders" class="dropdown__link">My Orders</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="my_account.php?log_history" class="dropdown__link">View Log History</a>
+                        <a href="customer/my_account.php?log_history" class="dropdown__link">View Log History</a>
                       </li>
                       <li class="dropdown__item">
                         <a href="cart.php" class="dropdown__link">View Shopping Cart</a>

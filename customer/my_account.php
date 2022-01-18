@@ -78,8 +78,6 @@ if (!isset($_SESSION['customer_email'])) {
 
     }
 
-
-
     if (isset($_GET['my_orders'])) {
 
         include "my_orders.php";
@@ -101,6 +99,12 @@ if (!isset($_SESSION['customer_email'])) {
     if (isset($_GET['change_pass'])) {
 
         include "change_pass.php";
+
+    }
+
+    if (isset($_GET['log_history'])) {
+
+        include "log_history.php";
 
     }
 
