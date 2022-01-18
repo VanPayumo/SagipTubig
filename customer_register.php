@@ -91,11 +91,7 @@ include "includes/main.php";
 
 <span class="input-group-addon"><!-- input-group-addon Starts -->
 
-<<<<<<< Updated upstream
-<i class="fa fa-check tick2"> </i> <!-- input-group-addon Starts -->
-=======
-<i style="color:green;" class="fa fa-check tick2"> </i>
->>>>>>> Stashed changes
+<i style="color:green;" class="fa fa-check tick2"> </i> <!-- input-group-addon Starts -->
 
 <i class="fa fa-times cross2"> </i>
 
@@ -172,7 +168,7 @@ include "includes/main.php";
 
 <button type="submit" name="register" class="btn nbtn-primary">
 
-<i class="fa fa-user-md"></i> <b></b>REGISTER</b> 
+<i class="fa fa-user-md"></i> <b></b>REGISTER</b>
 
 </button>
 
