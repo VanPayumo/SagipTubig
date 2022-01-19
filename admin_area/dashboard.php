@@ -489,6 +489,14 @@ if ($order_status == 'pending') {
 
             echo $order_status = 'pending';
 
+        } else if ($order_status == 'Returned') {
+
+            echo $order_status = 'Returned';
+
+        } else if ($order_status == 'Refunded') {
+
+            echo $order_status = 'Refunded';
+
         } else {
 
             echo $order_status = 'Complete';

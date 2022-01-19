@@ -79,11 +79,19 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 
     if ($order_status == 'pending') {
 
-        $order_status = "<b style='color:red;'>Shipping</b>";
+        $order_status = "<b style='color:indigo;'>Shipping</b>";
+
+    } else if ($order_status == 'Complete') {
+
+        $order_status = "<b style='color:green;'>Received</b>";
+
+    } else if ($order_status == 'Returned') {
+
+        $order_status = "<b style='color:orange;'>Returned</b>";
 
     } else {
 
-        $order_status = "<b style='color:green;'>Received</b>";
+        $order_status = "<b style='color:red;'>Refunded</b>";
 
     }
 
@@ -111,13 +119,25 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 
 <?php
 
-    if ($order_status == "<b style='color:red;'>Shipping</b>") {
+    if ($order_status == "<b style='color:indigo;'>Shipping</b>") {
 
         echo '<a href="confirm.php?order_id=' . $order_id . '&invoice_no=' . $invoice_no . '&due_amount=' . $due_amount . '&order_date=' . $order_date . '" target="blank" class="btn btn-success btn-xs" > Received </a>';
 
+    } else if ($order_status == "<b style='color:green;'>Received</b>") {
+
+        echo '<a href="return.php?order_id=' . $order_id . '&invoice_no=' . $invoice_no . '&due_amount=' . $due_amount . '' . '&order_date=' . $order_date . '" target="blank" class="btn btn-warning btn-xs" > &nbsp;&nbsp;Return&nbsp;&nbsp; </a>';
+
+    } else if ($order_status == "<b style='color:orange;'>Returned</b>") {
+
+        echo "<b style='color:Orange;'>Returned</b>";
+
+    } else if ($order_status == "<b style='color:red;'>Refunded</b>") {
+
+        echo "<b style='color:red;'>Refunded</b>";
+
     } else {
 
-        echo "<b style='color:green;'>Received</b>";
+        echo "";
 
     }
 

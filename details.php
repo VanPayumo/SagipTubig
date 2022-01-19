@@ -220,19 +220,27 @@ if ($check_product == 0) {
 
             $pro_bundle = $row_price['status'];
 
-            if ($pro_label == "Sale" or $pro_label == "Gift") {
+            if (mysqli_num_rows($run_bundle_check) >= 1 and $pro_bundle == "bundle") {
+
+                $product_price = $pro_psp_price;
+                $pro_stock = $pro_stock;
+
+                echo "<script>alert('Bundle item Successfully added to cart')</script>";
+
+            } else if ($pro_bundle == "bundle" and ($pro_label == "Sale" or $pro_label == "Gift")) {
+
+                $product_price = $pro_price;
+                $pro_stock = $pro_stock;
+
+                echo "<script>alert('Item Successfully added to cart')</script>";
+
+            } else if ($pro_label == "Sale" or $pro_label == "Gift") {
 
                 $product_price = $pro_psp_price;
                 $pro_stock = $pro_stock;
 
                 echo "<script>alert('Promo item Successfully added to cart')</script>";
 
-            } else if (mysqli_num_rows($run_bundle_check) >= 1 and $pro_bundle == "bundle") {
-
-                $product_price = $pro_psp_price;
-                $pro_stock = $pro_stock;
-
-                echo "<script>alert('Bundle item Successfully added to cart')</script>";
             } else {
 
                 $product_price = $pro_price;

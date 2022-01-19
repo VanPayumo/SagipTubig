@@ -46,7 +46,7 @@ include "includes/main.php";
 
 <label>Email</label>
 
-<input type="text" class="nform-control" name="c_email" required>
+<input type="email" class="nform-control" name="c_email" required>
 
 </div><!-- form-group Ends -->
 
@@ -109,7 +109,7 @@ include "includes/main.php";
 <label> Country </label>
 
 <select id="country" type="text" class="nform-control" name="c_country" required >
-      <option value="australia">Philippines</option>
+      <option value="Philippines">Philippines</option>
     </select>
 
 
@@ -399,6 +399,18 @@ Click Here To Confirm Email
 
         $run_customer = mysqli_query($con, $insert_customer);
 
+        $get_c = "select * from customers where customer_email='$c_email'";
+
+        $run_c = mysqli_query($con, $get_c);
+
+        while ($row_c = mysqli_fetch_array($run_c)) {
+            $c_id = $row_c['customer_id'];
+        }
+
+        $insert_log = "insert into customer_log_history (cid, c_email, activity) values ('$c_id','$c_email','Registered')";
+
+        $run_log = mysqli_query($con, $insert_log);
+
         $sel_cart = "select * from cart where ip_add='$c_ip'";
 
         $run_cart = mysqli_query($con, $sel_cart);
@@ -409,6 +421,8 @@ Click Here To Confirm Email
 
             $_SESSION['customer_email'] = $c_email;
 
+            $_SESSION['customer_id'] = $c_id;
+
             echo "<script>alert('You have been Registered Successfully')</script>";
 
             echo "<script>window.open('checkout.php','_self')</script>";
@@ -416,6 +430,8 @@ Click Here To Confirm Email
         } else {
 
             $_SESSION['customer_email'] = $c_email;
+
+            $_SESSION['customer_id'] = $c_id;
 
             echo "<script>alert('You have been Registered Successfully')</script>";
 

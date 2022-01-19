@@ -40,10 +40,10 @@ if (!isset($_SESSION['customer_email'])) {
 
 <div class="box"><!-- box Starts -->
 
-<h1 align="center"> Confirm Received </h1>
+<h1 align="center"> Return Product </h1>
 
 
-<form action="confirm.php?update_id=<?php echo $order_id; ?>" method="post" enctype="multipart/form-data"><!--- form Starts -->
+<form action="return.php?update_id=<?php echo $order_id; ?>" method="post" enctype="multipart/form-data"><!--- form Starts -->
 
 <div class="form-group"><!-- form-group Starts -->
 
@@ -68,8 +68,8 @@ if (!isset($_SESSION['customer_email'])) {
 
 <select name="payment_mode" class="form-control" required><!-- select Starts -->
 
-<option hidden="" disabled="disabled" selected="selected" value="">Select Payment Mode (other payment modes coming soon) </option>
-<option>Cash On Delivery (COD)</option>
+<option hidden="" disabled="disabled" value="">Select Payment Mode (other payment modes coming soon) </option>
+<option selected="selected">Cash On Delivery (COD)</option>
 
 </select><!-- select Ends -->
 
@@ -93,9 +93,9 @@ if (!isset($_SESSION['customer_email'])) {
 
 <div class="text-center"><!-- text-center Starts -->
 
-<button type="submit" name="confirm_payment" class="btn btn-primary btn-lg">
+<button type="submit" name="confirm_return" class="btn btn-danger btn-lg">
 
-<i class="fa fa-user-md"></i> Confirm Payment
+<i class="fa fa-user-md"></i> Confirm Return
 
 </button>
 
@@ -105,7 +105,7 @@ if (!isset($_SESSION['customer_email'])) {
 
 <?php
 
-    if (isset($_POST['confirm_payment'])) {
+    if (isset($_POST['confirm_return'])) {
 
         $update_id = $_GET['update_id'];
 
@@ -115,28 +115,34 @@ if (!isset($_SESSION['customer_email'])) {
 
         $payment_mode = $_POST['payment_mode'];
 
-        $payment_date = $_POST['date'];
+        $return = "Returned";
 
-        $complete = "Complete";
+        $insert_return = "insert into returns (invoice_no,amount,payment_mode,return_date) values ('$invoice_no','$amount','$payment_mode', CURRENT_TIMESTAMP)";
 
-        $insert_payment = "insert into payments (order_id,invoice_no,amount,payment_mode,payment_date) values ('$update_id','$invoice_no','$amount','$payment_mode', CURRENT_TIMESTAMP)";
+        $run_return = mysqli_query($con, $insert_return);
 
-        $run_payment = mysqli_query($con, $insert_payment);
-
-        $update_customer_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
+        $update_customer_order = "update customer_orders set order_status='$return' where order_id='$update_id'";
 
         $run_customer_order = mysqli_query($con, $update_customer_order);
 
-        $update_pending_order = "update pending_orders set order_status='$complete' where order_id='$update_id'";
+        $update_payments = "update payments set status='$return' where order_id='$update_id'";
+
+        $run_payments = mysqli_query($con, $update_payments);
+
+        $update_pending_order = "update pending_orders set order_status='$return' where order_id='$update_id'";
 
         $run_pending_order = mysqli_query($con, $update_pending_order);
 
         if ($run_pending_order) {
 
-            echo "<script>alert('your Payment has been received,order will be completed within 24 hours')</script>";
+            echo "<script>alert('Your return order has been received, refund will be completed within 24 hours')</script>";
 
             echo "<script>window.open('my_account.php?my_orders','_self')</script>";
 
+        } else {
+            echo "<script>alert('Error. Please try again.')</script>";
+
+            echo "<script>window.open('my_account.php?my_orders','_self')</script>";
         }
 
     }

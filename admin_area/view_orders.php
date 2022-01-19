@@ -1,16 +1,12 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
-if(!isset($_SESSION['admin_email'])){
+    echo "<script>window.open('login.php','_self')</script>";
 
-echo "<script>window.open('login.php','_self')</script>";
+} else {
 
-}
-
-else {
-
-
-?>
+    ?>
 
 <div class="row"><!-- 1 row Starts -->
 
@@ -78,58 +74,56 @@ else {
 
 <?php
 
-$i = 0;
+    $i = 0;
 
-$get_orders = "select * from pending_orders";
+    $get_orders = "select * from pending_orders";
 
-$run_orders = mysqli_query($con,$get_orders);
+    $run_orders = mysqli_query($con, $get_orders);
 
-while ($row_orders = mysqli_fetch_array($run_orders)) {
+    while ($row_orders = mysqli_fetch_array($run_orders)) {
 
-$order_id = $row_orders['order_id'];
+        $order_id = $row_orders['order_id'];
 
-$c_id = $row_orders['customer_id'];
+        $c_id = $row_orders['customer_id'];
 
-$invoice_no = $row_orders['invoice_no'];
+        $invoice_no = $row_orders['invoice_no'];
 
-$product_id = $row_orders['product_id'];
+        $product_id = $row_orders['product_id'];
 
-$qty = $row_orders['qty'];
+        $qty = $row_orders['qty'];
 
-$size = $row_orders['size'];
+        $size = $row_orders['size'];
 
-$order_status = $row_orders['order_status'];
+        $get_products = "select * from products where product_id='$product_id'";
 
-$get_products = "select * from products where product_id='$product_id'";
+        $run_products = mysqli_query($con, $get_products);
 
-$run_products = mysqli_query($con,$get_products);
+        $row_products = mysqli_fetch_array($run_products);
 
-$row_products = mysqli_fetch_array($run_products);
+        $product_title = $row_products['product_title'];
 
-$product_title = $row_products['product_title'];
+        $i++;
 
-$i++;
-
-?>
+        ?>
 
 <tr>
 
 <td><?php echo $i; ?></td>
 
 <td>
-<?php 
+<?php
 
-$get_customer = "select * from customers where customer_id='$c_id'";
+        $get_customer = "select * from customers where customer_id='$c_id'";
 
-$run_customer = mysqli_query($con,$get_customer);
+        $run_customer = mysqli_query($con, $get_customer);
 
-$row_customer = mysqli_fetch_array($run_customer);
+        $row_customer = mysqli_fetch_array($run_customer);
 
-$customer_email = $row_customer['customer_email'];
+        $customer_email = $row_customer['customer_email'];
 
-echo $customer_email;
+        echo $customer_email;
 
- ?>
+        ?>
  </td>
 
 <td bgcolor="orange" ><?php echo $invoice_no; ?></td>
@@ -143,19 +137,21 @@ echo $customer_email;
 <td>
 <?php
 
-$get_customer_order = "select * from customer_orders where order_id='$order_id'";
+        $get_customer_order = "select * from customer_orders where order_id='$order_id'";
 
-$run_customer_order = mysqli_query($con,$get_customer_order);
+        $run_customer_order = mysqli_query($con, $get_customer_order);
 
-$row_customer_order = mysqli_fetch_array($run_customer_order);
+        $row_customer_order = mysqli_fetch_array($run_customer_order);
 
-$order_date = $row_customer_order['order_date'];
+        $order_status = $row_customer_order['order_status'];
 
-$due_amount = $row_customer_order['due_amount'];
+        $order_date = $row_customer_order['order_date'];
 
-echo $order_date;
+        $due_amount = $row_customer_order['due_amount'];
 
-?>
+        echo $order_date;
+
+        ?>
 </td>
 
 <td>$<?php echo $due_amount; ?></td>
@@ -163,35 +159,57 @@ echo $order_date;
 <td>
 <?php
 
-if($order_status=='pending'){
+        if ($order_status == 'pending') {
 
-echo $order_status='<div style="color:red;">Pending</div>';
+            echo $order_status = '<div style="color:red;">Pending</div>';
 
-}
-else{
+        } else if ($order_status == 'Returned') {
 
-echo $order_status='Completed';
+            echo $order_status = '<div style="color:orange;">Returned</div>';
 
-}
+        } else if ($order_status == 'Refunded') {
 
+            echo $order_status = '<div style="color:red;">Refunded</div>';
 
-?>
+        } else {
+
+            echo $order_status = 'Completed';
+
+        }
+
+        ?>
 </td>
 
-<td>
+<!-- <td>
 
-<a href="index.php?order_delete=<?php echo $order_id; ?>" >
+<a href="index.php?order_delete=<?php // echo $order_id; ?>" >
 
 <i class="fa fa-trash-o" ></i> Delete
 
 </a>
 
-</td>
+</td> -->
 
+<td>
+
+<?php
+
+        if ($order_status == '<div style="color:orange;">Returned</div>') {
+            echo '<a href="index.php?order_refund=' . $order_id . '" style="color:green;">
+            <i class="fa fa-money" ></i> Refund';
+        } else {
+            echo '<p></p>';
+        }
+
+        ?>
+
+</a>
+
+</td>
 
 </tr>
 
-<?php } ?>
+<?php }?>
 
 </tbody><!-- tbody Ends -->
 
@@ -208,4 +226,4 @@ echo $order_status='Completed';
 </div><!-- 2 row Ends -->
 
 
-<?php } ?>
+<?php }?>

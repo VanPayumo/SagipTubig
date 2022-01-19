@@ -3,7 +3,7 @@
 
 <h1> Log History </h1>
 
-<p class="lead"> Audit Trail </p>
+<!-- <p class="lead"> Audit Trail </p> -->
 
 <p class="text-muted" >
 
