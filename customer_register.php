@@ -23,7 +23,7 @@ include "includes/main.php";
   </main>
 
 
-<div class="nbackground" id="content" ><!-- content Starts -->
+<div  id="content" ><!-- content Starts -->
 
 <div class="ncontainer" ><!-- container Starts -->
 

@@ -1,6 +1,6 @@
-<div class="box" ><!-- box Starts -->
+<div class="nbox" ><!-- box Starts -->
 
-<div class="box-header" ><!-- box-header Starts -->
+<div class="nbox-header" ><!-- box-header Starts -->
 
 <center>
 
@@ -22,19 +22,19 @@
 
 <form action="checkout.php" method="post" ><!--form Starts -->
 
-<div class="form-group" ><!-- form-group Starts -->
+<div class="nform-group" ><!-- form-group Starts -->
 
 <label>Email</label>
 
-<input type="text" class="form-control" name="c_email" required >
+<input type="text" class="nform-control" name="c_email" required >
 
 </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+<div class="nform-group" ><!-- form-group Starts -->
 
 <label>Password</label>
 
-<input type="password" class="form-control" name="c_pass" required >
+<input type="password" class="nform-control" name="c_pass" required >
 
 <h4 align="center">
 
@@ -48,7 +48,7 @@
 
 <button name="login" value="Login" class="btn btn-primary" >
 
-<i class="fa fa-sign-in" ></i> Log in
+<i class="fa fa-sign-in" ></i> LOGIN
 
 
 </button>
