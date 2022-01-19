@@ -13,15 +13,14 @@ include "includes/main.php";
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">shop</span> AT AVE
+        <span class="nero__bold">SHOP NOW!</span>
       </div>
       <p class="nero__text">
       </p>
     </div>
   </main>
 
-<br>
-<div id="content" ><!-- content Starts -->
+<div style="background-color:rgba(160, 185, 235, 0.56)" id="content" ><!-- content Starts -->
 <div class="container" ><!-- container Starts -->
 
 <div class="col-md-12" ><!--- col-md-12 Starts -->

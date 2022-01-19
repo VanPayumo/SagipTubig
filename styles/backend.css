@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    background: rgba(160, 185, 235, 0.56);
+    background-color: rgba(160, 185, 235, 0.56);
 }
 
 article,
@@ -1137,6 +1137,7 @@ fieldset[disabled] .nform-control {
 .ncontainer {
     width: 40%;
     margin: 0 auto;
+    margin-bottom: -3em;
 }
 
 .nbox {

@@ -275,6 +275,53 @@ body {
 
 /* products categories and categories styles */
 
+.npanel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.npanel-body {
+    padding: 15px
+}
+
+.npanel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px
+}
+
+.npanel-heading>.dropdown .dropdown-toggle {
+    color: inherit
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit
+}
+
+.npanel-title>.small,
+.npanel-title>.small>a,
+.npanel-title>a,
+.panel-title>small,
+.npanel-title>small>a {
+    color: inherit
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
 #content .panel.sidebar-menu {
     box-sizing: border-box;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);

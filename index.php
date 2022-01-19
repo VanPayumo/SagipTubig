@@ -43,7 +43,6 @@ for ($i = 0; $i < 54; $i++) {
       </div>
 
 
-
     <div id="content" class="container"><!-- container Starts -->
 
     <div class="row"><!-- row Starts -->

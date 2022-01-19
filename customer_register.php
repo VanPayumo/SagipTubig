@@ -23,7 +23,7 @@ include "includes/main.php";
   </main>
 
 
-<div id="content" ><!-- content Starts -->
+<div style="background-color:rgba(160, 185, 235, 0.56)" id="content" ><!-- content Starts -->
 
 <div class="ncontainer" ><!-- container Starts -->
 
@@ -42,7 +42,7 @@ include "includes/main.php";
 
 </div><!-- form-group Ends -->
 
-<div class="nform-group"><!-- form-group Starts -->
+<div  class="nform-group"><!-- form-group Starts -->
 
 <label>Email</label>
 
