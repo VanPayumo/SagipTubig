@@ -1,11 +1,8 @@
 /* General Styles */
 
 body {
-<<<<<<< Updated upstream
-=======
-    font-family: "Montserrat", Helvetica, Arial, sans-serif;
->>>>>>> Stashed changes
-    font-size: 14px;
+    <<<<<<< Updated upstream=======font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    >>>>>>>Stashed changes font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
     background-color: #f0f0f0;
@@ -733,57 +730,56 @@ body {
 
 /* Information Sagip Styles  */
 
-#wave1{
-    float:right; 
-    margin:15px 20px;
+#wave1 {
+    float: right;
+    margin: 15px 20px;
 }
 
-#fish{
-    float:left; 
-    margin:15px 0px;
+#fish {
+    float: left;
+    margin: 15px 0px;
 }
 
-#wave2{
-    float:left; 
+#wave2 {
+    float: left;
     margin: -50px 10px;
 }
 
-#thunder{
+#thunder {
     position: relative;
     left: 320px;
     bottom: 950px;
 }
 
-#earth{
+#earth {
     position: relative;
     left: 470px;
     bottom: 697px;
 }
 
-#trash{
+#trash {
     position: relative;
     left: -30px;
     bottom: 450px;
 }
 
-#recy{
+#recy {
     position: relative;
     left: 120px;
     bottom: 197px;
 }
 
-.sub{
+.sub {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
     text-align: center;
-
     color: #FF8A00;
 }
 
-.idea{
+.idea {
     position: relative;
     width: 294px;
     height: 33px;
@@ -791,7 +787,7 @@ body {
     bottom: 1159px;
 }
 
-.mapping{
+.mapping {
     position: relative;
     width: 294px;
     height: 33px;
@@ -799,7 +795,7 @@ body {
     bottom: 950px;
 }
 
-.removal{
+.removal {
     position: relative;
     width: 294px;
     height: 33px;
@@ -807,7 +803,7 @@ body {
     bottom: 740px;
 }
 
-.recycle{
+.recycle {
     position: relative;
     width: 294px;
     height: 33px;
@@ -815,8 +811,7 @@ body {
     bottom: 510px;
 }
 
-
-.idea2{
+.idea2 {
     width: 400px;
     height: 180px;
     background: #FFFDED;
@@ -826,7 +821,7 @@ body {
     bottom: 1250px;
 }
 
-.map2{
+.map2 {
     width: 400px;
     height: 180px;
     background: #FFFDED;
@@ -836,7 +831,7 @@ body {
     bottom: 1190px;
 }
 
-.remove2{
+.remove2 {
     width: 400px;
     height: 180px;
     background: #FFFDED;
@@ -846,7 +841,7 @@ body {
     bottom: 1120px;
 }
 
-.recy2{
+.recy2 {
     width: 400px;
     height: 180px;
     background: #FFFDED;

@@ -1,4 +1,5 @@
-<div class="nbox" ><!-- box Starts -->
+
+<div class="ncontainer" ><!-- box Starts -->
 
 <div class="nbox-header" ><!-- box-header Starts -->
 
@@ -69,7 +70,7 @@
 
 </center><!-- center Ends -->
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br>
 </div><!-- box Ends -->
 
 <?php

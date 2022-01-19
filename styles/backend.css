@@ -1138,6 +1138,7 @@ fieldset[disabled] .nform-control {
     width: 40%;
     margin: 0 auto;
     margin-bottom: -3em;
+    color: #000957;
 }
 
 .nbox {
@@ -1147,7 +1148,6 @@ fieldset[disabled] .nform-control {
 
 .nbox label {
     color: #000957;
-    font-weight: normal;
     font-size: 15px;
     margin-bottom: 0em;
     padding-bottom: 0em;

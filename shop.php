@@ -20,7 +20,7 @@ include "includes/main.php";
     </div>
   </main>
 
-<div class="nbackground" id="content" ><!-- content Starts -->
+<div id="content" ><!-- content Starts -->
 <div class="container" id="ncontainer" ><!-- container Starts -->
 
 <div class="col-md-12" ><!--- col-md-12 Starts -->
