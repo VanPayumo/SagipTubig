@@ -29,6 +29,34 @@ margin-top:50px;
 
 }
 
+.idea{
+    position: absolute;
+width: 294px;
+height: 33px;
+left: 720px;
+top: 2742px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #FF8A00;
+}
+
+.boxed {
+    position: float;
+    font-size: 5cm;
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+
+}
+
 #wrapper{
 
 padding-left:0;
