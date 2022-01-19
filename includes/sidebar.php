@@ -25,11 +25,11 @@ if (isset($_REQUEST['p_cat']) && is_array($_REQUEST['p_cat'])) {
 
 ?>
 
-<div style="height:900px;" class="panel panel-default sidebar-menu"><!--- panel panel-default sidebar-menu Starts -->
+<div class="npanel panel-default sidebar-menu"><!--- panel panel-default sidebar-menu Starts -->
 
-<div class="panel-heading"><!-- panel-heading Starts -->
+<div class="npanel-heading"><!-- npanel-heading Starts -->
 
-<h3 class="panel-title"><!-- panel-title Starts -->
+<h3 class="npanel-title"><!-- npanel-title Starts -->
 
 Products Categories
 
@@ -41,19 +41,19 @@ Products Categories
 
 </div><!-- panel-heading Ends -->
 
-<div class="panel-collapse collapse-data"><!-- panel-collapse collapse-data Starts -->
+<div class="npanel-collapse collapse-data"><!-- panel-collapse collapse-data Starts -->
 
-<div class="panel-body"><!-- panel-body Starts -->
+<div class="npanel-body"><!-- npanel-body Starts -->
 
 <div class="input-group"><!-- input-group Starts -->
 
 </div><!-- input-group Ends -->
 
-</div><!-- panel-body Ends -->
+</div><!-- npanel-body Ends -->
 
-<div class="panel-body"><!-- panel-body scroll-menu Starts -->
+<div class="npanel-body"><!-- npanel-body scroll-menu Starts -->
 
-<ul class="nav nav-pills nav-stacked category-menu" id="dev-p-cats"><!-- nav nav-pills nav-stacked category-menu Starts -->
+<ul class="navi category-menu" id="dev-p-cats"><!-- nav nav-pills nav-stacked category-menu Starts -->
 
 <?php
 

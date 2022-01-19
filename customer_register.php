@@ -23,7 +23,7 @@ include "includes/main.php";
   </main>
 
 
-<div style="background-color:rgba(160, 185, 235, 0.56)" id="content" ><!-- content Starts -->
+<div class="nbackground" id="content" ><!-- content Starts -->
 
 <div class="ncontainer" ><!-- container Starts -->
 
@@ -171,6 +171,7 @@ include "includes/main.php";
 <i class="fa fa-user-md"></i> <b></b>REGISTER</b>
 
 </button>
+<br><br><br>
 
 </div><!-- text-center Ends -->
 

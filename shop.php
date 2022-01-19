@@ -20,8 +20,8 @@ include "includes/main.php";
     </div>
   </main>
 
-<div style="background-color:rgba(160, 185, 235, 0.56)" id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div class="nbackground" id="content" ><!-- content Starts -->
+<div class="container" id="ncontainer" ><!-- container Starts -->
 
 <div class="col-md-12" ><!--- col-md-12 Starts -->
 

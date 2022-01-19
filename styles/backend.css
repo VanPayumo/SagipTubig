@@ -1237,3 +1237,7 @@ fieldset[disabled] .nbtn-primary:hover {
 .nform-group select {
     font-family: 'Montserrat';
 }
+
+.nbackground {
+    background-color: rgba(160, 185, 235, 0.56);
+}
