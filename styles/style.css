@@ -1,6 +1,10 @@
 /* General Styles */
 
 body {
+<<<<<<< Updated upstream
+=======
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+>>>>>>> Stashed changes
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
@@ -724,4 +728,130 @@ body {
     .services .col-md-4 {
         width: 90%;
     }
+}
+
+
+/* Information Sagip Styles  */
+
+#wave1{
+    float:right; 
+    margin:15px 20px;
+}
+
+#fish{
+    float:left; 
+    margin:15px 0px;
+}
+
+#wave2{
+    float:left; 
+    margin: -50px 10px;
+}
+
+#thunder{
+    position: relative;
+    left: 320px;
+    bottom: 950px;
+}
+
+#earth{
+    position: relative;
+    left: 470px;
+    bottom: 697px;
+}
+
+#trash{
+    position: relative;
+    left: -30px;
+    bottom: 450px;
+}
+
+#recy{
+    position: relative;
+    left: 120px;
+    bottom: 197px;
+}
+
+.sub{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #FF8A00;
+}
+
+.idea{
+    position: relative;
+    width: 294px;
+    height: 33px;
+    left: 587px;
+    bottom: 1159px;
+}
+
+.mapping{
+    position: relative;
+    width: 294px;
+    height: 33px;
+    left: 292px;
+    bottom: 950px;
+}
+
+.removal{
+    position: relative;
+    width: 294px;
+    height: 33px;
+    left: 567px;
+    bottom: 740px;
+}
+
+.recycle{
+    position: relative;
+    width: 294px;
+    height: 33px;
+    left: 280px;
+    bottom: 510px;
+}
+
+
+.idea2{
+    width: 400px;
+    height: 180px;
+    background: #FFFDED;
+    border-radius: 20px;
+    position: relative;
+    left: 650px;
+    bottom: 1250px;
+}
+
+.map2{
+    width: 400px;
+    height: 180px;
+    background: #FFFDED;
+    border-radius: 20px;
+    position: relative;
+    left: 100px;
+    bottom: 1190px;
+}
+
+.remove2{
+    width: 400px;
+    height: 180px;
+    background: #FFFDED;
+    border-radius: 20px;
+    position: relative;
+    left: 650px;
+    bottom: 1120px;
+}
+
+.recy2{
+    width: 400px;
+    height: 180px;
+    background: #FFFDED;
+    border-radius: 20px;
+    position: relative;
+    left: 100px;
+    bottom: 1040px;
 }

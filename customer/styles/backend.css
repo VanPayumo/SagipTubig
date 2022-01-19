@@ -988,6 +988,10 @@ img {
     color: white;
 }
 
+.info{
+    position: relative;
+}
+
 .wrapper {
     text-align: center;
     width: 40em;

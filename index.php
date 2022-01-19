@@ -54,21 +54,79 @@ getPro();
 ?>
 
 <br>
-<img src="images/wave.png" alt="wave" style="float:right; margin:15px 0px">
-    <img src="images/fish.png" alt="fish" style="float:left; margin:15px 0px">
-    <div class="wrapper">
+<img id="wave1" src="images/wave.png">
+<img id="fish" src="images/fish.png">
+<div class="wrapper">
       <br> <br>
         <h1> <b>HOW #</b>SAGIP<b>TUBIG WORKS</b><h1>
       </div>
-      <img src="images/wave.png" alt="wave" style="float:left; margin: -50px 10px">
-      <br>
+      <img id="wave2" src="images/wave.png" alt="wave">
+      <br> 
       <center>
       <img src="images/ship.png" alt="ship">
       <br><br>
       <img src="images/divider.png" alt="divider">
       </center>
 
-      <br><br>
+<img id="thunder" src="images/thunder.png">
+<img id="earth" src="images/earth.png" alt="earth">
+<img id="trash" src="images/trash.png" alt="trash">
+
+<img id="recy" src="images/recy.png" alt="recy">
+
+<div class ="sub">
+    <div class ="idea">
+    THE BIG IDEA
+    </div>
+
+    <div class="mapping">
+    MAPPING 
+    </div>
+
+    <div class="removal">
+    REMOVAL
+    </div>
+
+    <div class="recycle">
+    RECYCLING
+    </div>
+</div>
+
+
+  <div class="idea2">
+    &nbsp; &nbsp; This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+  </div>
+
+  <div class="map2">
+  &nbsp; &nbsp; This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+  </div>
+
+  <div class="remove2">
+    &nbsp; &nbsp; This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+  </div>
+
+  <div class="recy2">
+    &nbsp; &nbsp; This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+    This is some dummy text.This is some dummy text.This is some dummy text.
+  </div>
+---->
+  
+</div>
 
     </div><!-- row Ends -->
 
@@ -79,25 +137,6 @@ getPro();
 include "includes/footer.php";
 
 ?>
-    <!-- <footer class="page-footer">
-
-	<div class="page-footer__subline">
-		<div class="container clearfix">
-
-			<div class="copyright">
-				&copy; 2022 SagipTubig&trade;
-			</div>
-
-			<div class="developer">
-				Developed by G3 CS3A
-			</div>
-
-			<div class="designby">
-				Design by LALS, MTC, ACMDG
-			</div>
-		</div>
-	</div>
-</footer> -->
 
 </body>
 
