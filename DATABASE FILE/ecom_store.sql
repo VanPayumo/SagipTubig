@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2022 at 10:29 AM
+-- Generation Time: Jan 19, 2022 at 02:42 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -186,12 +186,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
-(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', ''),
-(3, 'Demo Customer', 'demo@customer.com', 'Password123', 'DemoCountry', 'DemoCity', '700000000', 'DemoAddress', 'sample_image.jpg', '::1', ''),
-(4, 'Thomas', 'thomas@demo.com', 'Password123', 'One Country', 'One City', '777777777', '111 Address', 'sample_img360.png', '::1', '1427053935'),
-(5, 'Fracis', 'test@customer.com', 'Password123', 'US', 'Demo City', '780000000', '112 Bleck Street', 'userav-min.png', '::1', '1634138674'),
-(6, 'Sample Customer', 'customer@mail.com', 'Password123', 'Sample Country', 'Sample City', '7800000000', 'Sample Address', 'user-icn-min.png', '::1', '174829126'),
-(7, 'Customer Two', 'c2@mail.com', 'c2', 'PH', 'Pampanga', '0912987634', 'Pampanga, PH', 'user-icn-min.png', '::1', '576691161');
+(16, 'Van Payumo', 'payumo.van657@gmail.com', 'attdog', 'Philippines', 'Porac', '09178756789', 'Pulong Santol, Porac, Pampanga', 'Space_Day_Nautilus_profileicon.png', '::1', '1606634849');
 
 -- --------------------------------------------------------
 
@@ -212,9 +207,9 @@ CREATE TABLE `customer_log_history` (
 --
 
 INSERT INTO `customer_log_history` (`log_id`, `cid`, `c_email`, `log_time`, `activity`) VALUES
-(1, 2, 'user@ave.com', '2022-01-18 09:18:43', 'Logged in'),
-(2, 7, 'c2@mail.com', '2022-01-18 09:25:32', 'Logged in'),
-(3, 2, 'user@ave.com', '2022-01-18 09:26:05', 'Logged in');
+(24, 16, 'payumo.van657@gmail.com', '2022-01-19 13:30:20', 'Registered'),
+(25, 16, 'payumo.van657@gmail.com', '2022-01-19 13:31:05', 'Logged in'),
+(26, 16, 'payumo.van657@gmail.com', '2022-01-19 13:34:39', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -238,24 +233,10 @@ CREATE TABLE `customer_orders` (
 --
 
 INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
-(17, 2, 100, 1715523401, 2, 'Large', '2017-02-20 08:21:42', 'Complete'),
-(23, 3, 20, 1762810884, 1, 'Medium', '2021-09-14 08:35:57', 'Complete'),
-(24, 4, 100, 1972602052, 1, 'Large', '2021-09-14 16:37:52', 'Complete'),
-(25, 4, 90, 2008540778, 1, 'Medium', '2021-09-14 16:43:15', 'pending'),
-(27, 5, 120, 2138906686, 1, 'Small', '2021-09-15 03:18:41', 'Complete'),
-(28, 5, 180, 361540113, 2, 'Medium', '2021-09-15 03:25:42', 'Complete'),
-(29, 3, 100, 858195683, 1, 'Large', '2021-09-15 03:14:01', 'Complete'),
-(31, 6, 245, 901707655, 1, 'Medium', '2021-09-15 03:52:18', 'Complete'),
-(32, 6, 75, 2125554712, 1, 'Large', '2021-09-15 03:52:58', 'pending'),
-(33, 2, 450, 88132988, 3, 'Medium', '2022-01-16 10:27:17', 'Complete'),
-(34, 2, 90, 1056623431, 1, 'Small', '2022-01-16 11:19:40', 'Complete'),
-(35, 2, 35, 1376439166, 1, 'Small', '2022-01-17 17:58:27', 'pending'),
-(36, 2, 1197, 1015397878, 3, 'Medium', '2022-01-17 18:03:11', 'pending'),
-(37, 2, 105, 1829397676, 3, 'Small', '2022-01-17 18:27:23', 'pending'),
-(38, 2, 1596, 1780234951, 4, 'Medium', '2022-01-17 18:28:03', 'pending'),
-(39, 2, 200, 930849758, 2, 'Small', '2022-01-17 18:46:48', 'pending'),
-(40, 2, 718, 2124985851, 2, 'Small', '2022-01-17 19:03:43', 'pending'),
-(41, 7, 798, 1212312626, 2, 'Small', '2022-01-18 03:03:14', 'pending');
+(49, 4, 900, 1373481235, 1, 'Small', '2022-01-19 11:34:50', 'Refunded'),
+(50, 4, 1500, 1977247524, 1, 'Small', '2022-01-19 11:36:47', 'Refunded'),
+(51, 16, 298, 338364571, 2, ' Medium ', '2022-01-19 13:35:22', 'Refunded'),
+(52, 16, 2400, 338364571, 2, 'Small', '2022-01-19 13:35:22', 'Refunded');
 
 -- --------------------------------------------------------
 
@@ -310,37 +291,27 @@ INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_title`, `manufactu
 
 CREATE TABLE `payments` (
   `payment_id` int(10) NOT NULL,
+  `order_id` int(10) NOT NULL,
   `invoice_no` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
   `payment_mode` text NOT NULL,
   `ref_no` int(10) NOT NULL,
   `code` int(10) NOT NULL,
-  `payment_date` text NOT NULL
+  `payment_date` text NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
-(2, 1607603019, 447, 'UBL/Omni', 5678, 33, '11/1/2016'),
-(3, 314788500, 345, 'UBL/Omni', 443, 865, '11/1/2016'),
-(4, 6906, 400, 'Western Union', 101025780, 696950, 'January 1'),
-(5, 10023, 20, 'Bank Code', 1000010101, 6969, '09/14/2021'),
-(6, 69088, 100, 'Bank Code', 1010101022, 88669, '09/14/2021'),
-(7, 1835758347, 480, 'Western Union', 1785002101, 66990, '09-04-2021'),
-(8, 1835758347, 480, 'Bank Code', 1012125550, 66500, '09-14-2021'),
-(9, 1144520, 480, 'Bank Code', 1025000020, 66990, '09-14-2021'),
-(10, 2145000000, 480, 'Bank Code', 2147483647, 66580, '09-14-2021'),
-(20, 858195683, 100, 'Bank Code', 1400256000, 47850, '09-13-2021'),
-(21, 2138906686, 120, 'Bank Code', 1455000020, 202020, '09-13-2021'),
-(22, 2138906686, 120, 'Bank Code', 1450000020, 202020, '09-15-2021'),
-(23, 361540113, 180, 'Western Union', 1470000020, 12001, '09-15-2021'),
-(24, 361540113, 180, 'UBL/Omni', 1258886650, 200, '09-15-2021'),
-(25, 901707655, 245, 'Western Union', 1200002588, 88850, '09-15-2021'),
-(26, 1715523401, 100, 'Select Payment Mode', 0, 0, '2022-01-16 18:11:50'),
-(27, 88132988, 450, 'Select Payment Mode', 0, 0, '2022-01-16 18:27:30'),
-(28, 1056623431, 90, 'Select Payment Mode', 0, 0, '2022-01-18 02:29:30');
+INSERT INTO `payments` (`payment_id`, `order_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`, `status`) VALUES
+(36, 0, 687087821, 120, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 19:18:18', 'Paid'),
+(37, 0, 77827028, 600, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 19:25:05', 'Paid'),
+(38, 49, 1373481235, 900, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 19:36:09', 'Refunded'),
+(39, 50, 1977247524, 1500, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 19:36:54', 'Refunded'),
+(40, 51, 338364571, 298, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 21:35:34', 'Refunded'),
+(41, 52, 338364571, 2400, 'Cash On Delivery (COD)', 0, 0, '2022-01-19 21:36:25', 'Refunded');
 
 -- --------------------------------------------------------
 
@@ -363,24 +334,8 @@ CREATE TABLE `pending_orders` (
 --
 
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`) VALUES
-(17, 2, 1715523401, '9', 2, 'Large', 'Complete'),
-(23, 3, 1762810884, '12', 1, 'Medium', 'Complete'),
-(24, 4, 1972602052, '5', 1, 'Large', 'Complete'),
-(25, 4, 2008540778, '13', 1, 'Medium', 'pending'),
-(27, 5, 2138906686, '14', 1, 'Small', 'Complete'),
-(28, 5, 361540113, '13', 2, 'Medium', 'Complete'),
-(29, 3, 858195683, '5', 1, 'Large', 'Complete'),
-(31, 6, 901707655, '8', 1, 'Medium', 'Complete'),
-(32, 6, 2125554712, '15', 1, 'Large', 'pending'),
-(33, 2, 88132988, '12', 3, 'Medium', 'Complete'),
-(34, 2, 1056623431, '13', 1, 'Small', 'Complete'),
-(35, 2, 1376439166, '9', 1, 'Small', 'pending'),
-(36, 2, 1015397878, '8', 3, 'Medium', 'pending'),
-(37, 2, 1829397676, '9', 3, 'Small', 'pending'),
-(38, 2, 1780234951, '8', 4, 'Medium', 'pending'),
-(39, 2, 930849758, '5', 2, 'Small', 'pending'),
-(40, 2, 2124985851, '8', 2, 'Small', 'pending'),
-(41, 7, 1212312626, '8', 2, 'Small', 'pending');
+(51, 16, 338364571, '8', 2, ' Medium ', 'Refunded'),
+(52, 16, 338364571, '16', 2, 'Small', 'Refunded');
 
 -- --------------------------------------------------------
 
@@ -414,14 +369,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_psp_price`, `product_desc`, `product_features`, `product_stock`, `product_keywords`, `product_label`, `status`) VALUES
-(5, 7, 5, 5, '2022-01-18 07:13:06', 'Denim Borg Lined Western Jacket', 'product-url-5', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-1-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-2-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0465-0064553-3-pdp_slider_l.jpg', 259, 100, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<p>This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description.</p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 0, 'Jackets', 'New', 'product'),
-(8, 7, 5, 7, '2022-01-18 05:13:39', 'SGPTBG Laynus Sebastian Swacket', 'product-ltt-swacket', 'lttstore_Swacket_TransparencyFile_1024x.png', 'lttstore_Swacket_TransparencyFile_1024x.png', 'lttstore_Swacket_TransparencyFile_1024x.png', 399, 349, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<p>lttstore.com</p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Swacket', 'New', 'product'),
+(5, 7, 5, 5, '2022-01-19 13:32:19', 'Denim Borg Lined Western Jacket', 'product-url-5', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-1-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-2-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0465-0064553-3-pdp_slider_l.jpg', 259, 100, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<p>This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description.</p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Jackets', 'Sale', 'product'),
+(8, 7, 5, 7, '2022-01-19 13:35:22', 'SGPTBG Laynus Sebastian Swacket', 'product-ltt-swacket', 'lttstore_Swacket_TransparencyFile_1024x.png', 'lttstore_Swacket_TransparencyFile_1024x.png', 'lttstore_Swacket_TransparencyFile_1024x.png', 249, 149, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<p>lttstore.com</p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 8, 'Swacket', 'Sale', 'bundle'),
 (9, 5, 4, 7, '2022-01-17 18:27:23', 'Long Sleeves Polo Shirt for Men', 'product-url-9', 'product-1.jpg', 'product-2.jpg', 'product-3.jpg', 50, 35, '\r\n\r\n\r\n\r\n<p>This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description. This is a sample product description.</p>\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n\r\n\r\n', 0, 'T-Shirt', 'Sale', 'product'),
-(12, 8, 5, 2, '2022-01-18 03:15:28', 'Ultraboost 21 PrimeBlue Shoes', 'ultraboost-21-adidas', 'Ultraboost_21.jpg', 'Ultraboost_21_2.jpg', 'Ultraboost_21_3.jpg', 150, 180, '\r\n\r\n\r\nThis product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 92% of the textile is Primeblue yarn. No virgin polyester.\r\n', '\r\n\r\n\r\nComfortable and responsive, Ultraboost became our first shoe to be as popular in streetwear style as it is in performance running.\r\n', 3, 'sneakers adidas ultraboost shoes', 'New', 'product'),
-(13, 9, 2, 3, '2022-01-18 03:15:38', 'Nike Sportswear Essential Collection', 'nike-sportswear-essen-col', 'nike-s.jpg', 'nike-s2.jpg', 'nike-s02.jpg', 90, 85, '\r\n\r\n\r\nThis is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text.\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nThis is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.\r\n\r\n\r\n', 2, 'nike sportswear', 'Featured', 'product'),
-(14, 5, 5, 7, '2022-01-18 03:15:43', 'Demo Product Title Name - Test', 'demo-product-showcase', 'Prod-placeholder.jpg', 'Prod-placeholder.jpg', 'Prod-placeholder.jpg', 120, 111, '\r\n\r\nThis is a demo. This is a demo. This is a demo. This is a demo.\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nThis is a demo.\r\n\r\n', 4, 'demo test product', 'Test', 'product'),
-(15, 5, 5, 8, '2022-01-18 05:04:23', 'Gildan 1800 Ultra Cotton Polo Shirt', 'cotton-polo-shirt', 'g18bulk.jpg', 'g18bulk2.jpg', 'g18bulk3.jpg', 900, 750, '\r\n\r\n\r\n\r\n\r\n\r\nTHIS IS A DEMO DESCRIPTION\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\nDEMO FEATURES\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 1, 'polo shirt', 'New', 'bundle'),
-(16, 8, 4, 3, '2022-01-18 05:34:12', 'Sample SGPTBG Product', 'sample-product', 'sample_image.jpg', 'sample_image.jpg', 'sample_image.jpg', 1500, 1200, '\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample onli\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample only\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 3, 'Sample', 'New', 'bundle');
+(12, 8, 5, 2, '2022-01-19 10:49:50', 'Ultraboost 21 PrimeBlue Shoes', 'ultraboost-21-adidas', 'Ultraboost_21.jpg', 'Ultraboost_21_2.jpg', 'Ultraboost_21_3.jpg', 150, 180, '\r\n\r\n\r\nThis product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 92% of the textile is Primeblue yarn. No virgin polyester.\r\n', '\r\n\r\n\r\nComfortable and responsive, Ultraboost became our first shoe to be as popular in streetwear style as it is in performance running.\r\n', -3, 'sneakers adidas ultraboost shoes', 'New', 'product'),
+(13, 9, 2, 3, '2022-01-19 11:24:50', 'Nike Sportswear Essential Collection', 'nike-sportswear-essen-col', 'nike-s.jpg', 'nike-s2.jpg', 'nike-s02.jpg', 90, 85, '\r\n\r\n\r\nThis is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text.\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nThis is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.This is a sample text. This is a sample text. This is a sample text.\r\n\r\n\r\n', -4, 'nike sportswear', 'Featured', 'product'),
+(14, 5, 5, 7, '2022-01-19 11:24:50', 'Demo Product Title Name - Test', 'demo-product-showcase', 'Prod-placeholder.jpg', 'Prod-placeholder.jpg', 'Prod-placeholder.jpg', 120, 111, '\r\n\r\nThis is a demo. This is a demo. This is a demo. This is a demo.\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nThis is a demo.\r\n\r\n', -2, 'demo test product', 'Test', 'product'),
+(15, 5, 5, 8, '2022-01-19 13:33:00', 'Gildan 1800 Ultra Cotton Polo Shirt', 'cotton-polo-shirt', 'g18bulk.jpg', 'g18bulk2.jpg', 'g18bulk3.jpg', 900, 750, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTHIS IS A DEMO DESCRIPTION\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nDEMO FEATURES\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 0, 'polo shirt', 'Sale', 'bundle'),
+(16, 8, 4, 3, '2022-01-19 13:35:22', 'Sample SGPTBG Product', 'sample-product', 'sample_image.jpg', 'sample_image.jpg', 'sample_image.jpg', 1500, 1200, '\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample onli\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample only\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 0, 'Sample', 'New', 'bundle'),
+(17, 6, 4, 2, '2022-01-19 05:06:40', 'Sample SGPTBG Product 2', 'sample-2', 'sample_image.jpg', 'sample_image.jpg', 'sample_image.jpg', 1800, 1500, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample Desc\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSample Features\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 0, 'Sample', 'New', 'product');
 
 -- --------------------------------------------------------
 
@@ -447,6 +403,28 @@ INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `p_cat_top`, `p_cat
 (7, 'jackets', 'yes', 'jacketicn.png'),
 (8, 'Sneakers', 'yes', 'sneakericn.png'),
 (9, 'Trousers', 'no', 'trousericn.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `returns`
+--
+
+CREATE TABLE `returns` (
+  `return_id` int(10) NOT NULL,
+  `invoice_no` int(10) NOT NULL,
+  `amount` int(10) NOT NULL,
+  `payment_mode` text NOT NULL,
+  `return_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`return_id`, `invoice_no`, `amount`, `payment_mode`, `return_date`) VALUES
+(12, 338364571, 298, 'Cash On Delivery (COD)', '2022-01-19 13:35:59'),
+(13, 338364571, 2400, 'Cash On Delivery (COD)', '2022-01-19 13:36:38');
 
 -- --------------------------------------------------------
 
@@ -516,7 +494,8 @@ INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `product_id`) VALUES
 (4, 3, 13),
 (5, 6, 15),
 (6, 7, 15),
-(7, 2, 9);
+(7, 2, 9),
+(8, 16, 15);
 
 --
 -- Indexes for dumped tables
@@ -619,6 +598,12 @@ ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`p_cat_id`);
 
 --
+-- Indexes for table `returns`
+--
+ALTER TABLE `returns`
+  ADD PRIMARY KEY (`return_id`);
+
+--
 -- Indexes for table `store`
 --
 ALTER TABLE `store`
@@ -680,19 +665,19 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customer_log_history`
 --
 ALTER TABLE `customer_log_history`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -710,25 +695,31 @@ ALTER TABLE `manufacturers`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
   MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `returns`
+--
+ALTER TABLE `returns`
+  MODIFY `return_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `store`
@@ -746,7 +737,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `wishlist_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
