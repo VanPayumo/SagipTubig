@@ -7,9 +7,6 @@
 
 <h1>Login</h1>
 
-<p class="lead" >Already our Customer</p>
-
-
 </center>
 
 <p class="text-muted" >
@@ -47,7 +44,7 @@
 
 <div class="text-center" ><!-- text-center Starts -->
 
-<button name="login" value="Login" class="btn btn-primary" >
+<button name="login" value="Login" class="btn nbtn-primary" >
 
 <i class="fa fa-sign-in" ></i> LOGIN
 
@@ -70,7 +67,7 @@
 
 </center><!-- center Ends -->
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div><!-- box Ends -->
 
 <?php

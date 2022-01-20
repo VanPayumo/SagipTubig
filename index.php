@@ -67,6 +67,7 @@ getPro();
       <br><br>
       <img src="images/divider.png" alt="divider">
       </center>
+</div>
 
 <img id="thunder" src="images/thunder.png">
 <img id="earth" src="images/earth.png" alt="earth">
@@ -124,9 +125,7 @@ getPro();
     This is some dummy text.This is some dummy text.This is some dummy text.
     This is some dummy text.This is some dummy text.This is some dummy text.
   </div>
----->
   
-</div>
 
     </div><!-- row Ends -->
 

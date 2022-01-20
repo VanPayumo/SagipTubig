@@ -25,12 +25,16 @@ include "includes/main.php";
 
 <div  id="content" ><!-- content Starts -->
 
-<div class="ncontainer" ><!-- container Starts -->
+<div class="container" ><!-- container Starts -->
 
 <div class="ncol-md-12" ><!-- col-md-12 Starts -->
 
-<div class="nbox" ><!-- box Starts -->
+<div class="ncontainer" ><!-- box Starts -->
+<center>
 
+<h1>Create Account</h1>
+
+</center>
 
 <form action="customer_register.php" method="post" enctype="multipart/form-data" ><!-- form Starts -->
 
@@ -171,7 +175,7 @@ include "includes/main.php";
 <i class="fa fa-user-md"></i> <b></b>REGISTER</b>
 
 </button>
-<br><br><br>
+<br><br><br><br><br><br><br>
 
 </div><!-- text-center Ends -->
 

@@ -60,7 +60,7 @@ if (!isset($_SESSION['customer_email'])) {
 
         <div class="logo">
           <a class="logo__link" href="../index.php">
-            <img class="logo__img" src="images/logo.png" alt="Avenue fashion logotype" width="237" height="19">
+            <img class="logo__img" src="../images/component.png" alt="SagipTubig Logo" width="80">
           </a>
         </div>
 
