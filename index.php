@@ -68,75 +68,79 @@ getPro();
       <img src="images/divider.png" alt="divider">
       </center>
 </div>
+  <div class="info">
+    <img id="thunder" src="images/thunder.png">
+    <img id="earth" src="images/earth.png" alt="earth">
+    <img id="trash" src="images/trash.png" alt="trash">
+    <img id="recy" src="images/recy.png" alt="recy">
+ 
 
-<img id="thunder" src="images/thunder.png">
-<img id="earth" src="images/earth.png" alt="earth">
-<img id="trash" src="images/trash.png" alt="trash">
+    <div class ="sub">
+        <div class ="idea">
+        THE BIG IDEA
+        </div>
 
-<img id="recy" src="images/recy.png" alt="recy">
+        <div class="mapping">
+        MAPPING 
+        </div>
 
-<div class ="sub">
-    <div class ="idea">
-    THE BIG IDEA
+        <div class="removal">
+        REMOVAL
+        </div>
+
+        <div class="recycle">
+        RECYCLING
+        </div>
     </div>
-
-    <div class="mapping">
-    MAPPING 
-    </div>
-
-    <div class="removal">
-    REMOVAL
-    </div>
-
-    <div class="recycle">
-    RECYCLING
-    </div>
-</div>
-
-
-  <div class="idea2">
-    &nbsp; &nbsp; This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-  </div>
-
-  <div class="map2">
-  &nbsp; &nbsp; This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-  </div>
-
-  <div class="remove2">
-    &nbsp; &nbsp; This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-  </div>
-
-  <div class="recy2">
-    &nbsp; &nbsp; This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-    This is some dummy text.This is some dummy text.This is some dummy text.
-  </div>
   
+   
+      <div class="idea2">
+        <br> This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+      </div>
+ 
+      <div class="map2">
+      <br> This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+      </div>
 
+      <div class="remove2">
+        <br> This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+      </div>
+
+      <div class="recy2">
+        <br> This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+        This is some dummy text.This is some dummy text.This is some dummy text.
+      </div>
+      <br> <br>
+  </div>  
+</div>
     </div><!-- row Ends -->
 
     </div><!-- container Ends -->
     <!-- FOOTER -->
+
+    </body>  
+
     <?php
 
 include "includes/footer.php";
 
 ?>
 
-</body>
+
 
 </html>

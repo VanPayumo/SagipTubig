@@ -1,8 +1,8 @@
 /* General Styles */
 
 body {
-    <<<<<<< Updated upstream=======font-family: "Montserrat", Helvetica, Arial, sans-serif;
-    >>>>>>>Stashed changes font-size: 14px;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
     background-color: #f0f0f0;
@@ -746,27 +746,49 @@ body {
 }
 
 #thunder {
-    position: relative;
-    left: 320px;
-    bottom: 950px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 300px;
+    top: 2350px;
+    text-align: center;
+  /*   position: relative;
+    left: 29%;
+    top: 108%;
+    bottom: 26%;
+    
+   bottom: 950px; */
 }
 
 #earth {
-    position: relative;
-    left: 470px;
-    bottom: 697px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 350px;
+    right: 0px;
+    top: 2590px;
+    text-align: center; 
 }
 
 #trash {
-    position: relative;
-    left: -30px;
-    bottom: 450px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 300px;
+    top: 2850px;
+    text-align: center;
 }
 
 #recy {
-    position: relative;
-    left: 120px;
-    bottom: 197px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 350px;
+    right: 0px;
+    top: 3090px;
+    text-align: center;
 }
 
 .sub {
@@ -780,35 +802,43 @@ body {
 }
 
 .idea {
-    position: relative;
-    width: 294px;
-    height: 33px;
-    left: 587px;
-    bottom: 1159px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 350px;
+    right: 0px;
+    top: 2305px;
+    text-align: center; 
 }
 
 .mapping {
-    position: relative;
-    width: 294px;
-    height: 33px;
-    left: 292px;
-    bottom: 950px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 250px;
+    top: 2555px;
+    text-align: center; 
 }
 
 .removal {
-    position: relative;
-    width: 294px;
-    height: 33px;
-    left: 567px;
-    bottom: 740px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 310px;
+    right: 0px;
+    top: 2795px;
+    text-align: center; 
 }
 
 .recycle {
-    position: relative;
-    width: 294px;
-    height: 33px;
-    left: 280px;
-    bottom: 510px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 270px;
+    top: 3055px;
+    text-align: center;
 }
 
 .idea2 {
@@ -816,9 +846,14 @@ body {
     height: 180px;
     background: #FFFDED;
     border-radius: 20px;
-    position: relative;
-    left: 650px;
-    bottom: 1250px;
+    
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 580px;
+    right: 0px;
+    top: 2350px;
+    text-align: center; 
 }
 
 .map2 {
@@ -826,9 +861,14 @@ body {
     height: 180px;
     background: #FFFDED;
     border-radius: 20px;
-    position: relative;
-    left: 100px;
-    bottom: 1190px;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 520px;
+    top: 2595px;
+    text-align: center; 
 }
 
 .remove2 {
@@ -836,9 +876,14 @@ body {
     height: 180px;
     background: #FFFDED;
     border-radius: 20px;
-    position: relative;
-    left: 650px;
-    bottom: 1120px;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 580px;
+    right: 0px;
+    top: 2850px;
+    text-align: center; 
 }
 
 .recy2 {
@@ -846,7 +891,11 @@ body {
     height: 180px;
     background: #FFFDED;
     border-radius: 20px;
-    position: relative;
-    left: 100px;
-    bottom: 1040px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 520px;
+    top: 3100px;
+    text-align: center; 
 }
