@@ -34,11 +34,15 @@
 
 <input type="password" class="nform-control" name="c_pass" required >
 
-<h4 align="center">
+<h5 align="center">
+<br>
+<a href="forgot_pass.php"> Forgot Password </a> 
+<br><br>
 
-<a href="forgot_pass.php"> Forgot Password </a>
 
-</h4>
+
+
+</h5>
 
 </div><!-- form-group Ends -->
 
@@ -60,7 +64,7 @@
 
 <a href="customer_register.php" >
 
-<h3>New ? Register Here</h3>
+<h5>👉New ? Register Here👈</h5>
 
 </a>
 

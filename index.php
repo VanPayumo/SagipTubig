@@ -18,7 +18,7 @@ include "includes/main.php";
       <h1>#SAGIP<b>TUBIG</b> </h1>
       <p>Take part in helping our marine species breath freely again by using our merch! </p>
       <br>
-        <p> <b> <i>THEY NEED OUR HELP! 🐠🐡 </i></b>  </p>
+        <p> <b> <i>THEY NEED OUR HELP! </i>🐠🐡 </b>  </p>
 
 
       <a href="shop.php" class="btn1"><i class='fa fa-shopping-cart'></i> Shop now</a>
