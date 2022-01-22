@@ -112,7 +112,7 @@ Product Url Example : navy-blue-t-shirt
 
 <select name="product_cat" class="form-control" >
 
-<option> Select  a Product Category </option>
+<option hidden="" disabled="disabled" selected="selected" value=""> Select  a Product Category </option>
 
 
 <?php

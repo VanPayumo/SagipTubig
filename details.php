@@ -401,9 +401,9 @@ if ($pro_stock <= 0) {
 
 <p class='price'>
 
-Regular Price : <del> $$pro_price </del><br>
+Regular Price : <del> ₱$pro_price </del><br>
 
-Bundle sale Price : $$pro_psp_price
+Bundle sale Price : ₱$pro_psp_price
 
 </p>
 
@@ -415,7 +415,7 @@ Bundle sale Price : $$pro_psp_price
 
 <p class='price'>
 
-Product Price : $$pro_price
+Product Price : ₱$pro_price
 
 </p>
 
@@ -433,9 +433,9 @@ Product Price : $$pro_price
 
 <p class='price'>
 
-Product Price : <del> $$pro_price </del><br>
+Product Price : <del> ₱$pro_price </del><br>
 
-Product sale Price : $$pro_psp_price
+Product sale Price : ₱$pro_psp_price
 
 </p>
 
@@ -447,7 +447,7 @@ Product sale Price : $$pro_psp_price
 
 <p class='price'>
 
-Product Price : $$pro_price
+Product Price : ₱$pro_price
 
 </p>
 

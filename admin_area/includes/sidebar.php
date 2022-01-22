@@ -385,23 +385,23 @@ if (!isset($_SESSION['admin_email'])) {
 <ul id="pay" class="collapse">
 
 <li>
-<a href="index.php?view_payments">View All Payments</a>
-</li>
-
-<li>
-<a href="index.php?view_payments_year"> View Payments (Year) </a>
-</li>
-
-<li>
-<a href="index.php?view_payments_month"> View Payments (Month) </a>
-</li>
-
-<li>
-<a href="index.php?view_payments_week"> View Payments (Week) </a>
+<a href="index.php?view_payments"> View All Payments</a>
 </li>
 
 <li>
 <a href="index.php?view_payments_day"> View Payments (Day) </a>
+</li>
+
+<li>
+    <a href="index.php?view_payments_week"> View Payments (Week) </a>
+</li>
+
+<li>
+    <a href="index.php?view_payments_month"> View Payments (Month) </a>
+</li>
+
+<li>
+<a href="index.php?view_payments_year"> View Payments (Year) </a>
 </li>
 
 

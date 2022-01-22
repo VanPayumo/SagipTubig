@@ -6,6 +6,14 @@ if (!isset($_SESSION['admin_email'])) {
 
 } else {
 
+    $admin_level = $_SESSION['admin_level'];
+
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
+
+    }
+
     ?>
 <!DOCTYPE html>
 
@@ -13,7 +21,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <head>
 
-<title> Insert Bundle </title>
+<title> Insert Products </title>
 
 
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -31,7 +39,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <li class="active">
 
-<i class="fa fa-dashboard"> </i> Dashboard / Insert Bundle
+<i class="fa fa-dashboard"> </i> Dashboard / Insert Products
 
 </li>
 
@@ -52,7 +60,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <h3 class="panel-title">
 
-<i class="fa fa-money fa-fw"></i> Insert Bundle
+<i class="fa fa-money fa-fw"></i> Insert Products
 
 </h3>
 
@@ -87,7 +95,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <p style="font-size:15px; font-weight:bold;">
 
-Bundle Url Example : navy-blue-t-shirt
+Product Url Example : navy-blue-t-shirt
 
 </p>
 
@@ -98,46 +106,13 @@ Bundle Url Example : navy-blue-t-shirt
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Select A Manufacturer </label>
-
-<div class="col-md-6" >
-
-<select class="form-control" name="manufacturer"><!-- select manufacturer Starts -->
-
-<option> Select A Manufacturer </option>
-
-<?php
-
-    $get_manufacturer = "select * from manufacturers";
-    $run_manufacturer = mysqli_query($con, $get_manufacturer);
-    while ($row_manufacturer = mysqli_fetch_array($run_manufacturer)) {
-        $manufacturer_id = $row_manufacturer['manufacturer_id'];
-        $manufacturer_title = $row_manufacturer['manufacturer_title'];
-
-        echo "<option value='$manufacturer_id'>
-$manufacturer_title
-</option>";
-
-    }
-
-    ?>
-
-</select><!-- select manufacturer Ends -->
-
-</div>
-
-</div><!-- form-group Ends -->
-
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label class="col-md-3 control-label" > Product Category </label>
+<label class="col-md-3 control-label" > Bundle Category </label>
 
 <div class="col-md-6" >
 
 <select name="product_cat" class="form-control" >
 
-<option> Select  a Product Category </option>
+<option hidden="" disabled="disabled" selected="selected" value=""> Select a Bundle Category </option>
 
 
 <?php
@@ -165,41 +140,6 @@ $manufacturer_title
 
 </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
-
-<label class="col-md-3 control-label" > Category </label>
-
-<div class="col-md-6" >
-
-
-<select name="cat" class="form-control" >
-
-<option> Select a Category </option>
-
-<?php
-
-    $get_cat = "select * from categories ";
-
-    $run_cat = mysqli_query($con, $get_cat);
-
-    while ($row_cat = mysqli_fetch_array($run_cat)) {
-
-        $cat_id = $row_cat['cat_id'];
-
-        $cat_title = $row_cat['cat_title'];
-
-        echo "<option value='$cat_id'>$cat_title</option>";
-
-    }
-
-    ?>
-
-
-</select>
-
-</div>
-
-</div><!-- form-group Ends -->
 
 <div class="form-group" ><!-- form-group Starts -->
 
@@ -332,12 +272,12 @@ $manufacturer_title
 
 </div><!-- features tab-pane fade in Ends -->
 
-
 </div><!-- tab-content Ends -->
 
 </div>
 
 </div><!-- form-group Ends -->
+
 
 <div class="form-group" ><!-- form-group Starts -->
 
@@ -345,7 +285,7 @@ $manufacturer_title
 
 <div class="col-md-6" >
 
-<input type="submit" name="submit" value="Insert Bundle" class="btn btn-primary form-control" >
+<input type="submit" name="submit" value="Insert Product" class="btn btn-primary form-control" >
 
 </div>
 
@@ -374,15 +314,13 @@ $manufacturer_title
 
         $product_title = $_POST['product_title'];
         $product_cat = $_POST['product_cat'];
-        $cat = $_POST['cat'];
-        $manufacturer_id = $_POST['manufacturer'];
         $product_price = $_POST['product_price'];
         $product_desc = $_POST['product_desc'];
         $product_keywords = $_POST['product_keywords'];
 
         $psp_price = $_POST['psp_price'];
 
-        $product_label = "New";
+        $product_label = $_POST['product_label'];
 
         $product_url = $_POST['product_url'];
 
@@ -404,15 +342,15 @@ $manufacturer_title
         move_uploaded_file($temp_name2, "product_images/$product_img2");
         move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-        $insert_product = "insert into products (p_cat_id,cat_id,manufacturer_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_psp_price,product_desc,product_features,product_stock,product_keywords,product_label,status) values ('$product_cat','$cat','$manufacturer_id',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$psp_price','$product_desc','$product_features',$product_stock,'$product_keywords','$product_label','$status')";
+        $insert_product = "insert into products (p_cat_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_psp_price,product_desc,product_features,product_stock,product_keywords,product_label,status) values ('$product_cat',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$psp_price','$product_desc','$product_features','$product_stock','$product_keywords','$product_label','$status')";
 
         $run_product = mysqli_query($con, $insert_product);
 
         if ($run_product) {
 
-            echo "<script>alert('Bundle has been inserted successfully')</script>";
+            echo "<script>alert('Product has been inserted successfully')</script>";
 
-            echo "<script>window.open('index.php?view_bundles','_self')</script>";
+            echo "<script>window.open('index.php?view_products','_self')</script>";
 
         }
 

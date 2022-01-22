@@ -17,7 +17,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Payments (Yearly)
+<i class="fa fa-dashboard"></i> Dashboard / View Payments (Annual)
 
 </li>
 
@@ -38,13 +38,15 @@ if (!isset($_SESSION['admin_email'])) {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"> </i> View Payments (Yearly)
+<i class="fa fa-money fa-fw"> </i> View Payments (Annual)
 
 </h3><!-- panel-title Ends -->
 
 </div><!-- panel-heading Ends -->
 
 <div class="panel-body"><!-- panel-body Starts -->
+
+<form method="post" action="export_annual_payments.php"><input type="submit" class="btn btn-primary" name="export_annual_payments" value="Export CSV" /></form><br>
 
 <div class="table-responsive"><!-- table-responsive Starts -->
 
@@ -104,7 +106,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <td bgcolor="yellow" ><?php echo $invoice_no; ?></td>
 
-<td>$<?php echo $amount; ?></td>
+<td>₱<?php echo $amount; ?></td>
 
 <td><?php echo $payment_mode; ?></td>
 

@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin_email'])) {
 
     $row_p_cat = mysqli_fetch_array($run_p_cat);
 
-    $cat_title = $row_cat['cat_title'];
+    $p_cat_title = $row_p_cat['p_cat_title'];
 
     ?>
 
@@ -167,53 +167,13 @@ Product Url Example : navy-blue-t-shirt
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Select A Manufacturer </label>
-
-<div class="col-md-6" >
-
-<select name="manufacturer" class="form-control">
-
-<option value="<?php echo $manufacturer_id; ?>">
-<?php echo $manufacturer_title; ?>
-</option>
-
-<?php
-
-    $get_manufacturer = "select * from manufacturers";
-
-    $run_manufacturer = mysqli_query($con, $get_manufacturer);
-
-    while ($row_manfacturer = mysqli_fetch_array($run_manufacturer)) {
-
-        $manufacturer_id = $row_manfacturer['manufacturer_id'];
-
-        $manufacturer_title = $row_manfacturer['manufacturer_title'];
-
-        echo "
-<option value='$manufacturer_id'>
-$manufacturer_title
-</option>
-";
-
-    }
-
-    ?>
-
-</select>
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
 <label class="col-md-3 control-label" > Product Category </label>
 
 <div class="col-md-6" >
 
 <select name="product_cat" class="form-control" >
 
-<option value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
+<option hidden="" disabled="disabled" selected="selected" value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
 
 
 <?php
@@ -229,42 +189,6 @@ $manufacturer_title
         $p_cat_title = $row_p_cats['p_cat_title'];
 
         echo "<option value='$p_cat_id' >$p_cat_title</option>";
-
-    }
-
-    ?>
-
-
-</select>
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label class="col-md-3 control-label" > Category </label>
-
-<div class="col-md-6" >
-
-
-<select name="cat" class="form-control" >
-
-<option value="<?php echo $cat; ?>" > <?php echo $cat_title; ?> </option>
-
-<?php
-
-    $get_cat = "select * from categories ";
-
-    $run_cat = mysqli_query($con, $get_cat);
-
-    while ($row_cat = mysqli_fetch_array($run_cat)) {
-
-        $cat_id = $row_cat['cat_id'];
-
-        $cat_title = $row_cat['cat_title'];
-
-        echo "<option value='$cat_id'>$cat_title</option>";
 
     }
 
@@ -498,9 +422,12 @@ $manufacturer_title
     if (isset($_POST['update'])) {
 
         $product_title = $_POST['product_title'];
-        $product_cat = $_POST['product_cat'];
+        if (!isset($_POST['product_cat'])) {
+            $product_cat = $p_cat_id;
+        } else {
+            $product_cat = $_POST['product_cat'];
+        }
         $status = $_POST['status'];
-        $cat = $_POST['cat'];
         $manufacturer_id = $_POST['manufacturer'];
         $product_price = $_POST['product_price'];
         $product_desc = $_POST['product_desc'];

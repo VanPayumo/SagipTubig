@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 03:04 PM
+-- Generation Time: Jan 22, 2022 at 07:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -171,7 +171,10 @@ CREATE TABLE `customer_log_history` (
 INSERT INTO `customer_log_history` (`log_id`, `cid`, `c_email`, `log_time`, `activity`) VALUES
 (1, 1, 'c1@mail.com', '2022-01-22 11:22:27', 'Registered'),
 (2, 1, 'c1@mail.com', '2022-01-22 13:45:44', 'Logged in'),
-(3, 1, 'c1@mail.com', '2022-01-22 13:51:11', 'Logged in');
+(3, 1, 'c1@mail.com', '2022-01-22 13:51:11', 'Logged in'),
+(4, 1, 'c1@mail.com', '2022-01-22 14:35:27', 'Logged in'),
+(5, 1, 'c1@mail.com', '2022-01-22 18:02:51', 'Logged in'),
+(6, 1, 'c1@mail.com', '2022-01-22 18:18:35', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -189,6 +192,17 @@ CREATE TABLE `customer_orders` (
   `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `order_status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_orders`
+--
+
+INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
+(1, 1, 1500, 503609498, 1, 'Small', '2022-01-22 14:22:15', 'Returned'),
+(2, 1, 600, 524728322, 2, 'Medium', '2022-01-22 14:23:31', 'Complete'),
+(3, 1, 1000, 1684061789, 1, ' Small ', '2022-01-22 18:03:16', 'Complete'),
+(4, 1, 498, 1684061789, 2, 'Medium', '2022-01-22 18:03:16', 'pending'),
+(5, 1, 750, 1684061789, 1, 'Medium', '2022-01-22 18:03:16', 'pending');
 
 -- --------------------------------------------------------
 
@@ -222,11 +236,18 @@ CREATE TABLE `payments` (
   `invoice_no` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
   `payment_mode` text NOT NULL,
-  `ref_no` int(10) NOT NULL,
-  `code` int(10) NOT NULL,
   `payment_date` datetime NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Paid'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`payment_id`, `order_id`, `invoice_no`, `amount`, `payment_mode`, `payment_date`, `status`) VALUES
+(1, 1, 503609498, 1500, 'Cash On Delivery (COD)', '2022-01-22 22:22:41', 'Returned'),
+(2, 2, 524728322, 600, 'Cash On Delivery (COD)', '2022-01-22 22:23:42', 'Paid'),
+(3, 3, 1684061789, 1000, 'Cash On Delivery (COD)', '2022-01-23 02:03:25', 'Paid');
 
 -- --------------------------------------------------------
 
@@ -243,6 +264,17 @@ CREATE TABLE `pending_orders` (
   `size` text NOT NULL,
   `order_status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pending_orders`
+--
+
+INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`) VALUES
+(1, 1, 503609498, '1', 1, 'Small', 'Returned'),
+(2, 1, 524728322, '2', 2, 'Medium', 'Complete'),
+(3, 1, 1684061789, '1', 1, ' Small ', 'Complete'),
+(4, 1, 1684061789, '2', 2, 'Medium', 'pending'),
+(5, 1, 1684061789, '3', 1, 'Medium', 'pending');
 
 -- --------------------------------------------------------
 
@@ -276,11 +308,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_psp_price`, `product_desc`, `product_features`, `product_stock`, `product_keywords`, `product_label`, `status`) VALUES
-(1, 7, 0, 0, '2022-01-22 11:41:16', 'Sagip Jacket', 'sagip-jacket', 'SagipJacket1.png', 'SagipJacket1.png', 'SagipJacket1.png', 1500, 1000, 'TBD', 'TBD', 10, 'Sagip Jacket', 'New', 'product'),
-(2, 5, 0, 0, '2022-01-22 11:54:14', 'Sagip Pad', 'sagip-pad', 'SagipPad.png', 'SagipPad3.png', 'SagipPad2.png', 300, 249, '\r\n\r\nTBD\r\n\r\n', '\r\n\r\nTBD\r\n\r\n', 10, 'Sagip Pad', 'New', 'product'),
-(3, 6, 0, 0, '2022-01-22 11:58:17', 'Sagip Sweatshirt', 'sagip-sweatshirt', 'Sagip Sweatshirt 2 .png', 'Sagip Sweatshirt 1.png', 'Sagip Sweatshirt 2 .png', 1500, 1250, '\r\n\r\n\r\nTBD\r\n\r\n\r\n', '\r\n\r\n\r\n\r\nTBD\r\n\r\n', 10, 'Sweatshirt', 'New', 'product'),
-(4, 4, 0, 0, '2022-01-22 12:02:39', 'Sagip Bag', 'sagip-bag', 'SagipPad3.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n', 10, 'Bag', 'New', 'product'),
-(5, 4, 0, 0, '2022-01-22 12:01:35', 'Sagip Tumbler', 'sagip-tumbler', 'Sagip Water 1.png', 'Sagip Water 2.png', 'Sagip Water 1.png', 5000, 4000, '\r\n\r\nTBD', '\r\nTBD\r\n', 10, 'Tumbler', 'New', 'product');
+(1, 7, 0, 0, '2022-01-22 18:03:16', 'Sagip Jacket', 'sagip-jacket', 'SagipJacket1.png', 'SagipJacket1.png', 'SagipJacket1.png', 1500, 1000, '\r\nTBD\r\n', '\r\nTBD\r\n', 8, 'Sagip Jacket', 'New', 'bundle'),
+(2, 5, 0, 0, '2022-01-22 18:03:16', 'Sagip Pad', 'sagip-pad', 'SagipPad.png', 'SagipPad3.png', 'SagipPad2.png', 300, 249, '\r\n\r\n\r\nTBD\r\n\r\n\r\n', '\r\n\r\n\r\nTBD\r\n\r\n\r\n', 6, 'Sagip Pad', 'New', 'bundle'),
+(3, 9, 0, 0, '2022-01-22 18:03:16', 'Sagip Sweatshirt', 'sagip-sweatshirt', 'Sagip Sweatshirt 2 .png', 'Sagip Sweatshirt 1.png', 'Sagip Sweatshirt 2 .png', 1500, 750, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 9, 'Sweatshirt', 'Sale', 'product'),
+(4, 9, 0, 0, '2022-01-22 16:30:17', 'Sagip Bag', 'sagip-bag', 'SagipPad3.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Bag', 'New', 'product'),
+(5, 9, 0, 0, '2022-01-22 16:49:44', 'Sagip Tumbler', 'sagip-tumbler', 'Sagip Water 1.png', 'Sagip Water 2.png', 'Sagip Water 1.png', 5000, 4000, 'TBD\r\n\r\n', '\r\n\r\n\r\nTBD\r\n\r\n\r\n', 10, 'Tumbler', 'New', 'product');
 
 -- --------------------------------------------------------
 
@@ -319,6 +351,13 @@ CREATE TABLE `returns` (
   `payment_mode` text NOT NULL,
   `return_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`return_id`, `invoice_no`, `amount`, `payment_mode`, `return_date`) VALUES
+(1, 503609498, 1500, 'Cash On Delivery (COD)', '2022-01-22 14:23:56');
 
 -- --------------------------------------------------------
 
@@ -370,7 +409,8 @@ INSERT INTO `user_log_history` (`log_id`, `u_id`, `u_email`, `log_time`, `activi
 (7, 6, 'accesslevel2@gmail.com', '2022-01-22 11:18:52', 'Registered'),
 (8, 1, 'payumo.van657@gmail.com', '2022-01-22 13:46:25', 'Logged in'),
 (9, 6, 'accesslevel2@gmail.com', '2022-01-22 13:47:02', 'Logged in'),
-(10, 3, 'mich.cortez@gmail.com', '2022-01-22 13:49:23', 'Logged in');
+(10, 3, 'mich.cortez@gmail.com', '2022-01-22 13:49:23', 'Logged in'),
+(11, 1, 'payumo.van657@gmail.com', '2022-01-22 14:19:06', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -528,13 +568,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_log_history`
 --
 ALTER TABLE `customer_log_history`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -546,13 +586,13 @@ ALTER TABLE `enquiry_types`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -570,7 +610,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT for table `returns`
 --
 ALTER TABLE `returns`
-  MODIFY `return_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `return_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `terms`
@@ -582,7 +622,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `user_log_history`
 --
 ALTER TABLE `user_log_history`
-  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

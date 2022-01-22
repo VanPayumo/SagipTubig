@@ -108,7 +108,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <td><img src="product_images/<?php echo $pro_image; ?>" width="60" height="60"></td>
 
-<td>$ <?php echo $pro_price; ?></td>
+<td>₱ <?php echo $pro_price; ?></td>
 
 <td> <?php if ($pro_stock < 0) {echo $pro_stock = 0;} else {echo $pro_stock;}?> </td>
 

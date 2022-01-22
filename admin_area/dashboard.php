@@ -231,7 +231,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         <div class="col-xs-3"><!-- col-xs-3 Starts -->
 
-        <i class="fa fa-dollar fa-5x"> </i>
+        <i class="fa fa-money fa-5x"> </i>
 
         </div><!-- col-xs-3 Ends -->
 
