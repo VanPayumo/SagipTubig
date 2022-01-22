@@ -114,6 +114,27 @@ body {
     border-color: #577BC1
 }
 
+.btn-danger {
+    color: rgb(255, 255, 255);
+    background-color: #577BC1;
+    border-color: #577BC1;
+    font-family: Montserrat;
+}
+
+.btn-warning {
+    color: rgb(255, 255, 255);
+    background-color: #FF8A00;
+    border-color: #FF8A00;
+    font-family: Montserrat;
+}
+
+.btn-info {
+    color: rgb(255, 255, 255);
+    background-color: #7D9BFF;
+    border-color: #7D9BFF;
+    font-family: Montserrat;
+}
+
 #search .navbar-form {
     float: right;
 }
@@ -400,6 +421,7 @@ body {
 
 #content #productMain {
     margin-bottom: 30px;
+    color: #000957;
 }
 
 #content #productMain .price {
@@ -417,6 +439,7 @@ body {
     display: block;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     border: solid 2px transparent;
+    border-radius: 10px;
 }
 
 #content .headline {

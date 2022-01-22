@@ -27,7 +27,7 @@ include "includes/main.php";
 
 <div class="col-md-9" id="cart" ><!-- col-md-9 Starts -->
 
-<div class="box" ><!-- box Starts -->
+<div class="box"><!-- box Starts -->
 
 <form action="cart.php" method="post" enctype="multipart-form-data" ><!-- form Starts -->
 

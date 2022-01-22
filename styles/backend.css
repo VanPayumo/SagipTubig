@@ -423,7 +423,7 @@ img {
 .page-header__topline {
     height: 45px;
     background: rgba(160, 185, 235, 0.56);
-    padding-left: 10em;
+    padding-left: 14em;
     padding-right: 10em;
 }
 
@@ -487,7 +487,7 @@ img {
 
 .page-header__bottomline {
     background: radial-gradient( 95.87% 96.9% at 14.59% 13.39%, rgba(159, 204, 254, 0.5) 0%, rgba(2, 63, 130, 0) 100%), radial-gradient( 152.75% 154.39% at 54.09% 100.99%, rgba(0, 255, 255, 0.5) 0%, rgba(0, 239, 239, 0) 67.99%), radial-gradient( 70.21% 102.49% at 28.56% 30.11%, rgba(51, 6, 181, 0.5) 0%, rgba(21, 27, 171, 0) 100%), radial-gradient( 41.16% 97.03% at 67.31% 62.17%, rgba(158, 13, 152, 0.5) 14.37%, rgba(160, 13, 155, 0) 100%), radial-gradient( 72.65% 184.87% at 98.65% 71.44%, #ffe600 9.17%, rgba(240, 220, 39, 0) 100%), radial-gradient( 68.14% 70.91% at 77.39% 17.92%, rgba(252, 0, 0, 0.9) 41.98%, rgba(255, 98, 51, 0) 100%), rgba(0, 41, 255, 0.6);
-    padding-left: 10em;
+    padding-left: 14em;
     padding-right: 15em;
     height: 5em;
     padding-bottom: 7em;
@@ -798,7 +798,7 @@ img {
 .page-footer__subline {
     padding: 15px;
     font-size: 13px;
-    color: white;
+    color: #fff;
     background: radial-gradient( 62.5% 90.25% at 50.48% 57.15%, rgba(255, 73, 226, 0.4) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient( 64.34% 244.03% at 14.58% 42.23%, rgba(52, 76, 183, 0.4) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient( 74.25% 234.59% at 97.04% 30.49%, rgba(255, 0, 0, 0.4) 0%, rgba(189, 16, 16, 0) 100%), radial-gradient( 59.84% 396.06% at 98.04% 42.23%, rgba(252, 153, 124, 0.5) 0%, rgba(0, 0, 0, 0) 100%), #59a3ff;
 }
 

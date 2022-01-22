@@ -77,7 +77,7 @@ if ($check_product == 0) {
   </main>
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div class="container" id="ncontainer" ><!-- container Starts -->
 
 
 
