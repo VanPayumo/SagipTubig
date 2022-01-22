@@ -2,10 +2,10 @@
 
 session_start();
 
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
-include("includes/main.php");
+include "includes/db.php";
+include "includes/header.php";
+include "functions/functions.php";
+include "includes/main.php";
 
 ?>
 
@@ -15,10 +15,25 @@ include("includes/main.php");
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">Contact</span> Us
+      <?php
+
+$get_contact_us = "select * from contact_us";
+
+$run_conatct_us = mysqli_query($con, $get_contact_us);
+
+$row_conatct_us = mysqli_fetch_array($run_conatct_us);
+
+$contact_heading = $row_conatct_us['contact_heading'];
+
+$contact_desc = $row_conatct_us['contact_desc'];
+
+$contact_email = $row_conatct_us['contact_email'];
+
+?>
+        <span class="nero__bold"><?php echo $contact_heading; ?></span>
       </div>
       <p class="nero__text">
-      If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.
+      <?php echo $contact_desc; ?>
       </p>
     </div>
   </main>
@@ -31,27 +46,7 @@ include("includes/main.php");
 
 <center><!-- center Starts -->
 
-<?php
-
-$get_contact_us = "select * from contact_us";
-
-$run_conatct_us = mysqli_query($con,$get_contact_us);
-
-$row_conatct_us = mysqli_fetch_array($run_conatct_us);
-
-$contact_heading = $row_conatct_us['contact_heading'];
-
-$contact_desc = $row_conatct_us['contact_desc'];
-
-$contact_email = $row_conatct_us['contact_email'];
-
-?>
-
-<h2> <?php echo $contact_heading; ?> </h2>
-
-<p class="text-muted" >
-<?php echo $contact_desc; ?>
-</p>
+<h2></h2>
 
 </center><!-- center Ends -->
 
@@ -105,13 +100,13 @@ $contact_email = $row_conatct_us['contact_email'];
 
 $get_enquiry_types = "select * from enquiry_types";
 
-$run_enquiry_types = mysqli_query($con,$get_enquiry_types);
+$run_enquiry_types = mysqli_query($con, $get_enquiry_types);
 
-while($row_enquiry_types = mysqli_fetch_array($run_enquiry_types)){
+while ($row_enquiry_types = mysqli_fetch_array($run_enquiry_types)) {
 
-$enquiry_title = $row_enquiry_types['enquiry_title'];
+    $enquiry_title = $row_enquiry_types['enquiry_title'];
 
-echo "<option> $enquiry_title </option>";
+    echo "<option> $enquiry_title </option>";
 
 }
 
@@ -136,21 +131,21 @@ echo "<option> $enquiry_title </option>";
 
 <?php
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
 // Admin receives email through this code
 
-$sender_name = $_POST['name'];
+    $sender_name = $_POST['name'];
 
-$sender_email = $_POST['email'];
+    $sender_email = $_POST['email'];
 
-$sender_subject = $_POST['subject'];
+    $sender_subject = $_POST['subject'];
 
-$sender_message = $_POST['message'];
+    $sender_message = $_POST['message'];
 
-$enquiry_type = $_POST['enquiry_type'];
+    $enquiry_type = $_POST['enquiry_type'];
 
-$new_message = "
+    $new_message = "
 
 <h1> This Message Has Been Sent By $sender_name </h1>
 
@@ -164,28 +159,27 @@ $new_message = "
 
 ";
 
-$headers = "From: $sender_email \r\n";
+    $headers = "From: $sender_email \r\n";
 
-$headers .= "Content-type: text/html\r\n";
+    $headers .= "Content-type: text/html\r\n";
 
-mail($contact_email,$sender_subject,$new_message,$headers);
+    mail($contact_email, $sender_subject, $new_message, $headers);
 
 // Send email to sender through this code
 
-$email = $_POST['email'];
+    $email = $_POST['email'];
 
-$subject = "Welcome to my website";
+    $subject = "Welcome to my website";
 
-$msg = "I shall get you soon, thanks for sending us email";
+    $msg = "I shall get you soon, thanks for sending us email";
 
-$from = "sad.ahmed22224@gmail.com";
+    $from = "sad.ahmed22224@gmail.com";
 
-mail($email,$subject,$msg,$from);
+    mail($email, $subject, $msg, $from);
 
-echo "<h2 align='center'>Your message has been sent successfully</h2>";
+    echo "<h2 align='center'>Your message has been sent successfully</h2>";
 
 }
-
 
 ?>
 
@@ -202,7 +196,7 @@ echo "<h2 align='center'>Your message has been sent successfully</h2>";
 
 <?php
 
-include("includes/footer.php");
+include "includes/footer.php";
 
 ?>
 

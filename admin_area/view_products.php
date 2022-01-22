@@ -57,6 +57,7 @@ if (!isset($_SESSION['admin_email'])) {
 <th>Title</th>
 <th>Image</th>
 <th>Price</th>
+<th>Stocks</th>
 <th>Sold</th>
 <th>Keywords</th>
 <th>Last Modified</th>
@@ -89,6 +90,8 @@ if (!isset($_SESSION['admin_email'])) {
 
         $pro_price = $row_pro['product_price'];
 
+        $pro_stock = $row_pro['product_stock'];
+
         $pro_keywords = $row_pro['product_keywords'];
 
         $pro_date = $row_pro['date'];
@@ -107,10 +110,12 @@ if (!isset($_SESSION['admin_email'])) {
 
 <td>$ <?php echo $pro_price; ?></td>
 
+<td> <?php if ($pro_stock < 0) {echo $pro_stock = 0;} else {echo $pro_stock;}?> </td>
+
 <td>
 <?php
 
-        $get_sold = "select * from pending_orders where product_id='$pro_id'";
+        $get_sold = "select * from pending_orders where product_id='$pro_id' and (order_status='pending' or order_status='Complete')";
         $run_sold = mysqli_query($con, $get_sold);
         $count = mysqli_num_rows($run_sold);
         echo $count;

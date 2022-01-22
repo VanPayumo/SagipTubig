@@ -66,6 +66,11 @@ if (!isset($_SESSION['admin_email'])) {
     $run_total_earnings = mysqli_query($con, $get_total_earnings);
     $row = mysqli_fetch_assoc($run_total_earnings);
     $count_total_earnings = $row['Total'];
+    if ($count_total_earnings == 0) {
+        $count_total_earnings = 0;
+    } else {
+        $count_total_earnings = $row['Total'];
+    }
 
     $get_coupons = "SELECT * FROM coupons";
     $run_coupons = mysqli_query($con, $get_coupons);
@@ -240,6 +245,28 @@ if (!isset($_SESSION['admin_email'])) {
 
     }
 
+    if (isset($_GET['view_payments_year'])) {
+
+        include "view_payments_year.php";
+
+    }
+
+    if (isset($_GET['view_payments_month'])) {
+
+        include "view_payments_month.php";
+
+    }
+    if (isset($_GET['view_payments_week'])) {
+
+        include "view_payments_week.php";
+
+    }
+    if (isset($_GET['view_payments_day'])) {
+
+        include "view_payments_day.php";
+
+    }
+
     if (isset($_GET['payment_delete'])) {
 
         include "payment_delete.php";
@@ -255,6 +282,18 @@ if (!isset($_SESSION['admin_email'])) {
     if (isset($_GET['view_users'])) {
 
         include "view_users.php";
+
+    }
+
+    if (isset($_GET['user_history'])) {
+
+        include "user_history.php";
+
+    }
+
+    if (isset($_GET['customer_history'])) {
+
+        include "customer_history.php";
 
     }
 

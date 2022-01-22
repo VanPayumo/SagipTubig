@@ -5,7 +5,13 @@ if (!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
 
 } else {
-    $hideme = 'display:none;'
+    $admin_level = $_SESSION['admin_level'];
+
+    if ($admin_level == 2) {
+        $hideme = 'display:none;';
+    } else {
+        $hideme = '';
+    }
 
     ?>
 
@@ -241,7 +247,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         </div><!-- panel-heading Ends -->
 
-        <a href="index.php?view_orders">
+        <a href="index.php?view_payments">
 
         <div class="panel-footer"><!-- panel-footer Starts -->
 
@@ -378,7 +384,7 @@ if (!isset($_SESSION['admin_email'])) {
 
                     </div><!-- panel-heading Ends -->
 
-                    <a href="index.php?view_orders">
+                    <a href="index.php?view_coupons">
 
                     <div class="panel-footer"><!-- panel-footer Starts -->
 

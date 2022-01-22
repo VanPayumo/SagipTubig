@@ -4,11 +4,16 @@ if (!isset($_SESSION['admin_email'])) {
 
     echo "<script>window.open('login.php','_self')</script>";
 
-    $hideme = '';
-
 } else {
 
-    $hideme = 'display:none;';
+    $admin_level = $_SESSION['admin_level'];
+
+    if ($admin_level == 2) {
+        $hideme = 'display:none;';
+    } else {
+        $hideme = '';
+    }
+
     ?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" ><!-- navbar navbar-inverse navbar-fixed-top Starts -->
@@ -148,7 +153,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="products" class="collapse">
 
-<li>
+<li style="<?php echo $hideme; ?>">
 <a href="index.php?insert_product"> Insert Products </a>
 </li>
 
@@ -173,7 +178,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="bundles" class="collapse">
 
-<li>
+<li> <!-- No Need -->
 <a href="index.php?insert_bundle"> Insert Bundle </a>
 </li>
 
@@ -185,7 +190,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 </li><!-- Bundles Li Ends --->
 
-<li><!-- relations li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- relations li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#relations"><!-- anchor Starts -->
 
@@ -217,7 +222,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 
 
-<li><!-- manufacturer li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- manufacturer li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#manufacturers"><!-- anchor Starts -->
 
@@ -298,7 +303,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 
 
-<li><!-- store section li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- store section li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#store">
 
@@ -323,7 +328,7 @@ if (!isset($_SESSION['admin_email'])) {
 </li><!-- store section li Ends -->
 
 
-<li><!-- contact us li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- contact us li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#contact_us"><!-- anchor Starts -->
 
@@ -357,7 +362,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 </li><!-- contact us li Ends -->
 
-<li><!-- about us li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- about us li Starts -->
 
 <a href="index.php?edit_about_us">
 
@@ -368,7 +373,7 @@ if (!isset($_SESSION['admin_email'])) {
 </li><!-- about us li Ends -->
 
 
-<li><!-- Coupons Section li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- Coupons Section li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#coupons"><!-- anchor Starts -->
 
@@ -394,7 +399,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 
 
-<li><!-- terms li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- terms li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#terms" ><!-- anchor Starts -->
 
@@ -420,16 +425,31 @@ if (!isset($_SESSION['admin_email'])) {
 </li><!-- terms li Ends -->
 
 
+<li><!-- li Starts -->
 
-<li>
+<a href="#" data-toggle="collapse" data-target="#customer">
 
-<a href="index.php?view_customers">
+<i class="fa fa-fw fa-user"></i> Customers
 
-<i class="fa fa-fw fa-edit"></i> View Customers
+<i class="fa fa-fw fa-caret-down"></i>
+
 
 </a>
 
+<ul id="customer" class="collapse">
+
+<li>
+<a href="index.php?view_customers">View Customers</a>
 </li>
+
+<li>
+<a href="index.php?customer_history"> Customer Log History </a>
+</li>
+
+
+</ul>
+
+</li><!-- li Ends -->
 
 <li>
 
@@ -441,21 +461,48 @@ if (!isset($_SESSION['admin_email'])) {
 
 </li>
 
-<li>
+<li><!-- li Starts -->
 
-<a href="index.php?view_payments">
+<a href="#" data-toggle="collapse" data-target="#pay">
 
 <i class="fa fa-fw fa-pencil"></i> View Payments
 
+<i class="fa fa-fw fa-caret-down"></i>
+
 </a>
 
+<ul id="pay" class="collapse">
+
+<li>
+<a href="index.php?view_payments">View All Payments</a>
 </li>
+
+<li>
+<a href="index.php?view_payments_year"> View Payments (Year) </a>
+</li>
+
+<li>
+<a href="index.php?view_payments_month"> View Payments (Month) </a>
+</li>
+
+<li>
+<a href="index.php?view_payments_week"> View Payments (Week) </a>
+</li>
+
+<li>
+<a href="index.php?view_payments_day"> View Payments (Day) </a>
+</li>
+
+
+</ul>
+
+</li><!-- li Ends -->
 
 <li><!-- li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#users">
 
-<i class="fa fa-fw fa-gear"></i> Users
+<i class="fa fa-fw fa-gear"></i> User
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -464,12 +511,16 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="users" class="collapse">
 
-<li>
+<li style="<?php echo $hideme; ?>">
 <a href="index.php?insert_user"> Insert User </a>
 </li>
 
-<li>
+<li style="<?php echo $hideme; ?>">
 <a href="index.php?view_users"> View Users </a>
+</li>
+
+<li>
+<a href="index.php?user_history"> User Log History </a>
 </li>
 
 <li>
@@ -484,7 +535,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <a href="logout.php">
 
-<i class="fa fa-fw fa-power-off"></i> Log Out <?php echo $_SESSION['admin_contact'] ?>
+<i class="fa fa-fw fa-power-off"></i> Log Out
 
 </a>
 

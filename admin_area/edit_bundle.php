@@ -58,6 +58,10 @@ if (!isset($_SESSION['admin_email'])) {
 
         $p_stock = $row_edit['product_stock'];
 
+        if ($p_stock < 0) {
+            $p_stock = 0;
+        } else { $p_stock = $p_stock;}
+
     }
 
     $get_manufacturer = "select * from manufacturers where manufacturer_id='$m_id'";
@@ -467,15 +471,15 @@ $manufacturer_title
 
         $product_title = $_POST['product_title'];
         $product_cat = $_POST['product_cat'];
-        $cat = $_POST['cat'];
-        $manufacturer_id = $_POST['manufacturer'];
+        // $cat = $_POST['cat'];
+        // $manufacturer_id = $_POST['manufacturer'];
         $product_price = $_POST['product_price'];
         $product_desc = $_POST['product_desc'];
         $product_keywords = $_POST['product_keywords'];
 
         $psp_price = $_POST['psp_price'];
 
-        $product_label = $_POST['product_label'];
+        // $product_label = $_POST['product_label'];
 
         $product_url = $_POST['product_url'];
 
@@ -515,7 +519,7 @@ $manufacturer_title
         move_uploaded_file($temp_name2, "product_images/$product_img2");
         move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-        $update_product = "update products set p_cat_id='$product_cat',cat_id='$cat',manufacturer_id='$manufacturer_id',date=NOW(),product_title='$product_title',product_url='$product_url',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img3',product_price='$product_price',product_psp_price='$psp_price',product_desc='$product_desc',product_features='$product_features',product_stock=$product_stock,product_keywords='$product_keywords',product_label='$product_label',status='$status' where product_id='$p_id'";
+        $update_product = "update products set p_cat_id='$product_cat',cat_id='$cat',manufacturer_id='$manufacturer_id',date=NOW(),product_title='$product_title',product_url='$product_url',product_img1='$product_img1',product_img2='$product_img2',product_img3='$product_img3',product_price='$product_price',product_psp_price='$psp_price',product_desc='$product_desc',product_features='$product_features',product_stock=$product_stock,product_keywords='$product_keywords',status='$status' where product_id='$p_id'";
 
         $run_product = mysqli_query($con, $update_product);
 

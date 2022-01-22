@@ -61,7 +61,7 @@ getPro();
         <h1> <b>HOW #</b>SAGIP<b>TUBIG WORKS</b><h1>
       </div>
       <img id="wave2" src="images/wave.png" alt="wave">
-      <br> 
+      <br>
       <center>
       <img src="images/ship.png" alt="ship">
       <br><br>
@@ -73,7 +73,7 @@ getPro();
     <img id="earth" src="images/earth.png" alt="earth">
     <img id="trash" src="images/trash.png" alt="trash">
     <img id="recy" src="images/recy.png" alt="recy">
- 
+
 
     <div class ="sub">
         <div class ="idea">
@@ -81,7 +81,7 @@ getPro();
         </div>
 
         <div class="mapping">
-        MAPPING 
+        MAPPING
         </div>
 
         <div class="removal">
@@ -92,8 +92,8 @@ getPro();
         RECYCLING
         </div>
     </div>
-  
-   
+
+
       <div class="idea2">
         <br> This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
@@ -101,7 +101,7 @@ getPro();
         This is some dummy text.This is some dummy text.This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
       </div>
- 
+
       <div class="map2">
       <br> This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
@@ -126,14 +126,14 @@ getPro();
         This is some dummy text.This is some dummy text.This is some dummy text.
       </div>
       <br> <br>
-  </div>  
+  </div>
 </div>
     </div><!-- row Ends -->
 
     </div><!-- container Ends -->
     <!-- FOOTER -->
 
-    </body>  
+    </body>
 
     <?php
 

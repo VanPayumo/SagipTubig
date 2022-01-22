@@ -60,6 +60,10 @@ if (!isset($_SESSION['admin_email'])) {
 
         $p_stock = $row_edit['product_stock'];
 
+        if ($p_stock < 0) {
+            $p_stock = 0;
+        } else { $p_stock = $p_stock;}
+
     }
 
     $get_manufacturer = "select * from manufacturers where manufacturer_id='$m_id'";

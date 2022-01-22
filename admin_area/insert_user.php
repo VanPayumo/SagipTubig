@@ -1,16 +1,12 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
+    echo "<script>window.open('login.php','_self')</script>";
 
-if(!isset($_SESSION['admin_email'])){
+} else {
 
-echo "<script>window.open('login.php','_self')</script>";
-
-}
-
-else {
-
-?>
+    ?>
 
 
 <div class="row" ><!-- 1  row Starts -->
@@ -88,6 +84,22 @@ else {
 <div class="col-md-6"><!-- col-md-6 Starts -->
 
 <input type="password" name="admin_pass" class="form-control" required>
+
+</div><!-- col-md-6 Ends -->
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label">Access Level: </label>
+
+<div class="col-md-6"><!-- col-md-6 Starts -->
+
+<select name="admin_access_level" class="form-control" required>
+<option hidden="" disabled="disabled" selected="selected" value="">Select Access Level</option>
+<option>1</option>
+<option>2</option>
+</select>
 
 </div><!-- col-md-6 Ends -->
 
@@ -183,48 +195,60 @@ else {
 
 <?php
 
-if(isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
 
-$admin_name = $_POST['admin_name'];
+        $admin_name = $_POST['admin_name'];
 
-$admin_email = $_POST['admin_email'];
+        $admin_email = $_POST['admin_email'];
 
-$admin_pass = $_POST['admin_pass'];
+        $admin_pass = $_POST['admin_pass'];
 
-$admin_country = $_POST['admin_country'];
+        $admin_level = $_POST['admin_access_level'];
 
-$admin_job = $_POST['admin_job'];
+        $admin_country = $_POST['admin_country'];
 
-$admin_contact = $_POST['admin_contact'];
+        $admin_job = $_POST['admin_job'];
 
-$admin_about = $_POST['admin_about'];
+        $admin_contact = $_POST['admin_contact'];
+
+        $admin_about = $_POST['admin_about'];
+
+        $admin_image = $_FILES['admin_image']['name'];
+
+        $temp_admin_image = $_FILES['admin_image']['tmp_name'];
+
+        move_uploaded_file($temp_admin_image, "admin_images/$admin_image");
+
+        $insert_admin = "insert into admins (admin_name,admin_email,admin_pass,admin_image,admin_contact,admin_country,admin_job,admin_about,access_level) values ('$admin_name','$admin_email','$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about','$admin_level')";
+
+        $run_admin = mysqli_query($con, $insert_admin);
+
+        $get_id = "select * from admins where admin_email='$admin_email'";
+
+        $run_id = mysqli_query($con, $get_id);
+
+        while ($row_u = mysqli_fetch_array($run_id)) {
+            $u_id = $row_u['admin_id'];
+        }
+
+        $insert_log = "insert into user_log_history (u_id, u_email, activity) values ('$u_id','$admin_email','Registered')";
+
+        $run_log = mysqli_query($con, $insert_log);
+
+        if ($run_admin) {
+
+            $_SESSION['admin_id'] = $u_id;
+
+            echo "<script>alert('One User Has Been Inserted successfully')</script>";
+
+            echo "<script>window.open('index.php?view_users','_self')</script>";
+
+        }
+
+    }
+
+    ?>
 
 
-$admin_image = $_FILES['admin_image']['name'];
 
-$temp_admin_image = $_FILES['admin_image']['tmp_name'];
-
-move_uploaded_file($temp_admin_image,"admin_images/$admin_image");
-
-$insert_admin = "insert into admins (admin_name,admin_email,admin_pass,admin_image,admin_contact,admin_country,admin_job,admin_about) values ('$admin_name','$admin_email','$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about')";
-
-$run_admin = mysqli_query($con,$insert_admin);
-
-
-if($run_admin){
-
-echo "<script>alert('One User Has Been Inserted successfully')</script>";
-
-echo "<script>window.open('index.php?view_users','_self')</script>";
-
-}
-
-
-}
-
-
-?>
-
-
-
-<?php }  ?>
+<?php }?>

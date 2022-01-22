@@ -13,15 +13,16 @@ include "includes/main.php";
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">SHOP NOW!</span>
+        <span class="nero__bold">shop</span> AT AVE
       </div>
       <p class="nero__text">
       </p>
     </div>
   </main>
 
+<br><br>
 <div id="content" ><!-- content Starts -->
-<div class="container" id="ncontainer" ><!-- container Starts -->
+<div class="container" ><!-- container Starts -->
 
 <div class="col-md-12" ><!--- col-md-12 Starts -->
 
@@ -80,6 +81,61 @@ include "includes/footer.php";
 $(document).ready(function(){
 
 
+/// Search Filters code Starts ///
+
+$(function(){
+
+$.fn.extend({
+
+filterTable: function(){
+
+return this.each(function(){
+
+$(this).on('keyup', function(){
+
+var $this = $(this),
+
+search = $this.val().toLowerCase(),
+
+target = $this.attr('data-filters'),
+
+handle = $(target),
+
+rows = handle.find('li a');
+
+if(search == '') {
+
+rows.show();
+
+} else {
+
+rows.each(function(){
+
+var $this = $(this);
+
+$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+
+});
+
+}
+
+});
+
+});
+
+}
+
+});
+
+$('[data-action="filter"][id="dev-table-filter"]').filterTable();
+
+});
+
+/// Search Filters code Ends ///
+
+});
+
+
 
 </script>
 
@@ -95,6 +151,8 @@ $(document).ready(function(){
 
 
 // Products Categories Code Starts
+
+var sPath = '';
 
 var aInputs = Array();
 
@@ -129,42 +187,6 @@ sPath = sPath + 'p_cat[]=' + aKeys[i]+'&';
 }
 
 // Products Categories Code ENDS
-
-   // Categories Code Starts
-
-var aInputs = Array();
-
-var aInputs = $('li').find('.get_cat');
-
-var aKeys  = Array();
-
-var aValues = Array();
-
-iKey = 0;
-
-    $.each(aInputs,function(key,oInput){
-
-    if(oInput.checked){
-
-    aKeys[iKey] =  oInput.value
-
-};
-
-    iKey++;
-
-});
-
-if(aKeys.length>0){
-
-    for(var i = 0; i < aKeys.length; i++){
-
-    sPath = sPath + 'cat[]=' + aKeys[i]+'&';
-
-}
-
-}
-
-   // Categories Code ENDS
 
    // Loader Code Starts
 
@@ -211,20 +233,8 @@ $('.pagination').html(data);
 
    // getProducts Function Code Ends
 
-$('.get_manufacturer').click(function(){
-
-getProducts();
-
-});
-
 
   $('.get_p_cat').click(function(){
-
-getProducts();
-
-});
-
-$('.get_cat').click(function(){
 
 getProducts();
 

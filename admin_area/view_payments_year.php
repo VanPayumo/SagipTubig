@@ -17,7 +17,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Payments
+<i class="fa fa-dashboard"></i> Dashboard / View Payments (Yearly)
 
 </li>
 
@@ -38,7 +38,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"> </i> View Payments
+<i class="fa fa-money fa-fw"> </i> View Payments (Yearly)
 
 </h3><!-- panel-title Ends -->
 
@@ -73,7 +73,7 @@ if (!isset($_SESSION['admin_email'])) {
 
     $i = 0;
 
-    $get_payments = "select * from payments where status='Paid'";
+    $get_payments = "select * from payments where status='Paid' and YEAR(payment_date) = YEAR(NOW())";
 
     $run_payments = mysqli_query($con, $get_payments);
 

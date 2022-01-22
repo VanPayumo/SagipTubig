@@ -8,7 +8,8 @@ if (!isset($_SESSION['admin_email'])) {
 
     ?>
 
-<div class="row" ><!-- 1 row Starts -->
+
+<div class="row"><!--  1 row Starts -->
 
 <div class="col-lg-12" ><!-- col-lg-12 Starts -->
 
@@ -16,17 +17,15 @@ if (!isset($_SESSION['admin_email'])) {
 
 <li class="active" >
 
-<i class="fa fa-dashboard" ></i> Dashboard / View Users
+<i class="fa fa-dashboard"></i> Dashboard / View Customers
 
 </li>
 
 </ol><!-- breadcrumb Ends -->
 
-
 </div><!-- col-lg-12 Ends -->
 
-</div><!-- 1 row Ends -->
-
+</div><!--  1 row Ends -->
 
 <div class="row" ><!-- 2 row Starts -->
 
@@ -38,7 +37,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> View Users
+<i class="fa fa-money fa-fw" ></i> View Customer Log History
 
 </h3><!-- panel-title Ends -->
 
@@ -51,100 +50,66 @@ if (!isset($_SESSION['admin_email'])) {
 
 <table class="table table-bordered table-hover table-striped" ><!-- table table-bordered table-hover table-striped Starts -->
 
-<thead><!-- thead Starts -->
+<thead>
 
 <tr>
+<th>E-Mail</th>
+<th>Date & Time</th>
+<th>Action</th>
 
-<th>User Name</th>
-
-<th>Email</th>
-
-<th>Access Level</th>
-
-<th>Contact Number</th>
-
-<th>Job</th>
-
-<th>Delete</th>
 
 
 </tr>
 
-</thead><!-- thead Ends -->
+</thead>
 
-<tbody><!-- tbody Starts -->
+<tbody><!--- tbody Starts --->
 
 <?php
 
-    $get_admin = "select * from admins";
+    $get_logs = "select * from customer_log_history";
 
-    $run_admin = mysqli_query($con, $get_admin);
+    $run_logs = mysqli_query($con, $get_logs);
 
-    while ($row_admin = mysqli_fetch_array($run_admin)) {
+    $i = 0;
 
-        $admin_id = $row_admin['admin_id'];
+    while ($row_logs = mysqli_fetch_array($run_logs)) {
 
-        $admin_name = $row_admin['admin_name'];
+        $c_email = $row_logs['c_email'];
 
-        $admin_email = $row_admin['admin_email'];
+        $log_date = $row_logs['log_time'];
 
-        $admin_contact = $row_admin['admin_contact'];
-
-        $admin_level = $row_admin['access_level'];
-
-        $admin_job = $row_admin['admin_job'];
+        $c_action = $row_logs['activity'];
 
         ?>
 
-<tr>
-
-<td><?php echo $admin_name; ?></td>
-
-<td><?php echo $admin_email; ?></td>
-
-<td><?php echo $admin_level; ?></td>
-
-<td><?php echo $admin_contact; ?></td>
-
-<td><?php echo $admin_job; ?></td>
-
-<td>
-
-<a href="index.php?user_delete=<?php echo $admin_id; ?>" >
-
-<i class="fa fa-trash-o" ></i> Delete
-
-</a>
-
-</td>
+<tr><!-- tr Starts -->
 
 
-</tr>
 
+<th><?php echo $c_email ?></th>
+
+<td><?php echo $log_date ?></td>
+
+<td><b style='color:green;'><?php echo $c_action ?></b></td>
+
+</tr><!-- tr Ends -->
 
 <?php }?>
 
-</tbody><!-- tbody Ends -->
-
-
+</tbody><!--- tbody Ends --->
 
 </table><!-- table table-bordered table-hover table-striped Ends -->
 
 </div><!-- table-responsive Ends -->
 
-
 </div><!-- panel-body Ends -->
-
 
 </div><!-- panel panel-default Ends -->
 
-
 </div><!-- col-lg-12 Ends -->
 
-
-
 </div><!-- 2 row Ends -->
-
 
 
 

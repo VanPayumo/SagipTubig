@@ -47,6 +47,10 @@ Products Categories
 
 <div class="input-group"><!-- input-group Starts -->
 
+<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-p-cats" placeholder="Filter Product Categories">
+
+<a class="input-group-addon"> <i class="fa fa-search"></i> </a>
+
 </div><!-- input-group Ends -->
 
 </div><!-- npanel-body Ends -->
@@ -82,19 +86,21 @@ while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 <li>
 
 <a>
+<label class='container'>
 
 <input ";
 
     if (isset($aPCat[$p_cat_id])) {echo "checked='checked'";}
 
-    echo " type='hidden' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
+    echo "  type='checkbox' value='$p_cat_id' name='p_cat' class='get_p_cat' id='p_cat' >
 
-<span style='font-weight:bold; pointer-events:none;'>
+<span class='checkmark' style='font-weight:bold; pointer-events:none;'>
 
 $p_cat_image
 $p_cat_title
 
 </span>
+</label>
 
 </a>
 

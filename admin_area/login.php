@@ -65,11 +65,15 @@ if (isset($_POST['admin_login'])) {
 
     if ($count == 1) {
 
-        $admin_contacc = mysqli_fetch_array($run_admin);
-        $admin_contact = $admin_contacc['admin_contact'];
+        $admin_access = mysqli_fetch_array($run_admin);
+        $admin_id = $admin_access['admin_id'];
+        $admin_level = $admin_access['access_level'];
 
+        $_SESSION['admin_id'] = $admin_id;
         $_SESSION['admin_email'] = $admin_email;
-        $_SESSION['admin_contact'] = $admin_contact;
+        $_SESSION['admin_level'] = $admin_level;
+        $insert_log_history = "INSERT INTO user_log_history (u_id, u_email, log_time, activity) VALUES ($admin_id, '$admin_email', NOW(), 'Logged in')";
+        $run_insert_log = mysqli_query($con, $insert_log_history);
 
         echo "<script>alert('You are Logged in into admin panel')</script>";
 

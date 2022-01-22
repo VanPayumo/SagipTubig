@@ -6,6 +6,14 @@ if (!isset($_SESSION['admin_email'])) {
 
 } else {
 
+    $admin_level = $_SESSION['admin_level'];
+
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
+
+    }
+
     ?>
 <!DOCTYPE html>
 
