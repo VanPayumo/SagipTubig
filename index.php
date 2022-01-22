@@ -96,8 +96,8 @@ getPro();
     <div>
       <div class="idea2">
         <br> <p> The idea behind sagip tubig is to establish and promote clean bodies of water
-        here in the Philippines. In observance with the United Nation's Goal on 2030 - this project aims to target the different <b>Sustainable Development Goals of the United Nations </b>
-        SDG 6 - Clean Water and Sanitation, SDG 12 - Responsible Consumption and Production, SDG 13 - Climate Action, and SDG 14- Life Below Water.
+        here in the Philippines. In observance with the United Nation's Goal on 2030 - this project aims to target the different <b>Sustainable Development Goals of the United Nations </b> <em>
+        SDG 6 - Clean Water and Sanitation, SDG 12 - Responsible Consumption and Production, SDG 13 - Climate Action, and SDG 14- Life Below Water. </em>
 
         </p>
 
@@ -107,8 +107,8 @@ getPro();
       <div class="map2">
       <br> <p>
       
-      The project targets the severely targeted bodies of water in the Philippines ranked by the total number of population that are dependent the said body of water.
-      Short term solutions will be implemented to alleviate the possibility of long term damage to the ecosystem of the body of water and the life beneath it.</p>
+      The project targets the <b> severely damaged bodies of water in the Philippines </b> ranked by the total number of population that are dependent the said body of water.
+      Short term solutions with long term goals will be implemented to alleviate the possibility of long term damage to the ecosystem of the body of water and the life beneath it.</p>
       
       </div>
 

@@ -478,6 +478,7 @@ img {
     display: inline-block;
     vertical-align: top;
     margin-right: 35px;
+    color: #000957;
 }
 
 .page-header__topline .login__item:last-child {
@@ -501,6 +502,7 @@ img {
 .page-header__topline .basket {
     float: right;
     width: 147px;
+    color: #000957;
 }
 
 /* topline-end*/

@@ -867,7 +867,7 @@ body {
 .idea2 {
     width: 400px;
     height: 210px;
-    background: #FFFDED;
+    background: #fffce7d5;
     border-radius: 20px;
     
     position: absolute;
@@ -879,6 +879,7 @@ body {
     padding-bottom: 30px;
     text-align: justify; 
     outline: solid;
+    outline-width: 2px;
     color: #000957;
     
 }
@@ -891,7 +892,7 @@ body {
 .map2 {
     width: 400px;
     height: 180px;
-    background: #FFFDED;
+    background: #fffce7d5;
     border-radius: 20px;
 
     position: absolute;
@@ -902,6 +903,7 @@ body {
     top: 2550px;
     text-align: justify; 
     outline: solid;
+    outline-width: 2px;
     color: #000957;
 }
 
@@ -913,7 +915,7 @@ body {
 .remove2 {
     width: 400px;
     height: 180px;
-    background: #FFFDED;
+    background: #fffce7d5;
     border-radius: 20px;
 
     position: absolute;
@@ -925,6 +927,7 @@ body {
     text-align: justify;
     text-indent: 10px;
     outline: solid;
+    outline-width: 2px;
     color: #000957;
 }
 
@@ -936,7 +939,7 @@ body {
 .recy2 {
     width: 400px;
     height: 180px;
-    background: #FFFDED;
+    background: #fffce7d5;
     border-radius: 20px;
     position: absolute;
     margin-left: auto;
@@ -946,6 +949,7 @@ body {
     top: 3050px;
     text-align: justify; 
     outline: solid;
+    outline-width: 2px;
     color: #000957;
 }
 
