@@ -93,7 +93,7 @@ getPro();
         </div>
     </div>
 
-
+    <div>
       <div class="idea2">
         <br> <p> The idea behind sagip tubig is to establish and promote clean bodies of water
         here in the Philippines. In observance with the United Nation's Goal on 2030 - this project aims to target the different <b>Sustainable Development Goals of the United Nations </b>
@@ -105,25 +105,27 @@ getPro();
       </div>
 
       <div class="map2">
-      <br> 
+      <br> <p>
       
       The project targets the severely targeted bodies of water in the Philippines ranked by the total number of population that are dependent the said body of water.
-      Short term solutions will be implemented to alleviate the possibility of long term damage to the ecosystem of the body of water and the life beneath it.
+      Short term solutions will be implemented to alleviate the possibility of long term damage to the ecosystem of the body of water and the life beneath it.</p>
       
       </div>
 
       <div class="remove2">
-        <br> 
+        <br> <p>
         
-        The said project ta
+        The said project ta</p>
       </div>
 
       <div class="recy2">
-        <br> This is some dummy text.
+        <br> <p>This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
+        </p>
+      </div>
       </div>
       <br><br><br><br>
   </div>

@@ -774,7 +774,7 @@ body {
     margin-right: auto;
     left: 0px;
     right: 300px;
-    top: 2350px;
+    top: 2290px;
     text-align: center;
   /*   position: relative;
     left: 29%;
@@ -790,7 +790,7 @@ body {
     margin-right: auto;
     left: 350px;
     right: 0px;
-    top: 2590px;
+    top: 2550px;
     text-align: center; 
 }
 
@@ -800,7 +800,7 @@ body {
     margin-right: auto;
     left: 0px;
     right: 300px;
-    top: 2850px;
+    top: 2790px;
     text-align: center;
 }
 
@@ -810,7 +810,7 @@ body {
     margin-right: auto;
     left: 350px;
     right: 0px;
-    top: 3090px;
+    top: 3050px;
     text-align: center;
 }
 
@@ -830,7 +830,7 @@ body {
     margin-right: auto;
     left: 350px;
     right: 0px;
-    top: 2305px;
+    top: 2260px;
     text-align: center; 
 }
 
@@ -840,7 +840,7 @@ body {
     margin-right: auto;
     left: 0px;
     right: 250px;
-    top: 2555px;
+    top: 2510px;
     text-align: center; 
 }
 
@@ -850,7 +850,7 @@ body {
     margin-right: auto;
     left: 310px;
     right: 0px;
-    top: 2795px;
+    top: 2750px;
     text-align: center; 
 }
 
@@ -866,7 +866,7 @@ body {
 
 .idea2 {
     width: 400px;
-    height: 180px;
+    height: 210px;
     background: #FFFDED;
     border-radius: 20px;
     
@@ -875,9 +875,18 @@ body {
     margin-right: auto;
     left: 580px;
     right: 0px;
-    top: 2350px;
-    text-align: center; 
+    top: 2295px;
+    padding-bottom: 30px;
+    text-align: justify; 
+    outline: solid;
+    color: #000957;
+    
 }
+
+.idea2 p{
+    margin-left: 20px;
+    margin-right: 20px;
+}   
 
 .map2 {
     width: 400px;
@@ -890,9 +899,16 @@ body {
     margin-right: auto;
     left: 0px;
     right: 520px;
-    top: 2595px;
-    text-align: center; 
+    top: 2550px;
+    text-align: justify; 
+    outline: solid;
+    color: #000957;
 }
+
+.map2 p{
+    margin-left: 20px;
+    margin-right: 20px;
+}   
 
 .remove2 {
     width: 400px;
@@ -905,9 +921,17 @@ body {
     margin-right: auto;
     left: 580px;
     right: 0px;
-    top: 2850px;
-    text-align: center; 
+    top: 2790px;
+    text-align: justify;
+    text-indent: 10px;
+    outline: solid;
+    color: #000957;
 }
+
+.remove2 p{
+    margin-left: 20px;
+    margin-right: 20px;
+}   
 
 .recy2 {
     width: 400px;
@@ -919,6 +943,14 @@ body {
     margin-right: auto;
     left: 0px;
     right: 520px;
-    top: 3100px;
-    text-align: center; 
+    top: 3050px;
+    text-align: justify; 
+    outline: solid;
+    color: #000957;
 }
+
+.recy2 p{
+    margin-left: 20px;
+    margin-right: 20px;
+}   
+
