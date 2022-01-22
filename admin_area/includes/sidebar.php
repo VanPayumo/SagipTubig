@@ -23,15 +23,6 @@ if (!isset($_SESSION['admin_email'])) {
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" ><!-- navbar-ex1-collapse Starts -->
 
 
-<span class="sr-only" >Toggle Navigation</span>
-
-<span class="icon-bar" ></span>
-
-<span class="icon-bar" ></span>
-
-<span class="icon-bar" ></span>
-
-
 </button><!-- navbar-ex1-collapse Ends -->
 
 <a class="navbar-brand" href="index.php?dashboard" >Admin Panel</a>
@@ -221,34 +212,6 @@ if (!isset($_SESSION['admin_email'])) {
 </li><!-- relations li Ends -->
 
 
-
-<li style="<?php echo $hideme; ?>"><!-- manufacturer li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#manufacturers"><!-- anchor Starts -->
-
-<i class="fa fa-fw fa-briefcase"></i> Manufacturers
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-
-</a><!-- anchor Ends -->
-
-<ul id="manufacturers" class="collapse"><!-- ul collapse Starts -->
-
-<li>
-<a href="index.php?insert_manufacturer"> Insert Manufacturer </a>
-</li>
-
-<li>
-<a href="index.php?view_manufacturers"> View Manufacturers </a>
-</li>
-
-</ul><!-- ul collapse Ends -->
-
-
-</li><!-- manufacturer li Ends -->
-
-
 <li><!-- li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#p_cat">
@@ -274,58 +237,6 @@ if (!isset($_SESSION['admin_email'])) {
 </ul>
 
 </li><!-- li Ends -->
-
-
-<li><!-- li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#cat">
-
-<i class="fa fa-fw fa-arrows-v"></i> Categories
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-</a>
-
-<ul id="cat" class="collapse">
-
-<li>
-<a href="index.php?insert_cat"> Insert Category </a>
-</li>
-
-<li>
-<a href="index.php?view_cats"> View Categories </a>
-</li>
-
-
-</ul>
-
-</li><!-- li Ends -->
-
-
-
-<li style="<?php echo $hideme; ?>"><!-- store section li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#store">
-
-<i class="fa fa-fw fa-briefcase"></i> Stores
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-</a>
-
-<ul id="store" class="collapse">
-
-<li>
-<a href="index.php?insert_store"> Insert store </a>
-</li>
-
-<li>
-<a href="index.php?view_store"> View store </a>
-</li>
-
-</ul>
-
-</li><!-- store section li Ends -->
 
 
 <li style="<?php echo $hideme; ?>"><!-- contact us li Starts -->

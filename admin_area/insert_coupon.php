@@ -1,16 +1,12 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
-if(!isset($_SESSION['admin_email'])){
+    echo "<script>window.open('login.php','_self')</script>";
 
-echo "<script>window.open('login.php','_self')</script>";
+} else {
 
-}
-
-else {
-
-
-?>
+    ?>
 
 
 <div class="row"><!-- 1 row Starts -->
@@ -101,55 +97,31 @@ else {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label">Select coupon for Product Or bundle</label>
+<label class="col-md-3 control-label">Select coupon for Product</label>
 
 <div class="col-md-6">
 
 <select name="product_id" class="form-control">
 
-<option> Select Coupon Product  </option>
+<option hidden="" disabled="disabled" selected="selected" value=""> Select Coupon Product  </option>
 
 <?php
 
-$get_p = "select * from products where status='product'";
+    $get_p = "select * from products where status='product'";
 
-$run_p = mysqli_query($con,$get_p);
+    $run_p = mysqli_query($con, $get_p);
 
-while($row_p = mysqli_fetch_array($run_p)){
+    while ($row_p = mysqli_fetch_array($run_p)) {
 
-$p_id = $row_p['product_id'];
+        $p_id = $row_p['product_id'];
 
-$p_title = $row_p['product_title'];
+        $p_title = $row_p['product_title'];
 
-echo "<option value='$p_id'> $p_title </option>";
+        echo "<option value='$p_id'> $p_title </option>";
 
-}
+    }
 
-?>
-
-<option></option>
-
-<option>Select Coupon For Bundle</option>
-
-<option></option>
-
-<?php
-
-$get_p = "select * from products where status='bundle'";
-
-$run_p = mysqli_query($con,$get_p);
-
-while($row_p = mysqli_fetch_array($run_p)){
-
-$p_id = $row_p['product_id'];
-
-$p_title = $row_p['product_title'];
-
-echo "<option value='$p_id'> $p_title </option>";
-
-}
-
-?>
+    ?>
 
 </select>
 
@@ -181,51 +153,48 @@ echo "<option value='$p_id'> $p_title </option>";
 
 <?php
 
-if(isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
 
-$coupon_title = $_POST['coupon_title'];
+        $coupon_title = $_POST['coupon_title'];
 
-$coupon_price = $_POST['coupon_price'];
+        $coupon_price = $_POST['coupon_price'];
 
-$coupon_code = $_POST['coupon_code'];
+        $coupon_code = $_POST['coupon_code'];
 
-$coupon_limit = $_POST['coupon_limit'];
+        $coupon_limit = $_POST['coupon_limit'];
 
-$product_id = $_POST['product_id'];
+        $product_id = $_POST['product_id'];
 
-$coupon_used = 0;
+        $coupon_used = 0;
 
-$get_coupons = "select * from coupons where product_id='$product_id' or coupon_code='$coupon_code'";
+        $get_coupons = "select * from coupons where product_id='$product_id' or coupon_code='$coupon_code'";
 
-$run_coupons = mysqli_query($con,$get_coupons);
+        $run_coupons = mysqli_query($con, $get_coupons);
 
-$check_coupons = mysqli_num_rows($run_coupons);
+        $check_coupons = mysqli_num_rows($run_coupons);
 
-if($check_coupons == 1){
+        if ($check_coupons == 1) {
 
-echo "<script>alert('Coupon Code or Product Already Added Choose another Coupon code or Product')</script>";
+            echo "<script>alert('Coupon Code or Product Already Added Choose another Coupon code or Product')</script>";
 
-}
-else{
+        } else {
 
-$insert_coupon = "insert into coupons (product_id,coupon_title,coupon_price,coupon_code,coupon_limit,coupon_used) values ('$product_id','$coupon_title','$coupon_price','$coupon_code','$coupon_limit','$coupon_used')";
+            $insert_coupon = "insert into coupons (product_id,coupon_title,coupon_price,coupon_code,coupon_limit,coupon_used) values ('$product_id','$coupon_title','$coupon_price','$coupon_code','$coupon_limit','$coupon_used')";
 
-$run_coupon = mysqli_query($con,$insert_coupon);
+            $run_coupon = mysqli_query($con, $insert_coupon);
 
-if($run_coupon){
+            if ($run_coupon) {
 
-echo "<script>alert('New Coupon Has Been Inserted')</script>";
+                echo "<script>alert('New Coupon Has Been Inserted')</script>";
 
-echo "<script>window.open('index.php?view_coupons','_self')</script>";
+                echo "<script>window.open('index.php?view_coupons','_self')</script>";
 
-}
+            }
 
+        }
 
-}
+    }
 
+    ?>
 
-}
-
-?>
-
-<?php } ?>
+<?php }?>

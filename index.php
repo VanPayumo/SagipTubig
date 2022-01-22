@@ -125,7 +125,7 @@ getPro();
         This is some dummy text.This is some dummy text.This is some dummy text.
         This is some dummy text.This is some dummy text.This is some dummy text.
       </div>
-      <br> <br>
+      <br><br><br><br>
   </div>
 </div>
     </div><!-- row Ends -->

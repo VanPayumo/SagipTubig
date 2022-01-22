@@ -66,29 +66,11 @@ if (!isset($_SESSION['admin_email'])) {
 
     }
 
-    $get_manufacturer = "select * from manufacturers where manufacturer_id='$m_id'";
-
-    $run_manufacturer = mysqli_query($con, $get_manufacturer);
-
-    $row_manfacturer = mysqli_fetch_array($run_manufacturer);
-
-    $manufacturer_id = $row_manfacturer['manufacturer_id'];
-
-    $manufacturer_title = $row_manfacturer['manufacturer_title'];
-
     $get_p_cat = "select * from product_categories where p_cat_id='$p_cat'";
 
     $run_p_cat = mysqli_query($con, $get_p_cat);
 
     $row_p_cat = mysqli_fetch_array($run_p_cat);
-
-    $p_cat_title = $row_p_cat['p_cat_title'];
-
-    $get_cat = "select * from categories where cat_id='$cat'";
-
-    $run_cat = mysqli_query($con, $get_cat);
-
-    $row_cat = mysqli_fetch_array($run_cat);
 
     $cat_title = $row_cat['cat_title'];
 

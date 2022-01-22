@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect("localhost", "root", "", "ecom_store");
+$db = mysqli_connect("localhost", "root", "", "sagiptubig");
 
 /// IP address code starts /////
 function getRealUserIp()
@@ -94,16 +94,6 @@ function getPro()
         $pro_stock = $row_products['product_stock'];
 
         $status = $row_products['status'];
-
-        $manufacturer_id = $row_products['manufacturer_id'];
-
-        $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
-
-        $run_manufacturer = mysqli_query($db, $get_manufacturer);
-
-        $row_manufacturer = mysqli_fetch_array($run_manufacturer);
-
-        $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
         $pro_psp_price = $row_products['product_psp_price'];
 
@@ -269,16 +259,6 @@ function getProducts()
         $pro_stock = $row_products['product_stock'];
 
         $status = $row_products['status'];
-
-        $manufacturer_id = $row_products['manufacturer_id'];
-
-        $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
-
-        $run_manufacturer = mysqli_query($db, $get_manufacturer);
-
-        $row_manufacturer = mysqli_fetch_array($run_manufacturer);
-
-        $manufacturer_name = $row_manufacturer['manufacturer_title'];
 
         $pro_psp_price = $row_products['product_psp_price'];
 
