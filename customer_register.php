@@ -121,7 +121,7 @@ include "includes/main.php";
 
 <div class="nform-group"><!-- form-group Starts -->
 
-<label>City </label>
+<label>City or Municipality</label>
 
 <input type="text" class="nform-control" name="c_city" required>
 
@@ -147,7 +147,7 @@ include "includes/main.php";
 
 <label> Profile Image </label>
 
-<input type="file" class="nform-control" name="c_image" required>
+  <input type="file" class="nform-control" name="c_image" required>
 
 </div><!-- form-group Ends -->
 

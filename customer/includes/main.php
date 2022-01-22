@@ -10,9 +10,9 @@
           <a class="currency__change" href="my_account.php?my_orders">
           <?php
 if (!isset($_SESSION['customer_email'])) {
-    echo "Welcome :Guest";
+    echo "Welcome: <b>Guest</b>";
 } else {
-    echo "Welcome : " . $_SESSION['customer_email'] . "";
+    echo "Welcome : <b>" . $_SESSION['customer_email'] . "</b";
 }
 ?>
           </a>
@@ -75,9 +75,11 @@ if (!isset($_SESSION['customer_email'])) {
 
           <li class="categories__item">
               <a class="categories__link" href="#">
-                My Account
-                <i class="icon-down-open-1"></i>
+                My Account ⬇
+               
               </a>
+
+
               <div class="dropdown dropdown--lookbook">
                 <div class="clearfix">
                   <div class="dropdown__half">

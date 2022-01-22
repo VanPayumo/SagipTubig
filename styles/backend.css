@@ -420,10 +420,11 @@ img {
     }
 }
 
+/* topline-start */
 .page-header__topline {
     height: 45px;
-    background: rgba(160, 185, 235, 0.56);
-    padding-left: 10em;
+    background: rgb(144, 181, 255);
+    padding-left: 15em;
     padding-right: 10em;
 }
 
@@ -485,6 +486,7 @@ img {
     width: 147px;
 }
 
+/* topline-end*/
 .page-header__bottomline {
     background: radial-gradient( 95.87% 96.9% at 14.59% 13.39%, rgba(159, 204, 254, 0.5) 0%, rgba(2, 63, 130, 0) 100%), radial-gradient( 152.75% 154.39% at 54.09% 100.99%, rgba(0, 255, 255, 0.5) 0%, rgba(0, 239, 239, 0) 67.99%), radial-gradient( 70.21% 102.49% at 28.56% 30.11%, rgba(51, 6, 181, 0.5) 0%, rgba(21, 27, 171, 0) 100%), radial-gradient( 41.16% 97.03% at 67.31% 62.17%, rgba(158, 13, 152, 0.5) 14.37%, rgba(160, 13, 155, 0) 100%), radial-gradient( 72.65% 184.87% at 98.65% 71.44%, #ffe600 9.17%, rgba(240, 220, 39, 0) 100%), radial-gradient( 68.14% 70.91% at 77.39% 17.92%, rgba(252, 0, 0, 0.9) 41.98%, rgba(255, 98, 51, 0) 100%), rgba(0, 41, 255, 0.6);
     padding-left: 10em;
@@ -495,6 +497,9 @@ img {
 
 .page-header__bottomline .logo {
     float: left;
+    padding-left: 5em;
+    font-size: small;
+
 }
 
 .page-header__bottomline .logo__link {
@@ -956,7 +961,7 @@ img {
 .hero {
     padding-top: 110px;
     padding-bottom: 100px;
-    color: #0007a5;
+    color: #000957;
     background: rgba(160, 185, 235, 0.56) url(../images/hero2.png) no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -967,12 +972,15 @@ img {
     padding-top: 0em;
     font-size: 40px;
     margin-top: 0em;
+    color: #000957;
+
 }
 
 .hero p {
     margin-left: 10em;
     margin-top: none;
     font-size: 20px;
+    color: #000957
 }
 
 .hero .btn1 {
