@@ -131,6 +131,16 @@ if (!isset($_SESSION['admin_email'])) {
 
 </li><!-- li Ends -->
 
+<li><!-- li Starts -->
+
+<a style="<?php echo $hideme; ?>" href="index.php?edit_logo_title">
+
+<i class="fa fa-fw fa-globe"></i> Edit Logo/Title
+
+</a>
+
+</li><!-- li Ends -->
+
 <li><!-- Products li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#products">
@@ -169,7 +179,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="bundles" class="collapse">
 
-<li> <!-- No Need -->
+<li style="<?php echo $hideme; ?>">
 <a href="index.php?insert_bundle"> Insert Bundle </a>
 </li>
 
@@ -180,36 +190,6 @@ if (!isset($_SESSION['admin_email'])) {
 </ul>
 
 </li><!-- Bundles Li Ends --->
-
-<li style="<?php echo $hideme; ?>"><!-- relations li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#relations"><!-- anchor Starts -->
-
-<i class="fa fa-fw fa-retweet"></i> Assign Products To Bundles Relations
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-</a><!-- anchor Ends -->
-
-<ul id="relations" class="collapse"><!-- collapse Starts -->
-
-<li>
-
-<a href="index.php?insert_rel"> Insert Relation </a>
-
-</li>
-
-
-<li>
-
-<a href="index.php?view_rel"> View Relations </a>
-
-</li>
-
-</ul><!-- collapse Ends -->
-
-
-</li><!-- relations li Ends -->
 
 
 <li><!-- li Starts -->
@@ -225,7 +205,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="p_cat" class="collapse">
 
-<li>
+<li style="<?php echo $hideme; ?>">
 <a href="index.php?insert_p_cat"> Insert Product Category </a>
 </li>
 
@@ -238,40 +218,6 @@ if (!isset($_SESSION['admin_email'])) {
 
 </li><!-- li Ends -->
 
-
-<li style="<?php echo $hideme; ?>"><!-- contact us li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#contact_us"><!-- anchor Starts -->
-
-<i class="fa fa-fw fa-pencil"> </i> Contact Us Section
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-</a><!-- anchor Ends -->
-
-<ul id="contact_us" class="collapse">
-
-<li>
-
-<a href="index.php?edit_contact_us"> Edit Contact Us </a>
-
-</li>
-
-<li>
-
-<a href="index.php?insert_enquiry"> Insert Enquiry Type </a>
-
-</li>
-
-<li>
-
-<a href="index.php?view_enquiry"> View Enquiry Types </a>
-
-</li>
-
-</ul>
-
-</li><!-- contact us li Ends -->
 
 <li style="<?php echo $hideme; ?>"><!-- about us li Starts -->
 
@@ -336,7 +282,7 @@ if (!isset($_SESSION['admin_email'])) {
 </li><!-- terms li Ends -->
 
 
-<li><!-- li Starts -->
+<li style="<?php echo $hideme; ?>"><!-- li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#customer">
 

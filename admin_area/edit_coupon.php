@@ -1,58 +1,59 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
-if(!isset($_SESSION['admin_email'])){
+    echo "<script>window.open('login.php','_self')</script>";
 
-echo "<script>window.open('login.php','_self')</script>";
+} else {
+    $admin_level = $_SESSION['admin_level'];
 
-}
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
 
-else {
+    }
 
-
-?>
+    ?>
 
 <?php
 
-if(isset($_GET['edit_coupon'])){
+    if (isset($_GET['edit_coupon'])) {
 
-$edit_id = $_GET['edit_coupon'];
+        $edit_id = $_GET['edit_coupon'];
 
-$edit_coupon = "select * from coupons where coupon_id='$edit_id'";
+        $edit_coupon = "select * from coupons where coupon_id='$edit_id'";
 
-$run_edit = mysqli_query($con,$edit_coupon);
+        $run_edit = mysqli_query($con, $edit_coupon);
 
-$row_edit = mysqli_fetch_array($run_edit);
+        $row_edit = mysqli_fetch_array($run_edit);
 
-$c_id = $row_edit['coupon_id'];
+        $c_id = $row_edit['coupon_id'];
 
-$c_title = $row_edit['coupon_title'];
+        $c_title = $row_edit['coupon_title'];
 
-$c_price = $row_edit['coupon_price'];
+        $c_price = $row_edit['coupon_price'];
 
-$c_code = $row_edit['coupon_code'];
+        $c_code = $row_edit['coupon_code'];
 
-$c_limit = $row_edit['coupon_limit'];
+        $c_limit = $row_edit['coupon_limit'];
 
-$c_used = $row_edit['coupon_used'];
+        $c_used = $row_edit['coupon_used'];
 
-$p_id = $row_edit['product_id'];
+        $p_id = $row_edit['product_id'];
 
-$get_products = "select * from products where product_id='$p_id'";
+        $get_products = "select * from products where product_id='$p_id'";
 
-$run_products = mysqli_query($con,$get_products);
+        $run_products = mysqli_query($con, $get_products);
 
-$row_products = mysqli_fetch_array($run_products);
+        $row_products = mysqli_fetch_array($run_products);
 
-$product_id = $row_products['product_id'];
+        $product_id = $row_products['product_id'];
 
-$product_title = $row_products['product_title'];
+        $product_title = $row_products['product_title'];
 
+    }
 
-}
-
-
-?>
+    ?>
 
 <div class="row"><!-- 1 row Starts -->
 
@@ -153,21 +154,21 @@ $product_title = $row_products['product_title'];
 
 <?php
 
-$get_p = "select * from products where status='product'";
+    $get_p = "select * from products where status='product'";
 
-$run_p = mysqli_query($con,$get_p);
+    $run_p = mysqli_query($con, $get_p);
 
-while($row_p = mysqli_fetch_array($run_p)){
+    while ($row_p = mysqli_fetch_array($run_p)) {
 
-$p_id = $row_p['product_id'];
+        $p_id = $row_p['product_id'];
 
-$p_title = $row_p['product_title'];
+        $p_title = $row_p['product_title'];
 
-echo "<option value='$p_id'> $p_title </option>";
+        echo "<option value='$p_id'> $p_title </option>";
 
-}
+    }
 
-?>
+    ?>
 
 <option></option>
 
@@ -177,21 +178,21 @@ echo "<option value='$p_id'> $p_title </option>";
 
 <?php
 
-$get_p = "select * from products where status='bundle'";
+    $get_p = "select * from products where status='bundle'";
 
-$run_p = mysqli_query($con,$get_p);
+    $run_p = mysqli_query($con, $get_p);
 
-while($row_p = mysqli_fetch_array($run_p)){
+    while ($row_p = mysqli_fetch_array($run_p)) {
 
-$p_id = $row_p['product_id'];
+        $p_id = $row_p['product_id'];
 
-$p_title = $row_p['product_title'];
+        $p_title = $row_p['product_title'];
 
-echo "<option value='$p_id'> $p_title </option>";
+        echo "<option value='$p_id'> $p_title </option>";
 
-}
+    }
 
-?>
+    ?>
 
 </select>
 
@@ -223,34 +224,32 @@ echo "<option value='$p_id'> $p_title </option>";
 
 <?php
 
-if(isset($_POST['update'])){
+    if (isset($_POST['update'])) {
 
-$coupon_title = $_POST['coupon_title'];
+        $coupon_title = $_POST['coupon_title'];
 
-$coupon_price = $_POST['coupon_price'];
+        $coupon_price = $_POST['coupon_price'];
 
-$coupon_code = $_POST['coupon_code'];
+        $coupon_code = $_POST['coupon_code'];
 
-$coupon_limit = $_POST['coupon_limit'];
+        $coupon_limit = $_POST['coupon_limit'];
 
-$product_id = $_POST['product_id'];
+        $product_id = $_POST['product_id'];
 
-$update_coupon = "update coupons set product_id='$product_id',coupon_title='$coupon_title',coupon_price='$coupon_price',coupon_code='$coupon_code',coupon_limit='$coupon_limit',coupon_used='$c_used' where coupon_id='$c_id'";
+        $update_coupon = "update coupons set product_id='$product_id',coupon_title='$coupon_title',coupon_price='$coupon_price',coupon_code='$coupon_code',coupon_limit='$coupon_limit',coupon_used='$c_used' where coupon_id='$c_id'";
 
-$run_coupon = mysqli_query($con,$update_coupon);
+        $run_coupon = mysqli_query($con, $update_coupon);
 
+        if ($run_coupon) {
 
-if($run_coupon){
+            echo "<script>alert('One Coupon Has Been Updated')</script>";
 
-echo "<script>alert('One Coupon Has Been Updated')</script>";
+            echo "<script>window.open('index.php?view_coupons','_self')</script>";
 
-echo "<script>window.open('index.php?view_coupons','_self')</script>";
+        }
 
-}
+    }
 
+    ?>
 
-}
-
-?>
-
-<?php } ?>
+<?php }?>

@@ -1,40 +1,43 @@
 <?php
 
-if(!isset($_SESSION['admin_email'])){
+if (!isset($_SESSION['admin_email'])) {
 
-echo "<script>window.open('login.php','_self')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
 
-}
+} else {
+    $admin_level = $_SESSION['admin_level'];
 
-else {
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
 
+    }
 
-?>
+    ?>
 
 <?php
 
+    if (isset($_GET['edit_term'])) {
 
-if(isset($_GET['edit_term'])){
+        $edit_id = $_GET['edit_term'];
 
-$edit_id = $_GET['edit_term'];
+        $get_term = "select * from terms where term_id='$edit_id'";
 
-$get_term = "select * from terms where term_id='$edit_id'";
+        $run_term = mysqli_query($con, $get_term);
 
-$run_term = mysqli_query($con,$get_term);
+        $row_term = mysqli_fetch_array($run_term);
 
-$row_term = mysqli_fetch_array($run_term);
+        $term_id = $row_term['term_id'];
 
-$term_id = $row_term['term_id'];
+        $term_title = $row_term['term_title'];
 
-$term_title = $row_term['term_title'];
+        $term_link = $row_term['term_link'];
 
-$term_link = $row_term['term_link'];
+        $term_desc = $row_term['term_desc'];
 
-$term_desc = $row_term['term_desc'];
+    }
 
-}
-
-?>
+    ?>
 
  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
@@ -145,30 +148,29 @@ $term_desc = $row_term['term_desc'];
 
 <?php
 
-if(isset($_POST['update'])){
+    if (isset($_POST['update'])) {
 
-$term_title = $_POST['term_title'];
+        $term_title = $_POST['term_title'];
 
-$term_desc = $_POST['term_desc'];
+        $term_desc = $_POST['term_desc'];
 
-$term_link = $_POST['term_link'];
+        $term_link = $_POST['term_link'];
 
-$update_term = "update terms set term_title='$term_title',term_link='$term_link',term_desc='$term_desc' where term_id='$term_id'";
+        $update_term = "update terms set term_title='$term_title',term_link='$term_link',term_desc='$term_desc' where term_id='$term_id'";
 
-$run_term = mysqli_query($con,$update_term);
+        $run_term = mysqli_query($con, $update_term);
 
-if($run_term){
+        if ($run_term) {
 
-echo "<script>alert('One Term Box Has Been Updated ')</script>";
+            echo "<script>alert('One Term Box Has Been Updated ')</script>";
 
-echo "<script>window.open('index.php?view_terms','_self')</script>";
+            echo "<script>window.open('index.php?view_terms','_self')</script>";
 
-}
+        }
 
-}
+    }
+
+    ?>
 
 
-?>
-
-
-<?php } ?>
+<?php }?>

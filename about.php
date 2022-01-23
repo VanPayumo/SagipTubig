@@ -2,10 +2,10 @@
 
 session_start();
 
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
-include("includes/main.php");
+include "includes/db.php";
+include "includes/header.php";
+include "functions/functions.php";
+include "includes/main.php";
 
 ?>
 
@@ -31,7 +31,7 @@ include("includes/main.php");
 
 $get_about_us = "select * from about_us";
 
-$run_about_us = mysqli_query($con,$get_about_us);
+$run_about_us = mysqli_query($con, $get_about_us);
 
 $row_about_us = mysqli_fetch_array($run_about_us);
 
@@ -59,10 +59,10 @@ $about_desc = $row_about_us['about_desc'];
 </div><!-- content Ends -->
 
 
-
+<br><br><br><br>
 <?php
 
-include("includes/footer.php");
+include "includes/footer.php";
 
 ?>
 

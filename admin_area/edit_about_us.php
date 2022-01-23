@@ -1,41 +1,44 @@
 <?php
 
+if (!isset($_SESSION['admin_email'])) {
 
-if(!isset($_SESSION['admin_email'])){
+    echo "<script>window.open('login.php','_self')</script>";
 
-echo "<script>window.open('login.php','_self')</script>";
+} else {
+    $admin_level = $_SESSION['admin_level'];
 
-}
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
 
-else {
+    }
 
-
-?>
+    ?>
 
 
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
   <script>tinymce.init({ selector:'#about_desc' });</script>
-  
+
 <?php
 
-$get_about_us = "select * from about_us";
+    $get_about_us = "select * from about_us";
 
-$run_about_us = mysqli_query($con,$get_about_us);
+    $run_about_us = mysqli_query($con, $get_about_us);
 
-$row_about_us = mysqli_fetch_array($run_about_us);
+    $row_about_us = mysqli_fetch_array($run_about_us);
 
-$about_heading = $row_about_us['about_heading'];
+    $about_heading = $row_about_us['about_heading'];
 
-$about_short_desc = $row_about_us['about_short_desc'];
+    $about_short_desc = $row_about_us['about_short_desc'];
 
-$about_desc = $row_about_us['about_desc'];
+    $about_desc = $row_about_us['about_desc'];
 
-?> 
+    ?>
 
 <div class="row" ><!-- 1 row Starts -->
 
-<div class="col-lg-12" ><!-- col-lg-12 Starts --> 
+<div class="col-lg-12" ><!-- col-lg-12 Starts -->
 
 <ol class="breadcrumb"><!-- breadcrumb Starts -->
 
@@ -47,7 +50,7 @@ $about_desc = $row_about_us['about_desc'];
 
 </ol><!-- breadcrumb Ends -->
 
-</div><!-- col-lg-12 Ends --> 
+</div><!-- col-lg-12 Ends -->
 
 </div><!-- 1 row Ends -->
 
@@ -141,29 +144,29 @@ $about_desc = $row_about_us['about_desc'];
 
 <?php
 
-if(isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
 
-$about_heading = $_POST['about_heading'];
+        $about_heading = $_POST['about_heading'];
 
-$about_short_desc = $_POST['about_short_desc'];
+        $about_short_desc = $_POST['about_short_desc'];
 
-$about_desc = $_POST['about_desc'];
+        $about_desc = $_POST['about_desc'];
 
-$update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'";
+        $update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'";
 
-$run_about_us = mysqli_query($con,$update_about_us);
+        $run_about_us = mysqli_query($con, $update_about_us);
 
-if($run_about_us){
+        if ($run_about_us) {
 
-echo "<script>alert('About Us Page Has Been Updated')</script>";
+            echo "<script>alert('About Us Page Has Been Updated')</script>";
 
-echo "<script>window.open('index.php?dashboard','_self')</script>";
+            echo "<script>window.open('index.php?dashboard','_self')</script>";
 
-}
+        }
 
-}
+    }
 
-?>
+    ?>
 
 
-<?php } ?>
+<?php }?>

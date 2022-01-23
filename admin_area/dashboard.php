@@ -109,7 +109,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 </div><!-- panel-heading Ends -->
 
-<a href="index.php?view_customers">
+<a style="<?php echo $hideme; ?>" href="index.php?view_customers">
 
 <div class="panel-footer"><!-- panel-footer Starts -->
 
@@ -384,7 +384,7 @@ if (!isset($_SESSION['admin_email'])) {
 
                     </div><!-- panel-heading Ends -->
 
-                    <a href="index.php?view_coupons">
+                    <a style="<?php echo $hideme; ?>" href="index.php?view_coupons">
 
                     <div class="panel-footer"><!-- panel-footer Starts -->
 

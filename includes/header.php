@@ -7,11 +7,22 @@
   <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/2484/9148/files/SDQSDSQ_32x32.png?v=1511436147" type="image/png">
-  <title>SagipTubig</title>
+  <?php $get_logo_title_query = "select * from logo_title where id=1";
+
+$run_get = mysqli_query($con, $get_logo_title_query);
+
+$row_get = mysqli_fetch_array($run_get);
+
+$site_title = $row_get['site_title'];
+
+$site_logo = $row_get['site_logo'];
+
+?>
+
+  <link rel="shortcut icon" href="images/<?php echo $site_logo ?>" type="image/png">
+  <title><?php echo $site_title ?></title>
   <link href="styles/bootstrap.min.css" rel="stylesheet">
   <link href="styles/backend.css" rel="stylesheet">
   <link href="styles/style.css" rel="stylesheet">
-  <link rel = "icon" href = "/images/logo.png">
 
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">

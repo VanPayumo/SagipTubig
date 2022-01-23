@@ -173,6 +173,7 @@ while ($row_terms = mysqli_fetch_array($run_terms)) {
 
 </div><!-- content Ends -->
 
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
 
 include "includes/footer.php";

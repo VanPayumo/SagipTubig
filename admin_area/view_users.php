@@ -5,7 +5,13 @@ if (!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
 
 } else {
+    $admin_level = $_SESSION['admin_level'];
 
+    if ($admin_level == 2) {
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    } else {
+
+    }
     ?>
 
 <div class="row" ><!-- 1 row Starts -->

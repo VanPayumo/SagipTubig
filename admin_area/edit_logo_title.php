@@ -14,6 +14,26 @@ if (!isset($_SESSION['admin_email'])) {
     }
     ?>
 
+<?php
+
+    if (isset($_GET['edit_logo_title'])) {
+
+        $edit_logo_title_query = "select * from logo_title where id=1";
+
+        $run_edit = mysqli_query($con, $edit_logo_title_query);
+
+        $row_edit = mysqli_fetch_array($run_edit);
+
+        $site_logo = $row_edit['site_logo'];
+
+        $new_site_logo = $row_edit['site_logo'];
+
+        $site_title = $row_edit['site_title'];
+
+    }
+
+    ?>
+
 <div class="row"><!-- 1 row Starts -->
 
 <div class="col-lg-12"><!-- col-lg-12 Starts -->
@@ -22,7 +42,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <li>
 
-<i class="fa fa-dashboard"></i> Dashboard / Insert Products Category
+<i class="fa fa-dashboard"></i> Dashboard / Edit Website
 
 </li>
 
@@ -42,7 +62,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> Insert Product Category
+<i class="fa fa-money fa-fw" ></i> Edit Logo & Title
 
 </h3><!-- panel-title Ends -->
 
@@ -56,11 +76,11 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" >Product Category Title</label>
+<label class="col-md-3 control-label" >Website Title</label>
 
 <div class="col-md-6" >
 
-<input type="text" name="p_cat_title" class="form-control" required >
+<input type="text" name="site_title" class="form-control" value="<?php echo $site_title; ?>" required >
 
 </div>
 
@@ -68,11 +88,15 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Select Product Category Image</label>
+<label class="col-md-3 control-label" > Select Website Logo</label>
 
 <div class="col-md-6" >
 
-<input type="file" name="p_cat_image" class="form-control" required >
+<input type="file" name="site_logo" class="form-control" >
+
+<br>
+
+<img src="../images/<?php echo $site_logo; ?>" width="70" height="70" >
 
 </div>
 
@@ -84,7 +108,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="col-md-6" >
 
-<input type="submit" name="submit" value="Submit Now" class="btn btn-primary form-control" >
+<input type="submit" name="update" value="Update Now" class="btn btn-primary form-control" >
 
 </div>
 
@@ -103,25 +127,31 @@ if (!isset($_SESSION['admin_email'])) {
 
 <?php
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['update'])) {
 
-        $p_cat_title = $_POST['p_cat_title'];
+        $site_title = $_POST['site_title'];
 
-        $p_cat_image = $_FILES['p_cat_image']['name'];
+        $site_logo = $_FILES['site_logo']['name'];
 
-        $temp_name = $_FILES['p_cat_image']['tmp_name'];
+        $temp_name = $_FILES['site_logo']['tmp_name'];
 
-        move_uploaded_file($temp_name, "other_images/$p_cat_image");
+        move_uploaded_file($temp_name, "../images/$site_logo");
 
-        $insert_p_cat = "insert into product_categories (p_cat_title,p_cat_image) values ('$p_cat_title','$p_cat_image')";
+        if (empty($site_logo)) {
 
-        $run_p_cat = mysqli_query($con, $insert_p_cat);
+            $site_logo = $new_site_logo;
 
-        if ($run_p_cat) {
+        }
 
-            echo "<script>alert('New Product Category Has been Inserted')</script>";
+        $update_logo_title = "update logo_title set site_logo='$site_logo', site_title='$site_title' where id=1";
 
-            echo "<script>window.open('index.php?view_p_cats','_self')</script>";
+        $run_logo_title = mysqli_query($con, $update_logo_title);
+
+        if ($run_logo_title) {
+
+            echo "<script>alert('Successfuly Updated Website Logo & Title')</script>";
+
+            echo "<script>window.open('index.php?dashboard','_self')</script>";
 
         }
 
