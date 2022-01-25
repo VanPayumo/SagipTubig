@@ -1,27 +1,25 @@
 
 <?php
 
-if(isset($_GET['delete_wishlist'])){
+if (isset($_GET['delete_wishlist'])) {
 
-$delete_id = $_GET['delete_wishlist'];
+    $delete_id = $_GET['delete_wishlist'];
 
-$delete_wishlist = "delete from wishlist where wishlist_id='$delete_id'";
+    $delete_wishlist = "delete from wishlist where wishlist_id='$delete_id'";
 
-$run_delete = mysqli_query($con,$delete_wishlist);
+// $run_delete = mysqli_query($con,$delete_wishlist);
+    $prepare_delete = $con->prepare($delete_wishlist);
+    $run_delete = $prepare_delete->execute();
 
-if($run_delete){
+    if ($run_delete) {
 
-echo "<script>alert('One Wishlist Product/Bundle Has Been Deleted')</script>";
+        echo "<script>alert('One Wishlist Product/Bundle Has Been Deleted')</script>";
 
-echo "<script>window.open('my_account.php?my_wishlist','_self')</script>";
+        echo "<script>window.open('my_account.php?my_wishlist','_self')</script>";
+
+    }
 
 }
-
-
-}
-
-
-
 
 ?>
 

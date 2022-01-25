@@ -361,9 +361,13 @@ if (isset($_POST['register'])) {
 
         $get_email = "select * from customers where customer_email='$c_email'";
 
-        $run_email = mysqli_query($con, $get_email);
+        // $run_email = mysqli_query($con, $get_email);
 
-        $check_email = mysqli_num_rows($run_email);
+        // $check_email = mysqli_num_rows($run_email);
+
+        $prepare_email = $con->prepare($get_email);
+        $run_email = $prepare_email->execute(array());
+        $check_email = $prepare_email->rowCount();
 
         if ($check_email == 1) {
 
@@ -372,54 +376,38 @@ if (isset($_POST['register'])) {
             exit();
 
         }
-
-        $customer_confirm_code = mt_rand();
-
-        $subject = "Email Confirmation Message";
-
-        $from = "sad.ahmed22224@gmail.com";
-
-        $message = "
-
-<h2>
-Email Confirmation By Computerfever.com $c_name
-</h2>
-
-<a href='localhost/ecom_store/customer/my_account.php?$customer_confirm_code'>
-
-Click Here To Confirm Email
-
-</a>
-
-";
-
-        $headers = "From: $from \r\n";
-
-        $headers .= "Content-type: text/html\r\n";
-
-        mail($c_email, $subject, $message, $headers);
+        ;
 
         $insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip,customer_confirm_code) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip','$customer_confirm_code')";
 
-        $run_customer = mysqli_query($con, $insert_customer);
+        // $run_customer = mysqli_query($con, $insert_customer);
+        $prepare_customer = $con->prepare($insert_customer);
+        $run_customer = $prepare_customer->execute();
 
         $get_c = "select * from customers where customer_email='$c_email'";
 
-        $run_c = mysqli_query($con, $get_c);
+        // $run_c = mysqli_query($con, $get_c);
+        $prepare_c = $con->prepare($get_c);
+        $run_c = $prepare_c->execute(array());
 
-        while ($row_c = mysqli_fetch_array($run_c)) {
+        while ($row_c = $prepare_c->fetch(PDO::FETCH_ASSOC)) {
             $c_id = $row_c['customer_id'];
         }
 
         $insert_log = "insert into customer_log_history (cid, c_email, activity) values ('$c_id','$c_email','Registered')";
 
-        $run_log = mysqli_query($con, $insert_log);
+        // $run_log = mysqli_query($con, $insert_log);
+        $prepare_log = $con->prepare($insert_log);
+        $run_log = $prepare_log->execute();
 
         $sel_cart = "select * from cart where ip_add='$c_ip'";
 
-        $run_cart = mysqli_query($con, $sel_cart);
+        // $run_cart = mysqli_query($con, $sel_cart);
 
-        $check_cart = mysqli_num_rows($run_cart);
+        // $check_cart = mysqli_num_rows($run_cart);
+        $prepare_cart = $con->prepare($sel_cart);
+        $run_cart = $prepare_cart->execute();
+        $check_cart = $prepare_cart->rowCount();
 
         if ($check_cart > 0) {
 

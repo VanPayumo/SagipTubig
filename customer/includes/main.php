@@ -76,7 +76,7 @@ if (!isset($_SESSION['customer_email'])) {
           <li class="categories__item">
               <a class="categories__link" href="#">
                 My Account ⬇
-               
+
               </a>
 
 

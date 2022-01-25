@@ -39,9 +39,13 @@ $ip_add = getRealUserIp();
 
 $select_cart = "select * from cart where ip_add='$ip_add'";
 
-$run_cart = mysqli_query($con, $select_cart);
+// $run_cart = mysqli_query($con, $select_cart);
 
-$count = mysqli_num_rows($run_cart);
+// $count = mysqli_num_rows($run_cart);
+
+$prepare_cart = $con->prepare($select_cart);
+$run_cart = $prepare_cart->execute(array());
+$count = $prepare_cart->rowCount();
 
 ?>
 
@@ -78,7 +82,7 @@ $count = mysqli_num_rows($run_cart);
 
 $total = 0;
 
-while ($row_cart = mysqli_fetch_array($run_cart)) {
+while ($row_cart = $run_cart->fetch(PDO::FETCH_ASSOC)) {
 
     $pro_id = $row_cart['p_id'];
 
@@ -90,9 +94,11 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 
     $get_products = "select * from products where product_id='$pro_id'";
 
-    $run_products = mysqli_query($con, $get_products);
+    // $run_products = mysqli_query($con, $get_products);
+    $prepare_products = $con->prepare($get_products);
+    $run_products = $prepare_products->execute(arrray());
 
-    while ($row_products = mysqli_fetch_array($run_products)) {
+    while ($row_products = $run_products->fetch(PDO::FETCH_ASSOC)) {
 
         $product_title = $row_products['product_title'];
 
@@ -230,13 +236,17 @@ if (isset($_POST['apply_coupon'])) {
 
         $get_coupons = "select * from coupons where coupon_code='$code'";
 
-        $run_coupons = mysqli_query($con, $get_coupons);
+        // $run_coupons = mysqli_query($con, $get_coupons);
 
-        $check_coupons = mysqli_num_rows($run_coupons);
+        // $check_coupons = mysqli_num_rows($run_coupons);
+        $prepare_coupons = $con->prepare($get_coupons);
+        $run_coupons = $prepare_coupons->execute(array());
+        $check_coupons = $prepare_coupons->rowCount();
 
         if ($check_coupons == 1) {
 
-            $row_coupons = mysqli_fetch_array($run_coupons);
+            // $row_coupons = mysqli_fetch_array($run_coupons);
+            $row_coupons = $prepare_coupons->fetch(PDO::FETCH_ASSOC);
 
             $coupon_pro = $row_coupons['product_id'];
 
@@ -254,19 +264,26 @@ if (isset($_POST['apply_coupon'])) {
 
                 $get_cart = "select * from cart where p_id='$coupon_pro' AND ip_add='$ip_add'";
 
-                $run_cart = mysqli_query($con, $get_cart);
+                // $run_cart = mysqli_query($con, $get_cart);
 
-                $check_cart = mysqli_num_rows($run_cart);
+                // $check_cart = mysqli_num_rows($run_cart);
+                $prepare_cart = $con->prepare($get_cart);
+                $run_cart = $prepare_cart->execute(array());
+                $check_cart = $prepare_cart->rowCount();
 
                 if ($check_cart == 1) {
 
                     $add_used = "update coupons set coupon_used=coupon_used+1 where coupon_code='$code'";
 
-                    $run_used = mysqli_query($con, $add_used);
+                    // $run_used = mysqli_query($con, $add_used);
+                    $prepare_used = $con->prepare($add_used);
+                    $run_used = $prepare_used->execute();
 
                     $update_cart = "update cart set p_price='$coupon_price' where p_id='$coupon_pro' AND ip_add='$ip_add'";
 
-                    $run_update = mysqli_query($con, $update_cart);
+                    // $run_update = mysqli_query($con, $update_cart);
+                    $prepare_update = $con->prepare($update_cart);
+                    $run_update = $prepare_update->execute();
 
                     echo "<script>alert('Your Coupon Code Has Been Applied')</script>";
 
@@ -305,7 +322,9 @@ function update_cart()
 
             $delete_product = "delete from cart where p_id='$remove_id'";
 
-            $run_delete = mysqli_query($con, $delete_product);
+            // $run_delete = mysqli_query($con, $delete_product);
+            $prepare_delete = $con->prepare($delete_product);
+            $run_delete = $prepare_delete->execute();
 
             if ($run_delete) {
                 echo "<script>window.open('cart.php','_self')</script>";
@@ -320,107 +339,6 @@ function update_cart()
 echo @$up_cart = update_cart();
 
 ?>
-
-
-
-<div id="row same-height-row"><!-- row same-height-row Starts -->
-
-<div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Starts -->
-
-<div class="box same-height headline"><!-- box same-height headline Starts -->
-
-<h3 class="text-center"> You also like these Products </h3>
-
-</div><!-- box same-height headline Ends -->
-
-</div><!-- col-md-3 col-sm-6 Ends -->
-
-<?php
-
-$get_products = "select * from products order by rand() LIMIT 0,3";
-
-$run_products = mysqli_query($con, $get_products);
-
-while ($row_products = mysqli_fetch_array($run_products)) {
-
-    $pro_id = $row_products['product_id'];
-
-    $pro_title = $row_products['product_title'];
-
-    $pro_price = $row_products['product_price'];
-
-    $pro_img1 = $row_products['product_img1'];
-
-    $manufacturer_id = $row_products['manufacturer_id'];
-
-    $get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
-
-    $run_manufacturer = mysqli_query($db, $get_manufacturer);
-
-    $row_manufacturer = mysqli_fetch_array($run_manufacturer);
-
-    $manufacturer_name = $row_manufacturer['manufacturer_title'];
-
-    $pro_psp_price = $row_products['product_psp_price'];
-
-    $pro_url = $row_products['product_url'];
-
-</a>
-
-";
-
-    }
-
-    echo "
-
-<div class='col-md-3 col-sm-6 center-responsive' >
-
-<div class='product' >
-
-<a href='$pro_url' >
-
-<img src='admin_area/product_images/$pro_img1' class='img-responsive' >
-
-</a>
-
-<div class='text' >
-
-<hr>
-
-<h3><a href='$pro_url' >$pro_title</a></h3>
-
-<p class='price' > $product_price $product_psp_price </p>
-
-<p class='buttons' >
-
-<a href='$pro_url' class='btn btn-default' >View details</a>
-
-<a href='$pro_url' class='btn btn-primary'>
-
-<i class='fa fa-shopping-cart'></i> Add To Cart
-
-</a>
-
-
-</p>
-
-</div>
-
-$product_label
-
-
-</div>
-
-</div>
-
-";
-
-}
-
-?>
-
-
-</div><!-- row same-height-row Ends -->
 
 
 </div><!-- col-md-9 Ends -->

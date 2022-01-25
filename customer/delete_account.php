@@ -17,29 +17,30 @@
 
 $c_email = $_SESSION['customer_email'];
 
-if(isset($_POST['yes'])){
+if (isset($_POST['yes'])) {
 
-$delete_customer = "delete from customers where customer_email='$c_email'";
+    $delete_customer = "delete from customers where customer_email='$c_email'";
 
-$run_delete = mysqli_query($con,$delete_customer);
+// $run_delete = mysqli_query($con,$delete_customer);
+    $prepare_delete = $con->prepare($delete_customer);
+    $run_delete = $prepare_delete->execute();
 
-if($run_delete){
+    if ($run_delete) {
 
-session_destroy();
+        session_destroy();
 
-echo "<script>alert('Your Account Has Been Deleted! Good By')</script>";
+        echo "<script>alert('Your Account Has Been Deleted! Good By')</script>";
 
-echo "<script>window.open('../index.php','_self')</script>";
+        echo "<script>window.open('../index.php','_self')</script>";
 
-}
-
-}
-
-if(isset($_POST['no'])){
-
-echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+    }
 
 }
 
+if (isset($_POST['no'])) {
+
+    echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+
+}
 
 ?>

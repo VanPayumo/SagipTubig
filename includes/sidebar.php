@@ -61,11 +61,15 @@ Products Categories
 
 <?php
 
+// $get_p_cats = "select * from product_categories";
+
+// $run_p_cats = mysqli_query($con, $get_p_cats);
+
 $get_p_cats = "select * from product_categories";
+$prepare_p_cats = $con->prepare($get_p_cats);
+$run_p_cats = $prepare_p_cats->execute(array());
 
-$run_p_cats = mysqli_query($con, $get_p_cats);
-
-while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
+while ($row_p_cats = $prepare_p_cats->fetch(PDO::FETCH_ASSOC)) {
 
     $p_cat_id = $row_p_cats['p_cat_id'];
 

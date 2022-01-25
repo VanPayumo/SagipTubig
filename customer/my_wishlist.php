@@ -31,45 +31,52 @@
 
 <?php
 
-
 $customer_session = $_SESSION['customer_email'];
 
 $get_customer = "select * from customers where customer_email='$customer_session'";
 
-$run_customer = mysqli_query($con,$get_customer);
+// $run_customer = mysqli_query($con,$get_customer);
+// $row_customer = mysqli_fetch_array($run_customer);
 
-$row_customer = mysqli_fetch_array($run_customer);
+$prepare_customer = $con->prepare($get_customer);
+$run_customer = $prepare_customer->execute(array());
+$row_customer = $prepare_customer->fetch(PDO::FETCH_ASSOC);
 
 $customer_id = $row_customer['customer_id'];
 
 $i = 0;
 
-
 $get_wishlist = "select * from wishlist where customer_id='$customer_id'";
 
-$run_wishlist = mysqli_query($con,$get_wishlist);
+// $run_wishlist = mysqli_query($con, $get_wishlist);
+$prepare_wishlist = $con->prepare($get_wishlist);
+$run_wishlist = $prepare_wishlist->execute(array());
 
-while($row_wishlist = mysqli_fetch_array($run_wishlist)){
+while ($row_wishlist = $prepare_wishlist->fetch(PDO::FETCH_ASSOC)) {
 
-$wishlist_id = $row_wishlist['wishlist_id'];
+    $wishlist_id = $row_wishlist['wishlist_id'];
 
-$product_id = $row_wishlist['product_id'];
+    $product_id = $row_wishlist['product_id'];
 
-$get_products = "select * from products where product_id='$product_id'";
+    $get_products = "select * from products where product_id='$product_id'";
 
-$run_products = mysqli_query($con,$get_products);
+    // $run_products = mysqli_query($con, $get_products);
 
-$row_products = mysqli_fetch_array($run_products);
+    // $row_products = mysqli_fetch_array($run_products);
 
-$product_title = $row_products['product_title'];
+    $prepare_products = $con->prepare($get_products);
+    $run_products = $prepare_products->execute(array());
+    $row_products = $prepare_products->fetch(PDO::FETCH_ASSOC);
 
-$product_url = $row_products['product_url'];
+    $product_title = $row_products['product_title'];
 
-$product_img1 = $row_products['product_img1'];
+    $product_url = $row_products['product_url'];
 
-$i++;
+    $product_img1 = $row_products['product_img1'];
 
-?>
+    $i++;
+
+    ?>
 
 <tr>
 
@@ -79,7 +86,7 @@ $i++;
 
 <img src="../admin_area/product_images/<?php echo $product_img1; ?>" width="60" height="60">
 
-&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;
 
 <a href="../<?php echo $product_url; ?>">
 
@@ -101,7 +108,7 @@ $i++;
 
 </tr>
 
-<?php } ?>
+<?php }?>
 
 </tbody>
 

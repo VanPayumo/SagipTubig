@@ -121,15 +121,20 @@ if (!isset($_SESSION['customer_email'])) {
 
         $insert_payment = "insert into payments (order_id,invoice_no,amount,payment_mode,payment_date) values ('$update_id','$invoice_no','$amount','$payment_mode', CURRENT_TIMESTAMP)";
 
-        $run_payment = mysqli_query($con, $insert_payment);
+        // $run_payment = mysqli_query($con, $insert_payment);
+        $prepare_payment = $con->prepare($insert_payment);
+        $run_payment = $prepare_payment->execute();
 
         $update_customer_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
 
-        $run_customer_order = mysqli_query($con, $update_customer_order);
+        // $run_customer_order = mysqli_query($con, $update_customer_order);
+        $prepare_customer_order = $con->prepare($update_customer_order);
+        $run_customer_order = $prepare_customer_order->execute();
 
         $update_pending_order = "update pending_orders set order_status='$complete' where order_id='$update_id'";
-
-        $run_pending_order = mysqli_query($con, $update_pending_order);
+        // $run_pending_order = mysqli_query($con, $update_pending_order);
+        $prepare_pending_order = $con->prepare($update_pending_order);
+        $run_pending_order = $prepare_pending_order->execute();
 
         if ($run_pending_order) {
 

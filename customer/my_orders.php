@@ -1,9 +1,9 @@
-
+<script type="text/javascript" src="../includes/JsBarcode.all.min.js"></script>
 <center><!-- center Starts -->
 
 <h1>My Orders</h1>
 
-<p class="lead"> <?php echo bar128('Your orders on one place.'); ?></p>
+<p class="lead">Your orders on one place.</p>
 
 <p class="text-muted" >
 
@@ -47,19 +47,24 @@ $customer_session = $_SESSION['customer_email'];
 
 $get_customer = "select * from customers where customer_email='$customer_session'";
 
-$run_customer = mysqli_query($con, $get_customer);
+// $run_customer = mysqli_query($con, $get_customer);
 
-$row_customer = mysqli_fetch_array($run_customer);
+// $row_customer = mysqli_fetch_array($run_customer);
+$prepare_customer = $con->prepare($get_customer);
+$run_customer = $prepare_customer->execute(array());
+$row_customer = $prepare_customer->fetch();
 
 $customer_id = $row_customer['customer_id'];
 
 $get_orders = "select * from customer_orders where customer_id='$customer_id'";
 
-$run_orders = mysqli_query($con, $get_orders);
+// $run_orders = mysqli_query($con, $get_orders);
+$prepare_orders = $con->prepare($get_orders);
+$run_orders = $prepare_orders->execute(array());
 
 $i = 0;
 
-while ($row_orders = mysqli_fetch_array($run_orders)) {
+while ($row_orders = $prepare_orders->fetch()) {
 
     $order_id = $row_orders['order_id'];
 
@@ -105,7 +110,9 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 
 <td>₱<?php echo $due_amount; ?></td>
 
-<td><?php echo bar128($invoice_no); ?></td>
+<!-- <td><?php //echo $invoice_no; ?></td> -->
+
+<td><?php echo "<svg id='barcode-$invoice_no' onload='createBarcode($invoice_no, $invoice_no)'></svg>"; ?></td>
 
 <td><?php echo $qty; ?></td>
 
@@ -157,4 +164,10 @@ while ($row_orders = mysqli_fetch_array($run_orders)) {
 </div><!-- table-responsive Ends -->
 
 
+
+<script> function createBarcode(code, id){
+    JsBarcode(`#barcode-${code}`, code);
+    console.log(code, id);
+}
+</script>
 

@@ -136,6 +136,7 @@ if (!isset($_SESSION['admin_email'])) {
         $temp_name = $_FILES['site_logo']['tmp_name'];
 
         move_uploaded_file($temp_name, "../images/$site_logo");
+        move_uploaded_file($temp_name, "../customer/images/$site_logo");
 
         if (empty($site_logo)) {
 

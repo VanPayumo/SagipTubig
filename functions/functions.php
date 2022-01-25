@@ -1,6 +1,7 @@
 <?php
 
-$db = mysqli_connect("localhost", "root", "", "sagiptubig");
+// $db = mysqli_connect("localhost", "root", "", "sagiptubig");
+$db = new PDO("mysql:host=localhost;dbname=sagiptubig", "root", "");
 
 /// IP address code starts /////
 function getRealUserIp()
@@ -23,11 +24,18 @@ function items()
 
     $ip_add = getRealUserIp();
 
-    $get_items = "select * from cart where ip_add='$ip_add'";
+    $get_items = "select * from cart where ip_add = :ip_add";
 
-    $run_items = mysqli_query($db, $get_items);
+    // $get_items = "select * from cart where ip_add='$ip_add'";
 
-    $count_items = mysqli_num_rows($run_items);
+    // $run_items = mysqli_query($db, $get_items);
+
+    // $count_items = mysqli_num_rows($run_items);
+
+    $prepare_items = $db->prepare($get_items);
+    $run_items = $prepare_items->execute(array(":ip_add" => $ip_add));
+
+    $count_items = $prepare_items->rowCount();
 
     echo $count_items;
 
@@ -46,11 +54,16 @@ function total_price()
 
     $total = 0;
 
-    $select_cart = "select * from cart where ip_add='$ip_add'";
+    $select_cart = "select * from cart where ip_add = :ip_add";
 
-    $run_cart = mysqli_query($db, $select_cart);
+    // $run_cart = mysqli_query($db, $select_cart);
 
-    while ($record = mysqli_fetch_array($run_cart)) {
+    // while ($record = mysqli_fetch_array($run_cart)) {
+
+    $prepare_cart = $db->prepare($select_cart);
+    $run_cart = $prepare_cart->execute(array(":ip_add" => $ip_add));
+
+    while ($record = $run_cart->fetch(PDO::FETCH_ASSOC)) {
 
         $pro_id = $record['p_id'];
 
@@ -77,9 +90,14 @@ function getPro()
 
     $get_products = "select * from products order by 1 DESC LIMIT 0,8";
 
-    $run_products = mysqli_query($db, $get_products);
+    // $run_products = mysqli_query($db, $get_products);
 
-    while ($row_products = mysqli_fetch_array($run_products)) {
+    // while ($row_products = mysqli_fetch_array($run_products)) {
+
+    $run_products = $db->prepare($get_products);
+    $run_products->execute(array());
+
+    while ($row_products = $run_products->fetch()) {
 
         $pro_id = $row_products['product_id'];
 
@@ -242,9 +260,14 @@ function getProducts()
 
     $get_products = "select * from products  " . $sWhere;
 
-    $run_products = mysqli_query($db, $get_products);
+    // $run_products = mysqli_query($db, $get_products);
 
-    while ($row_products = mysqli_fetch_array($run_products)) {
+    // while ($row_products = mysqli_fetch_array($run_products)) {
+
+    $run_products = $db->prepare($get_products);
+    $run_products->execute(array());
+
+    while ($row_products = $run_products->fetch()) {
 
         $pro_id = $row_products['product_id'];
 
@@ -398,9 +421,14 @@ function getPaginator()
 
     $query = "select * from products " . $sWhere;
 
-    $result = mysqli_query($db, $query);
+    // $result = mysqli_query($db, $query);
 
-    $total_records = mysqli_num_rows($result);
+    // $total_records = mysqli_num_rows($result);
+
+    $prepare_result = $db->prepare($query);
+    $result = $prepare_result->execute(array());
+
+    $total_records = $prepare_result->rowCount();
 
     $total_pages = ceil($total_records / $per_page);
 
