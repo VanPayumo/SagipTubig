@@ -97,7 +97,15 @@ if (!isset($_SESSION['admin_email'])) {
 
 <td><?php echo $log_date ?></td>
 
-<td><b style='color:green;'><?php echo $c_action ?></b></td>
+<?php if ($c_action == 'Deactivated') {
+            echo "<td><b style='color:red;'>$c_action</b></td>";
+        } else {
+            echo "<td><b style='color:green;'>$c_action</b></td>";
+        }
+
+        ?>
+
+
 
 </tr><!-- tr Ends -->
 
