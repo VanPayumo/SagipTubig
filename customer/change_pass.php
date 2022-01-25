@@ -3,7 +3,7 @@
 
 <form action="" method="post"><!-- form Starts -->
 
-<div class="form-group"><!-- form-group Starts -->
+<div class="nform-group"><!-- form-group Starts -->
 
 <label>Current Password</label>
 

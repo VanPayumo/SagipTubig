@@ -12,7 +12,7 @@ include "includes/main.php";
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">SHOP</span> Cart
+        <span class="nero__bold">Shop</span> Cart
       </div>
       <p class="nero__text">
       </p>
@@ -325,7 +325,7 @@ echo @$up_cart = update_cart();
 
 <div id="row same-height-row"><!-- row same-height-row Starts -->
 
-<div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Starts -->
+<div class="col-md-3 col-sm-6"  ><!-- col-md-3 col-sm-6 Starts -->
 
 <div class="box same-height headline"><!-- box same-height headline Starts -->
 
@@ -425,7 +425,7 @@ $product_label
 
 </div><!-- col-md-9 Ends -->
 
-<div class="col-md-3"><!-- col-md-3 Starts -->
+<div class="col-md-3><!-- col-md-3 Starts -->
 
 <div class="box" id="order-summary"><!-- box Starts -->
 

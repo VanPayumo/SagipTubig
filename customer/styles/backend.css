@@ -1,5 +1,5 @@
 html {
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat";
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
@@ -9,9 +9,8 @@ body {
     margin: 0
 }
 
-* {
-    font-family: "Montserrat";
-}
+
+/* Basket icons styles */
 
 .btnn btn--basket {
     display: inline-block;
@@ -45,7 +44,6 @@ section {
 h1 {
     font-size: 2em;
     margin: .67em 0;
-   
 }
 
 figcaption,
@@ -437,7 +435,9 @@ img {
     }
 }
 
+
 /* topline-start */
+
 .page-header__topline {
     height: 45px;
     background: rgb(144, 181, 255);
@@ -505,7 +505,9 @@ img {
     color: #000957;
 }
 
+
 /* topline-end*/
+
 .page-header__bottomline {
     background: radial-gradient( 95.87% 96.9% at 14.59% 13.39%, rgba(159, 204, 254, 0.5) 0%, rgba(2, 63, 130, 0) 100%), radial-gradient( 152.75% 154.39% at 54.09% 100.99%, rgba(0, 255, 255, 0.5) 0%, rgba(0, 239, 239, 0) 67.99%), radial-gradient( 70.21% 102.49% at 28.56% 30.11%, rgba(51, 6, 181, 0.5) 0%, rgba(21, 27, 171, 0) 100%), radial-gradient( 41.16% 97.03% at 67.31% 62.17%, rgba(158, 13, 152, 0.5) 14.37%, rgba(160, 13, 155, 0) 100%), radial-gradient( 72.65% 184.87% at 98.65% 71.44%, #ffe600 9.17%, rgba(240, 220, 39, 0) 100%), radial-gradient( 68.14% 70.91% at 77.39% 17.92%, rgba(252, 0, 0, 0.9) 41.98%, rgba(255, 98, 51, 0) 100%), rgba(0, 41, 255, 0.6);
     padding-left: 14em;
@@ -516,6 +518,8 @@ img {
 
 .page-header__bottomline .logo {
     float: left;
+    padding-left: 5em;
+    font-size: small;
 }
 
 .page-header__bottomline .logo__link {
@@ -932,7 +936,6 @@ img {
     transition: background-color .3s
 }
 
-
 .btn--basket .icon-basket {
     position: relative;
     top: 2px;
@@ -941,7 +944,7 @@ img {
 }
 
 
-/*cover*/
+/*Main Cover Styles*/
 
 .nero {
     padding-top: 110px;
@@ -949,7 +952,7 @@ img {
     font-family: 'montserratlight', sans-serif;
     text-align: center;
     color: #0007A5;
-    background: rgba(160, 185, 235, 0.56) url("..../images/hero2.png") no-repeat;
+    background: rgba(160, 185, 235, 0.56) url(../images/hero2.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -970,7 +973,7 @@ img {
     padding-top: 300px;
     padding-bottom: 140px;
     color: #000957;
-    background: rgba(160, 185, 235, 0.56) url(../images/hero2.png) no-repeat;
+    background: rgba(160, 185, 235, 0.56) url(./images/hero2.png) no-repeat;
     background-size: cover;
     background-position: 50%
 }
@@ -990,16 +993,17 @@ img {
     top: 80px;
     display: inline-block;
     padding-left: 10px;
-    padding-right: 10px;
-}
-
-.hero h1{
-    color: #000957;
+    padding-right: 50px;
 }
 
 .hero .btn1:hover {
     background-color: #009595;
+    border-color: #009595;
     color: white;
+}
+
+.hero h1 {
+    color: #000957;
 }
 
 .info {

@@ -15,7 +15,7 @@ if (!isset($_SESSION['customer_email'])) {
     include "includes/main.php";
 
     ?>
-  <main>
+  <main >
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
@@ -64,7 +64,7 @@ if (!isset($_SESSION['customer_email'])) {
 
 <div class="col-md-9" ><!--- col-md-9 Starts -->
 
-<div class="box" ><!-- box Starts -->
+<div class="box"  ><!-- box Starts -->
 
 <?php
 
@@ -136,7 +136,7 @@ if (!isset($_SESSION['customer_email'])) {
 </div><!-- container Ends -->
 </div><!-- content Ends -->
 
-
+<br><br><br>
 
 <?php
 
