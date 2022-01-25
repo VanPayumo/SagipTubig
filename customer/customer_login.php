@@ -39,6 +39,9 @@
     <a href="customer_register.php" >
     <h5>👉New ? Register Here👈</h5>
     </a>
+    <a href="http://localhost/SagipTubig/admin_area/login.php">
+    <h5>Manual Login</h5>
+    </a>
 </center><!-- center Ends -->
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

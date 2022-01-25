@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_email'])) {
 
     if ($admin_level == 2) {
         echo "<script>window.open('index.php?dashboard','_self')</script>";
-    } else {
+         } else {
 
     }
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="col-md-8">
 
-<textarea name="about_desc" id="about_desc" class="form-control" rows="10">
+    <textarea name="about_desc" id="about_desc" class="form-control" rows="10">
 
 <?php echo $about_desc; ?>
 
@@ -152,7 +152,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         $about_desc = $_POST['about_desc'];
 
-        $update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'"; // Update about_us table from database
+        $update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'";// Update about_us table from database
 
         $run_about_us = mysqli_query($con, $update_about_us);
 
