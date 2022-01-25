@@ -9,9 +9,10 @@
 
   <?php $get_logo_title_query = "select * from logo_title where id=1";
 
-$run_get = mysqli_query($con, $get_logo_title_query);
+$prepare_get = $con->prepare($get_logo_title_query);
+$run_get = $prepare_get->execute();
 
-$row_get = mysqli_fetch_array($run_get);
+$row_get = $prepare_get->fetch();
 
 $site_title = $row_get['site_title'];
 

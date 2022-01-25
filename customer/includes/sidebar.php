@@ -8,11 +8,16 @@ $customer_session = $_SESSION['customer_email'];
 
 $customer_id = $_SESSION['customer_id'];
 
-$get_customer = "select * from customers where customer_email='$customer_session'";
+// $get_customer = "select * from customers where customer_email='$customer_session'";
 
-$run_customer = mysqli_query($con, $get_customer);
+// $run_customer = mysqli_query($con, $get_customer);
 
-$row_customer = mysqli_fetch_array($run_customer);
+// $row_customer = mysqli_fetch_array($run_customer);
+
+$get_customer = "select * from customers where customer_email=:customer_session";
+$prepare_customer = $con->prepare($get_customer);
+$run_customer = $prepare_customer->execute(array(":customer_session" => $customer_session));
+$row_customer = $prepare_customer->fetch(PDO::FETCH_ASSOC);
 
 $customer_session = $_SESSION['customer_email'];
 

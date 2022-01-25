@@ -80,23 +80,33 @@ if (isset($_POST['login'])) {
 
     $customer_pass = $_POST['c_pass'];
 
-    $select_customer = "select * from customers where customer_email='$customer_email' AND customer_pass='$customer_pass'";
+    // $select_customer = "select * from customers where customer_email='$customer_email' AND customer_pass='$customer_pass'";
 
-    $run_customer = mysqli_query($con, $select_customer);
+    // $run_customer = mysqli_query($con, $select_customer);
 
-    $row_customer = mysqli_fetch_array($run_customer);
+    // $row_customer = mysqli_fetch_array($run_customer);
+
+    $select_customer = "select * from customers where customer_email=:customer_email AND customer_pass=:customer_pass";
+    $prepare_customer = $con->prepare($select_customer);
+    $run_customer = $prepare_customer->execute(array(":customer_email" => $customer_email, ":customer_pass" => $customer_pass));
+    $row_customer = $prepare_customer->fetch(PDO::FETCH_ASSOC);
 
     $customer_id = $row_customer['customer_id'];
 
     $get_ip = getRealUserIp();
 
-    $check_customer = mysqli_num_rows($run_customer);
+    // $check_customer = mysqli_num_rows($run_customer);
+    $check_customer = $prepare_customer->rowCount();
 
-    $select_cart = "select * from cart where ip_add='$get_ip'";
+    // $select_cart = "select * from cart where ip_add='$get_ip'";
 
-    $run_cart = mysqli_query($con, $select_cart);
+    // $run_cart = mysqli_query($con, $select_cart);
 
-    $check_cart = mysqli_num_rows($run_cart);
+    // $check_cart = mysqli_num_rows($run_cart);
+
+    $select_cart = "select * from cart where ip_add=:get_ip";
+    $prepare_cart = $con->prepare($select_cart);
+    $run_cart = $prepare_cart->execute(array(":get_ip" => $get_ip));
 
     if ($check_customer == 0) {
 
@@ -114,7 +124,9 @@ if (isset($_POST['login'])) {
 
         $insert_log_history = "INSERT INTO customer_log_history (cid, c_email, log_time, activity) VALUES ($customer_id, '$customer_email', NOW(), 'Logged in')";
 
-        $run_insert_log = mysqli_query($con, $insert_log_history);
+        // $run_insert_log = mysqli_query($con, $insert_log_history);
+        $prepare_insert_log = $con->prepare($insert_log_history);
+        $run_insert_log = $prepare_insert_log->execute();
 
         echo "<script>alert('You are Logged In')</script>";
 
@@ -128,7 +140,9 @@ if (isset($_POST['login'])) {
 
         $insert_log_history = "INSERT INTO customer_log_history (cid, c_email, log_time, activity) VALUES ($customer_id, '$customer_email', NOW(), 'Logged in')";
 
-        $run_insert_log = mysqli_query($con, $insert_log_history);
+        // $run_insert_log = mysqli_query($con, $insert_log_history);
+        $prepare_insert_log = $con->prepare($insert_log_history);
+        $run_insert_log = $prepare_insert_log->execute();
 
         echo "<script>alert('You are Logged In')</script>";
 

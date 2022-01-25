@@ -42,57 +42,56 @@
 </form><!-- form Ends -->
 <?php
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-$c_email = $_SESSION['customer_email'];
+    $c_email = $_SESSION['customer_email'];
 
-$old_pass = $_POST['old_pass'];
+    $old_pass = $_POST['old_pass'];
 
-$new_pass = $_POST['new_pass'];
+    $new_pass = $_POST['new_pass'];
 
-$new_pass_again = $_POST['new_pass_again'];
+    $new_pass_again = $_POST['new_pass_again'];
 
-$sel_old_pass = "select * from customers where customer_pass='$old_pass'";
+    $sel_old_pass = "select * from customers where customer_pass='$old_pass'";
 
-$run_old_pass = mysqli_query($con,$sel_old_pass);
+// $run_old_pass = mysqli_query($con,$sel_old_pass);
 
-$check_old_pass = mysqli_num_rows($run_old_pass);
+// $check_old_pass = mysqli_num_rows($run_old_pass);
+    $prepare_old_pass = $con->prepare($sel_old_pass);
+    $run_old_pass = $prepare_old_pass->execute();
+    $check_old_pass = $prepare_old_pass->rowCount();
 
-if($check_old_pass==0){
+    if ($check_old_pass == 0) {
 
-echo "<script>alert('Your Current Password is not valid try again')</script>";
+        echo "<script>alert('Your Current Password is not valid try again')</script>";
 
-exit();
+        exit();
+
+    }
+
+    if ($new_pass != $new_pass_again) {
+
+        echo "<script>alert('Your New Password dose not match')</script>";
+
+        exit();
+
+    }
+
+    $update_pass = "update customers set customer_pass='$new_pass' where customer_email='$c_email'";
+
+    // $run_pass = mysqli_query($con, $update_pass);
+    $prepare_pass = $con->prepare($update_pass);
+    $run_pass = $prepare_pass->execute();
+
+    if ($run_pass) {
+
+        echo "<script>alert('your Password Has been Changed Successfully')</script>";
+
+        echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+
+    }
 
 }
-
-if($new_pass!=$new_pass_again){
-
-echo "<script>alert('Your New Password dose not match')</script>";
-
-exit();
-
-}
-
-$update_pass = "update customers set customer_pass='$new_pass' where customer_email='$c_email'";
-
-$run_pass = mysqli_query($con,$update_pass);
-
-if($run_pass){
-
-echo "<script>alert('your Password Has been Changed Successfully')</script>";
-
-echo "<script>window.open('my_account.php?my_orders','_self')</script>";
-
-
-}
-
-
-
-
-}
-
-
 
 ?>
 

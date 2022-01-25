@@ -13,11 +13,18 @@ include "includes/main.php";
 
 $product_id = @$_GET['pro_id'];
 
-$get_product = "select * from products where product_url='$product_id'";
+// $get_product = "select * from products where product_url='$product_id'";
 
-$run_product = mysqli_query($con, $get_product);
+// $run_product = mysqli_query($con, $get_product);
 
-$check_product = mysqli_num_rows($run_product);
+// $check_product = mysqli_num_rows($run_product);
+
+$get_product = "select * from products where product_url = :product_id";
+
+$prepare_product = $con->prepare($get_product);
+$run_product = $prepare_product->execute(array(":product_id" => $product_id));
+
+$check_product = $prepare_product->rowCount();
 
 if ($check_product == 0) {
 
@@ -25,44 +32,51 @@ if ($check_product == 0) {
 
 } else {
 
-    $row_product = mysqli_fetch_array($run_product);
+    // $row_product = mysqli_fetch_array($run_product);
+    while ($row_product = $prepare_product->fetch(PDO::FETCH_ASSOC)) {
 
-    $p_cat_id = $row_product['p_cat_id'];
+        $p_cat_id = $row_product['p_cat_id'];
 
-    $pro_id = $row_product['product_id'];
+        $pro_id = $row_product['product_id'];
 
-    $pro_title = $row_product['product_title'];
+        $pro_title = $row_product['product_title'];
 
-    $pro_price = $row_product['product_price'];
+        $pro_price = $row_product['product_price'];
 
-    $pro_stock = $row_product['product_stock'];
+        $pro_stock = $row_product['product_stock'];
 
-    $pro_desc = $row_product['product_desc'];
+        $pro_desc = $row_product['product_desc'];
 
-    $pro_img1 = $row_product['product_img1'];
+        $pro_img1 = $row_product['product_img1'];
 
-    $pro_img2 = $row_product['product_img2'];
+        $pro_img2 = $row_product['product_img2'];
 
-    $pro_img3 = $row_product['product_img3'];
+        $pro_img3 = $row_product['product_img3'];
 
-    $pro_label = $row_product['product_label'];
+        $pro_label = $row_product['product_label'];
 
-    $pro_psp_price = $row_product['product_psp_price'];
+        $pro_psp_price = $row_product['product_psp_price'];
 
-    $pro_features = $row_product['product_features'];
+        $pro_features = $row_product['product_features'];
 
-    $status = $row_product['status'];
+        $status = $row_product['status'];
 
-    $pro_url = $row_product['product_url'];
+        $pro_url = $row_product['product_url'];
 
-    $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
+        // $get_p_cat = "select * from product_categories where p_cat_id='$p_cat_id'";
 
-    $run_p_cat = mysqli_query($con, $get_p_cat);
+        // $run_p_cat = mysqli_query($con, $get_p_cat);
 
-    $row_p_cat = mysqli_fetch_array($run_p_cat);
+        // $row_p_cat = mysqli_fetch_array($run_p_cat);
 
-    $p_cat_title = $row_p_cat['p_cat_title'];
+        $get_p_cat = "select * from product_categories where p_cat_id=:p_cat_id";
 
+        $prepare_p_cat = $con->prepare($get_p_cat);
+        $run_p_cat = $prepare_p_cat->execute(array(":p_cat_id" => $p_cat_id));
+        $row_p_cat = $prepare_p_cat->fetch(PDO::FETCH_ASSOC);
+
+        $p_cat_title = $row_p_cat['p_cat_title'];
+    }
     ?>
 
   <main>
@@ -166,31 +180,49 @@ if ($check_product == 0) {
 
         $product_size = $_POST['product_size'];
 
-        $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
+        // $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
 
-        $run_check = mysqli_query($con, $check_product);
+        // $run_check = mysqli_query($con, $check_product);
 
-        $check_bundle = "select * from cart where ip_add='$ip_add' AND p_bundle='bundle'";
+        $check_product = "select * from cart where ip_add=:ip_add AND p_id=:p_id";
+        $prepare_check_product = $con->prepare($check_product);
+        $run_check_product = $prepare_check_product->execute(array(":ip_add" => $ip_add, ":p_id" => $p_id));
+        $run_check = $prepare_check_product->rowCount();
 
-        $run_bundle_check = mysqli_query($con, $check_bundle);
+        // $check_bundle = "select * from cart where ip_add='$ip_add' AND p_bundle='bundle'";
 
-        if (mysqli_num_rows($run_check) > 0) {
+        // $run_bundle_check = mysqli_query($con, $check_bundle);
 
-            $get_price = "select * from products where product_id='$p_id'";
+        $check_bundle = "select * from cart where ip_add=:ip_add AND p_bundle='bundle'";
+        $prepare_bundle_check = $con->prepare($check_bundle);
+        $run_check_bundle = $prepare_bundle_check->execute(array(":ip_add" => $ip_add));
+        $run_bundle_check = $prepare_bundle_check->rowCount();
 
-            $run_price = mysqli_query($con, $get_price);
+        if ($run_check > 0) {
 
-            $row_price = mysqli_fetch_array($run_price);
+            // $get_price = "select * from products where product_id='$p_id'";
+
+            // $run_price = mysqli_query($con, $get_price);
+
+            // $row_price = mysqli_fetch_array($run_price);
+
+            $get_price = "select * from products where product_id=:p_id";
+            $prepare_price = $con->prepare($get_price);
+            $run_price = $prepare_price->execute(array(":p_id" => $p_id));
+            $row_price = $prepare_price->fetch(PDO::FETCH_ASSOC);
 
             $pro_psp_price = $row_price['product_psp_price'];
 
             $pro_bundle = $row_price['status'];
 
-            if (mysqli_num_rows($run_bundle_check) > 1 and $pro_bundle == "bundle") {
+            if ($run_bundle_check > 1 and $pro_bundle == "bundle") {
 
                 $query = "update cart set qty = $product_qty, p_price = $pro_psp_price , size = ' $product_size ' where ip_add='$ip_add' AND p_id='$p_id'";
 
-                $run_query = mysqli_query($db, $query);
+                // $run_query = mysqli_query($con, $query);
+
+                $prepare_query = $con->prepare($query);
+                $run_query = $prepare_query->execute();
 
                 echo "<script>alert('Bundle Price updated in cart')</script>";
 
@@ -204,11 +236,16 @@ if ($check_product == 0) {
 
         } else {
 
-            $get_price = "select * from products where product_id='$p_id'";
+            // $get_price = "select * from products where product_id='$p_id'";
 
-            $run_price = mysqli_query($con, $get_price);
+            // $run_price = mysqli_query($con, $get_price);
 
-            $row_price = mysqli_fetch_array($run_price);
+            // $row_price = mysqli_fetch_array($run_price);
+
+            $get_price = "select * from products where product_id=:p_id";
+            $prepare_price = $con->prepare($get_price);
+            $run_price = $prepare_price->execute(array(":p_id" => $p_id));
+            $row_price = $prepare_price->fetch(PDO::FETCH_ASSOC);
 
             $pro_price = $row_price['product_price'];
 
@@ -220,12 +257,13 @@ if ($check_product == 0) {
 
             $pro_bundle = $row_price['status'];
 
-            if (mysqli_num_rows($run_bundle_check) >= 1 and $pro_bundle == "bundle") {
+            if ($run_bundle_check >= 1 and $pro_bundle == "bundle") {
 
                 $product_price = $pro_psp_price;
                 $pro_stock = $pro_stock;
 
                 echo "<script>alert('Bundle item Successfully added to cart')</script>";
+                echo "<script>window.open(shop.php,'_self')</script>";
 
             } else if ($pro_bundle == "bundle" and ($pro_label == "Sale" or $pro_label == "Gift")) {
 
@@ -233,6 +271,7 @@ if ($check_product == 0) {
                 $pro_stock = $pro_stock;
 
                 echo "<script>alert('Item Successfully added to cart')</script>";
+                echo "<script>window.open(shop.php,'_self')</script>";
 
             } else if ($pro_label == "Sale" or $pro_label == "Gift") {
 
@@ -240,6 +279,7 @@ if ($check_product == 0) {
                 $pro_stock = $pro_stock;
 
                 echo "<script>alert('Promo item Successfully added to cart')</script>";
+                echo "<script>window.open(shop.php,'_self')</script>";
 
             } else {
 
@@ -247,12 +287,16 @@ if ($check_product == 0) {
                 $pro_stock = $pro_stock;
 
                 echo "<script>alert('Item Successfully added to cart')</script>";
+                echo "<script>window.open(shop.php,'_self')</script>";
 
             }
 
             $query = "insert into cart (p_id,ip_add,qty,p_price,size,p_bundle) values ('$p_id','$ip_add','$product_qty','$product_price','$product_size','$pro_bundle')";
 
-            $run_query = mysqli_query($db, $query);
+            $prepare_query = $con->prepare($query);
+            $run_query = $prepare_query->execute();
+
+            // $run_query = mysqli_query($con, $query);
 
             echo "<script>window.open('$pro_url','_self')</script>";
 
@@ -495,19 +539,28 @@ if ($pro_stock <= 0) {
 
             $customer_session = $_SESSION['customer_email'];
 
-            $get_customer = "select * from customers where customer_email='$customer_session'";
+            // $get_customer = "select * from customers where customer_email='$customer_session'";
 
-            $run_customer = mysqli_query($con, $get_customer);
+            // $run_customer = mysqli_query($con, $get_customer);
 
-            $row_customer = mysqli_fetch_array($run_customer);
+            // $row_customer = mysqli_fetch_array($run_customer);
+
+            $get_customer = "select * from customers where customer_email=:customer_session";
+            $prepare_customer = $con->prepare($get_customer);
+            $run_customer = $prepare_customer->execute(array(":customer_session" => $customer_session));
+            $row_customer = $prepare_customer->fetch(PDO::FETCH_ASSOC);
 
             $customer_id = $row_customer['customer_id'];
 
             $select_wishlist = "select * from wishlist where customer_id='$customer_id' AND product_id='$pro_id'";
 
-            $run_wishlist = mysqli_query($con, $select_wishlist);
+            // $run_wishlist = mysqli_query($con, $select_wishlist);
 
-            $check_wishlist = mysqli_num_rows($run_wishlist);
+            // $check_wishlist = mysqli_num_rows($run_wishlist);
+
+            $prepare_wishlist_select = $con->prepare($select_wishlist);
+            $run_wishlist_select = $prepare_wishlist_select->execute(array());
+            $check_wishlist = $prepare_wishlist_select->rowCount();
 
             if ($check_wishlist == 1) {
 
@@ -519,7 +572,10 @@ if ($pro_stock <= 0) {
 
                 $insert_wishlist = "insert into wishlist (customer_id,product_id) values ('$customer_id','$pro_id')";
 
-                $run_wishlist = mysqli_query($con, $insert_wishlist);
+                // $run_wishlist = mysqli_query($con, $insert_wishlist);
+
+                $prepare_wishlist = $con->prepare($insert_wishlist);
+                $run_wishlist = $prepare_wishlist->execute(array());
 
                 if ($run_wishlist) {
 

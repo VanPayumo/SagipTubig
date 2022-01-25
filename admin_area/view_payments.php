@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../includes/JsBarcode.all.min.js"></script>
 <?php
 
 if (!isset($_SESSION['admin_email'])) {
@@ -63,7 +64,6 @@ if (!isset($_SESSION['admin_email'])) {
 <th>Payment Method</th>
 <!-- <th>Reference #</th> -->
 <th>Payment Date</th>
-<th>Action</th>
 
 </tr>
 
@@ -104,23 +104,13 @@ if (!isset($_SESSION['admin_email'])) {
 
 <td><?php echo $order_id; ?></td>
 
-<td bgcolor="yellow" ><?php echo $invoice_no; ?></td>
+<td><?php echo "<svg id='barcode-$invoice_no' onload='createBarcode($invoice_no, $invoice_no)'></svg>"; ?></td>
 
 <td>₱<?php echo $amount; ?></td>
 
 <td><?php echo $payment_mode; ?></td>
 
 <td><?php echo $payment_date; ?></td>
-
-<td>
-
-<a href="index.php?payment_delete=<?php echo $payment_id; ?>" >
-
-<i class="fa fa-trash-o" ></i> Delete
-
-</a>
-
-</td>
 
 
 </tr>
@@ -144,3 +134,9 @@ if (!isset($_SESSION['admin_email'])) {
 
 
 <?php }?>
+
+<script> function createBarcode(code, id){
+    JsBarcode(`#barcode-${code}`, code);
+    console.log(code, id);
+}
+</script>

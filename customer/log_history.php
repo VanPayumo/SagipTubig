@@ -44,11 +44,13 @@ $customer_session = $_SESSION['customer_email'];
 
 $get_logs = "select * from customer_log_history where cid='$customer_id'";
 
-$run_logs = mysqli_query($con, $get_logs);
+// $run_logs = mysqli_query($con, $get_logs);
+$prepare_logs = $con->prepare($get_logs);
+$run_logs = $prepare_logs->execute(array());
 
 $i = 0;
 
-while ($row_logs = mysqli_fetch_array($run_logs)) {
+while ($row_logs = $prepare_logs->fetch(PDO::FETCH_ASSOC)) {
 
     $c_email = $row_logs['c_email'];
 

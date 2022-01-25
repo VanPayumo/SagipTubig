@@ -119,19 +119,27 @@ if (!isset($_SESSION['customer_email'])) {
 
         $insert_return = "insert into returns (invoice_no,amount,payment_mode,return_date) values ('$invoice_no','$amount','$payment_mode', CURRENT_TIMESTAMP)";
 
-        $run_return = mysqli_query($con, $insert_return);
+        // $run_return = mysqli_query($con, $insert_return);
+        $prepare_return = $con->prepare($insert_return);
+        $run_return = $prepare_return->execute();
 
         $update_customer_order = "update customer_orders set order_status='$return' where order_id='$update_id'";
 
-        $run_customer_order = mysqli_query($con, $update_customer_order);
+        // $run_customer_order = mysqli_query($con, $update_customer_order);
+        $prepare_customer_order = $con->prepare($update_customer_order);
+        $run_customer_order = $prepare_customer_order->execute();
 
         $update_payments = "update payments set status='$return' where order_id='$update_id'";
 
-        $run_payments = mysqli_query($con, $update_payments);
+        // $run_payments = mysqli_query($con, $update_payments);
+        $prepare_payments = $con->prepare($update_payments);
+        $run_payments = $prepare_payments->execute();
 
         $update_pending_order = "update pending_orders set order_status='$return' where order_id='$update_id'";
 
-        $run_pending_order = mysqli_query($con, $update_pending_order);
+        // $run_pending_order = mysqli_query($con, $update_pending_order);
+        $prepare_pending_order = $con->prepare($update_pending_order);
+        $run_pending_order = $prepare_pending_order->execute();
 
         if ($run_pending_order) {
 

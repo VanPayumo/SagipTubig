@@ -6,9 +6,12 @@ $session_email = $_SESSION['customer_email'];
 
 $select_customer = "select * from customers where customer_email='$session_email'";
 
-$run_customer = mysqli_query($con, $select_customer);
+// $run_customer = mysqli_query($con, $select_customer);
 
-$row_customer = mysqli_fetch_array($run_customer);
+// $row_customer = mysqli_fetch_array($run_customer);
+$prepare_customer = $con->prepare($select_customer);
+$run_customer = $prepare_customer->execute();
+$row_customer = $prepare_customer->fetch();
 
 $customer_id = $row_customer['customer_id'];
 
@@ -33,9 +36,11 @@ $ip_add = getRealUserIp();
 
 $get_cart = "select * from cart where ip_add='$ip_add'";
 
-$run_cart = mysqli_query($con, $get_cart);
+// $run_cart = mysqli_query($con, $get_cart);
+$prepare_cart = $con->prepare($get_cart);
+$run_cart = $prepare_cart->execute(array());
 
-while ($row_cart = mysqli_fetch_array($run_cart)) {
+while ($row_cart = $prepare_cart->fetch(PDO::FETCH_ASSOC)) {
 
     $pro_id = $row_cart['p_id'];
 
@@ -45,9 +50,12 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 
     $get_products = "select * from products where product_id='$pro_id'";
 
-    $run_products = mysqli_query($con, $get_products);
+    // $run_products = mysqli_query($con, $get_products);
 
-    $row_products = mysqli_fetch_array($run_products);
+    // $row_products = mysqli_fetch_array($run_products);
+    $prepare_products = $con->prepare($get_products);
+    $run_products = $prepare_products->execute(array());
+    $row_products = $prepare_products->fetch(PDO::FETCH_ASSOC);
 
     $product_title = $row_products['product_title'];
 
