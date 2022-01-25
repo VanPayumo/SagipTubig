@@ -13,24 +13,22 @@ if (!isset($_SESSION['customer_email'])) {
     include "functions/functions.php";
     include "includes/main.php";
 
-    ?>
-  <main >
+?>
+
+  <main>
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
         <span class="nero__bold">My </span>Account
       </div>
-      <p class="nero__text">
-      </p>
+      <p class="nero__text"></p>
     </div>
   </main>
 
+
 <div id="content" ><!-- content Starts -->
-<div class="container"><!-- container Starts -->
-
-
-
-<div class="col-md-12" ><!-- col-md-12 Starts -->
+    <div class="container"><!-- container Starts -->
+        <div class="col-md-12" ><!-- col-md-12 Starts -->
 
 <?php
 
@@ -51,88 +49,77 @@ if (!isset($_SESSION['customer_email'])) {
 
     ?>
 
-</div><!-- col-md-12 Ends -->
+        </div><!-- col-md-12 Ends -->
 
-<div class="col-md-3"><!-- col-md-3 Starts -->
+        <div class="col-md-3"><!-- col-md-3 Starts -->
+            <?php include "includes/sidebar.php";?>
+        </div><!-- col-md-3 Ends -->
 
-<?php include "includes/sidebar.php";?>
+        <div class="col-md-9" ><!--- col-md-9 Starts -->
+            <div class="box"  ><!-- box Starts -->
 
-</div><!-- col-md-3 Ends -->
+        <?php
+            if (isset($_GET['my_orders'])) {
 
-<div class="col-md-9" ><!--- col-md-9 Starts -->
+                include "my_orders.php";
 
-<div class="box"  ><!-- box Starts -->
+            }
+
+            if (isset($_GET['pay_offline'])) {
+
+                include "pay_offline.php";
+
+            }
+
+            if (isset($_GET['edit_account'])) {
+
+                include "edit_account.php";
+
+            }
+
+            if (isset($_GET['change_pass'])) {
+
+                include "change_pass.php";
+
+            }
+
+            if (isset($_GET['log_history'])) {
+
+                include "log_history.php";
+
+            }
+
+            if (isset($_GET['delete_account'])) {
+
+                include "delete_account.php";
+
+            }
+
+            if (isset($_GET['my_wishlist'])) {
+
+                include "my_wishlist.php";
+
+            }
+
+            if (isset($_GET['delete_wishlist'])) {
+
+                include "delete_wishlist.php";
+
+            }
+        ?>
+
+            </div><!-- box Ends -->
+        </div><!--- col-md-9 Ends -->
+    </div><!-- container Ends -->
+</div><!-- content Ends --><br><br><br>
+
 
 <?php
-
-    if (isset($_GET['my_orders'])) {
-
-        include "my_orders.php";
-
-    }
-
-    if (isset($_GET['pay_offline'])) {
-
-        include "pay_offline.php";
-
-    }
-
-    if (isset($_GET['edit_account'])) {
-
-        include "edit_account.php";
-
-    }
-
-    if (isset($_GET['change_pass'])) {
-
-        include "change_pass.php";
-
-    }
-
-    if (isset($_GET['log_history'])) {
-
-        include "log_history.php";
-
-    }
-
-    if (isset($_GET['delete_account'])) {
-
-        include "delete_account.php";
-
-    }
-
-    if (isset($_GET['my_wishlist'])) {
-
-        include "my_wishlist.php";
-
-    }
-
-    if (isset($_GET['delete_wishlist'])) {
-
-        include "delete_wishlist.php";
-
-    }
-
-    ?>
-
-</div><!-- box Ends -->
-
-
-</div><!--- col-md-9 Ends -->
-
-</div><!-- container Ends -->
-</div><!-- content Ends -->
-
-<br><br><br>
-
-<?php
-
     include "../includes/footer.php";
+?>
 
-    ?>
 
 <script src="js/jquery.min.js"> </script>
-
 <script src="js/bootstrap.min.js"></script>
 
 </body>

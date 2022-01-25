@@ -33,84 +33,48 @@ $new_customer_image = $row_customer['customer_image'];
 ?>
 
 <h1 align="center" > Edit Your Account </h1>
-
 <form action="" method="post" enctype="multipart/form-data" ><!--- form Starts -->
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Name: </label>
+        <input type="text" name="c_name" class="form-control" required value="<?php echo $customer_name; ?>">
+    </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Email: </label>
+        <input type="text" name="c_email" class="form-control" required value="<?php echo $customer_email; ?>">
+    </div><!-- form-group Ends -->
 
-<label> Name: </label>
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Country: </label>
+        <input type="text" name="c_country" class="form-control" required value="<?php echo $customer_country; ?>">
+    </div><!-- form-group Ends -->
 
-<input type="text" name="c_name" class="form-control" required value="<?php echo $customer_name; ?>">
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> City: </label>
+        <input type="text" name="c_city" class="form-control" required value="<?php echo $customer_city; ?>">
+    </div><!-- form-group Ends -->
 
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Contact Number: </label>
+        <input type="text" name="c_contact" class="form-control" required value="<?php echo $customer_contact; ?>">
+    </div><!-- form-group Ends -->
 
-</div><!-- form-group Ends -->
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Address: </label>
+        <input type="text" name="c_address" class="form-control" required value="<?php echo $customer_address; ?>">
+    </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+    <div class="form-group" ><!-- form-group Starts -->
+        <label> Profile Image: </label>
+        <input type="file" name="c_image" class="form-control" ><br>
+        <img src="customer_images/<?php echo $customer_image; ?>" width="100" height="100" class="img-responsive" >
+    </div><!-- form-group Ends -->
 
-<label> Email: </label>
-
-<input type="text" name="c_email" class="form-control" required value="<?php echo $customer_email; ?>">
-
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label> Country: </label>
-
-<input type="text" name="c_country" class="form-control" required value="<?php echo $customer_country; ?>">
-
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label> City: </label>
-
-<input type="text" name="c_city" class="form-control" required value="<?php echo $customer_city; ?>">
-
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label> Contact Number: </label>
-
-<input type="text" name="c_contact" class="form-control" required value="<?php echo $customer_contact; ?>">
-
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label> Address: </label>
-
-<input type="text" name="c_address" class="form-control" required value="<?php echo $customer_address; ?>">
-
-
-</div><!-- form-group Ends -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label> Profile Image: </label>
-
-<input type="file" name="c_image" class="form-control" ><br>
-
-<img src="customer_images/<?php echo $customer_image; ?>" width="100" height="100" class="img-responsive" >
-
-
-</div><!-- form-group Ends -->
-
-<div class="text-center" ><!-- text-center Starts -->
-
-<button name="update" class="btn btn-primary" >
-
-<i class="fa fa-user-md" ></i> Update Now
-
-</button>
-
-
-</div><!-- text-center Ends -->
+    <div class="text-center" ><!-- text-center Starts -->
+        <button name="update" class="btn btn-primary" >
+        <i class="fa fa-user-md" ></i> Update Now
+        </button>
+    </div><!-- text-center Ends -->
 
 
 </form><!--- form Ends -->

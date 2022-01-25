@@ -1,15 +1,9 @@
 <script type="text/javascript" src="../includes/JsBarcode.all.min.js"></script>
 <center><!-- center Starts -->
-
 <h1>My Orders</h1>
-
 <p class="lead">Your orders on one place.</p>
-
 <p class="text-muted" >
-
 If you have any questions, please feel free to <a href="../contact.php" > contact us,</a> our customer service center is working for you 24/7.
-
-
 </p>
 
 

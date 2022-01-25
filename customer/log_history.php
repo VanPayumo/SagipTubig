@@ -1,38 +1,23 @@
 
 <center><!-- center Starts -->
-
-<h1> Log History </h1>
-
-<!-- <p class="lead"> Audit Trail </p> -->
-
-<p class="text-muted" >
-
-A table containing all the times you've logged in.
-
-
-</p>
-
-
+    <h1> Log History </h1>
+    <!-- <p class="lead"> Audit Trail </p> -->
+    <p class="text-muted" >
+    A table containing all the times you've logged in.
+    </p>
 </center><!-- center Ends -->
 
 <hr>
 
 <div class="table-responsive" ><!-- table-responsive Starts -->
-
-<table  class="table table-bordered table-hover" ><!-- table table-bordered table-hover Starts -->
-
-<thead><!-- thead Starts -->
-
-<tr>
-
-<th>E-Mail</th>
-<th>Date & Time</th>
-<th>Action</th>
-
-
-</tr>
-
-</thead><!-- thead Ends -->
+    <table  class="table table-bordered table-hover" ><!-- table table-bordered table-hover Starts -->
+        <thead><!-- thead Starts -->
+        <tr>
+            <th>E-Mail</th>
+            <th>Date & Time</th>
+            <th>Action</th>
+        </tr>
+        </thead><!-- thead Ends -->
 
 <tbody><!--- tbody Starts --->
 
@@ -60,23 +45,15 @@ while ($row_logs = $prepare_logs->fetch(PDO::FETCH_ASSOC)) {
 
     ?>
 
-<tr><!-- tr Starts -->
-
-
-
-<th><?php echo $c_email ?></th>
-
-<td><?php echo $log_date ?></td>
-
-<td><b style='color:green;'><?php echo $c_action ?></b></td>
-
-</tr><!-- tr Ends -->
+        <tr><!-- tr Starts -->
+        <th><?php echo $c_email ?></th>
+            <td><?php echo $log_date ?></td>
+            <td><b style='color:green;'><?php echo $c_action ?></b></td>
+        </tr><!-- tr Ends -->
 
 <?php }?>
 
 </tbody><!--- tbody Ends --->
-
-
 </table><!-- table table-bordered table-hover Ends -->
 
 </div><!-- table-responsive Ends -->

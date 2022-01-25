@@ -2,13 +2,9 @@
 <center>
 
 <h1>Confirm Deletion of Account.</h1>
-
 <form action="" method="post">
-
-<input class="btn btn-danger" type="submit" name="yes" value="Confirm">
-
-<input class="btn btn-primary" type="submit" name="no" value="Cancel">
-
+    <input class="btn btn-danger" type="submit" name="yes" value="Confirm">
+    <input class="btn btn-primary" type="submit" name="no" value="Cancel">
 </form>
 
 </center>

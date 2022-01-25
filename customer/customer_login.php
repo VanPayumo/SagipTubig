@@ -1,72 +1,35 @@
 
 <div class="ncontainer" ><!-- box Starts -->
+    <div class="nbox-header" ><!-- box-header Starts -->
+        <center> <h1>Login</h1> </center>
+        <p class="text-muted" ></p>
+    </div><!-- box-header Ends -->
 
-<div class="nbox-header" ><!-- box-header Starts -->
-
-<center>
-
-<h1>Login</h1>
-
-</center>
-
-<p class="text-muted" >
-
-</p>
-
-
-
-
-</div><!-- box-header Ends -->
 
 <form action="checkout.php" method="post" ><!--form Starts -->
 
-<div class="nform-group" ><!-- form-group Starts -->
+    <div class="nform-group" ><!-- form-group Starts -->
+        <label>Email</label>
+        <input type="text" class="nform-control" name="c_email" required >
+    </div><!-- form-group Ends -->
 
-<label>Email</label>
-
-<input type="text" class="nform-control" name="c_email" required >
-
-</div><!-- form-group Ends -->
-
-<div class="nform-group" ><!-- form-group Starts -->
-
-<label>Password</label>
-
-<input type="password" class="nform-control" name="c_pass" required >
-
-<h5 align="center">
+    <div class="nform-group" ><!-- form-group Starts -->
+        <label>Password</label>
+        <input type="password" class="nform-control" name="c_pass" required >
+        <h5 align="center"></h5>
+    </div><br><br><!-- form-group Ends -->
 
 
-
-
-</h5>
-
-</div><!-- form-group Ends -->
-<br><br>
-
-<div class="text-center" ><!-- text-center Starts -->
-
-<button name="login" value="Login" class="btn nbtn-primary" >
-
-<i class="fa fa-sign-in" ></i> LOGIN
-
-
-</button>
-
-</div><!-- text-center Ends -->
-
-
+    <div class="text-center" ><!-- text-center Starts -->
+        <button name="login" value="Login" class="btn nbtn-primary" >
+        <i class="fa fa-sign-in" ></i> LOGIN </button>
+    </div><!-- text-center Ends -->
 </form><!--form Ends -->
 
 <center><!-- center Starts -->
-
-<a href="customer_register.php" >
-
-<h5>👉New ? Register Here👈</h5>
-
-</a>
-
-
+    <a href="customer_register.php" >
+    <h5>👉New ? Register Here👈</h5>
+    </a>
 </center><!-- center Ends -->
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
