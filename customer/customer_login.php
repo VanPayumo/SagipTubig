@@ -1,4 +1,5 @@
 
+
 <div class="ncontainer" ><!-- box Starts -->
     <div class="nbox-header" ><!-- box-header Starts -->
         <center> <h1>Login</h1> </center>
@@ -7,11 +8,6 @@
 
 <div class="nbox-header" ><!-- box-header Starts -->
 
-<center>
-
-<h1>Login</h1>
-
-</center>
 
 <p class="text-muted" >
 
