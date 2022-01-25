@@ -5,6 +5,20 @@
         <p class="text-muted" ></p>
     </div><!-- box-header Ends -->
 
+<div class="nbox-header" ><!-- box-header Starts -->
+
+<center>
+
+<h1>Login</h1>
+
+</center>
+
+<p class="text-muted" >
+
+</p>
+
+
+</div><!-- box-header Ends -->
 
 <form action="checkout.php" method="post" ><!--form Starts -->
 

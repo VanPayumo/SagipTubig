@@ -514,9 +514,9 @@ Product Price : ₱$pro_price
 
 <?php
 if ($pro_stock <= 0) {
-        echo '<button class="btn btn-danger" type="submit" name="add_cart" disabled>';
+        echo '<button class="btn btn-button" type="submit" name="add_cart" disabled>';
     } else {
-        echo '<button class="btn btn-danger" type="submit" name="add_cart">';
+        echo '<button class="btn btn-button" type="submit" name="add_cart">';
     }
     ?>
 

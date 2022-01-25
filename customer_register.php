@@ -27,7 +27,7 @@ include "includes/main.php";
 
 <div class="container" ><!-- container Starts -->
 
-<div class="ncol-md-12" ><!-- col-md-12 Starts -->
+<div class="col-md-12" ><!-- col-md-12 Starts -->
 
 <div class="ncontainer" ><!-- box Starts -->
 <center>

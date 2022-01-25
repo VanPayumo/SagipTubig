@@ -1,5 +1,4 @@
 html {
-    font-family: "Montserrat";
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
@@ -10,7 +9,7 @@ body {
 }
 
 
-/* Basket icons styles */
+/* Basket icon style */
 
 .btnn btn--basket {
     display: inline-block;
@@ -273,7 +272,6 @@ template {
     font-family: fontello;
     font-style: normal;
     font-weight: 400;
-    speak: none;
     display: inline-block;
     text-decoration: inherit;
     width: 1em;
@@ -901,7 +899,7 @@ img {
 
 .brand__text {
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 21px;
@@ -983,12 +981,11 @@ img {
     text-align: center;
     color: gray;
     font-size: 14px;
-    font-family: Roboto;
+    font-family: 'Montserrat';
     border: 1.5px solid gray;
     background-color: #f8f8f8;
     position: relative;
     line-height: 40px;
-    float: right;
     right: 210px;
     top: 80px;
     display: inline-block;
@@ -1055,12 +1052,8 @@ img {
     text-align: center;
 }
 
-.ncol-md-12 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px
-}
+
+/* For register and login form styles */
 
 .nform-control {
     display: block;

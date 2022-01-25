@@ -1,7 +1,7 @@
 /* General Styles */
 
 body {
-    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat";
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
@@ -115,11 +115,17 @@ body {
     border-color: #577BC1
 }
 
-.btn-danger {
+.btn-button {
     color: rgb(255, 255, 255);
     background-color: #577BC1;
     border-color: #577BC1;
     font-family: Montserrat;
+}
+
+.btn-button:hover {
+    color: #fff;
+    background-color: #577BC1;
+    border-color: #577BC1
 }
 
 .btn-warning {
@@ -322,8 +328,6 @@ body {
 .navi>li>a:hover {
     text-decoration: none;
 }
-
-.navi>li.disabled>a {}
 
 .navi>li.disabled>a:focus,
 .navi>li.disabled>a:hover {

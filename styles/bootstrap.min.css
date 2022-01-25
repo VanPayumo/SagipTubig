@@ -10,7 +10,7 @@
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100% font-family: "Montserrat";
+    -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -1391,7 +1391,7 @@ html {
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat";
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
@@ -7628,7 +7628,7 @@ button.close {
     margin: 1px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #000\9;
+    background-color: #0009;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #fff;
     border-radius: 10px

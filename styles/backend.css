@@ -1,7 +1,6 @@
-/* CSS tags style */
+/* Overall Styles */
 
 html {
-    font-family: "Montserrat";
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -15,8 +14,6 @@ main {
     background-color: rgba(160, 185, 235, 0.56);
 }
 
-article,
-aside,
 footer,
 header,
 nav,
@@ -24,25 +21,19 @@ section {
     display: block;
 }
 
-figcaption,
-figure,
-main {
-    display: block;
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
 }
 
-figure {
-    margin: 1em 40px;
+main {
+    display: block;
 }
 
 hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
-}
-
-pre {
-    font-family: monospace, monospace;
-    font-size: 1em;
 }
 
 a {
@@ -55,62 +46,19 @@ a:hover {
     outline-width: 0;
 }
 
-abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-}
-
 b,
 strong {
     font-weight: inherit;
     font-weight: bolder;
 }
 
-code,
-kbd,
-samp {
+code {
     font-family: monospace, monospace;
     font-size: 1em;
 }
 
-dfn {
-    font-style: italic;
-}
-
-mark {
-    background-color: #ff0;
-    color: #000;
-}
-
 small {
     font-size: 80%;
-}
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-sup {
-    top: -0.5em;
-}
-
-audio,
-video {
-    display: inline-block;
-}
-
-audio:not([controls]) {
-    display: none;
-    height: 0;
 }
 
 img {
@@ -251,7 +199,6 @@ template {
     font-family: fontello;
     font-style: normal;
     font-weight: 400;
-    speak: none;
     display: inline-block;
     text-decoration: inherit;
     width: 1em;
@@ -265,92 +212,8 @@ template {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-down-open-1:before {
-    content: "\e800";
-}
-
-.icon-info-circled:before {
-    content: "\e801";
-}
-
-.icon-heart-empty:before {
-    content: "\e802";
-}
-
-.icon-twitter:before {
-    content: "\e803";
-}
-
-.icon-facebook:before {
-    content: "\e804";
-}
-
-.icon-gplus:before {
-    content: "\e805";
-}
-
 .icon-basket:before {
     content: "\e806";
-}
-
-.icon-down-open:before {
-    content: "\e807";
-}
-
-.icon-down-circled2:before {
-    content: "\e808";
-}
-
-.icon-location:before {
-    content: "\e809";
-}
-
-.icon-phone:before {
-    content: "\e80a";
-}
-
-.icon-link:before {
-    content: "\e80b";
-}
-
-.icon-mail:before {
-    content: "\e80c";
-}
-
-.icon-star:before {
-    content: "\e80d";
-}
-
-.icon-clock-1:before {
-    content: "\e80e";
-}
-
-.icon-left-open-big:before {
-    content: "\e80f";
-}
-
-.icon-right-open-big:before {
-    content: "\e810";
-}
-
-.icon-pinterest-circled:before {
-    content: "\f0d2";
-}
-
-.icon-angle-down:before {
-    content: "\f107";
-}
-
-.icon-instagram-1:before {
-    content: "\f16d";
-}
-
-.icon-instagram:before {
-    content: "\f32d";
-}
-
-.icon-search:before {
-    content: "\f50d";
 }
 
 @font-face {
@@ -372,9 +235,8 @@ html {
 
 body {
     min-width: 1190px;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    background-color: white;
 }
 
 .container {
@@ -386,6 +248,9 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
+/* Animation for account settings */
 
 @-webkit-keyframes a {
     0% {
@@ -569,6 +434,8 @@ img {
     left: 0;
     width: 467px;
     padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
     background-color: #f8f8f8;
     box-shadow: 0 17px 17px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -925,7 +792,7 @@ img {
 }
 
 
-/*Main Cover Styles*/
+/*cover*/
 
 .nero {
     padding-top: 110px;
@@ -933,7 +800,7 @@ img {
     font-family: "montserratlight", sans-serif;
     text-align: center;
     color: #0007a5;
-    background: rgba(160, 185, 235, 0.56) url(../images/hero2.png) no-repeat;
+    background: rgba(160, 185, 235, 0.56) url("../images/hero2.png") no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -987,7 +854,6 @@ img {
     background-color: #577bc1;
     position: relative;
     line-height: 40px;
-    float: left;
     left: 200px;
     top: 20px;
     display: inline-block;
@@ -1071,14 +937,7 @@ tac {
 }
 
 
-/* newcss for forms*/
-
-.ncol-md-12 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px
-}
+/* For register and login form styles */
 
 .nform-control {
     display: block;
@@ -1155,6 +1014,26 @@ fieldset[disabled] .nform-control {
     padding-bottom: 0em;
 }
 
+.ninput-group .nform-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0
+}
+
+.nform-group {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.nform-group select {
+    font-family: 'Montserrat';
+}
+
+
+/* For register and login button styles */
+
 .nbtn-primary {
     color: #fff;
     background-color: #337ab7;
@@ -1183,63 +1062,4 @@ fieldset[disabled] .nform-control {
     color: #fff;
     background-color: #286090;
     border-color: #204d74
-}
-
-.nbtn-primary.active.focus,
-.nbtn-primary.active:focus,
-.nbtn-primary.active:hover,
-.nbtn-primary:active.focus,
-.nbtn-primary:active:focus,
-.nbtn-primary:active:hover,
-.open>.dropdown-toggle.btn-primary.focus,
-.open>.dropdown-toggle.btn-primary:focus,
-.open>.dropdown-toggle.btn-primary:hover {
-    color: #fff;
-    background-color: #204d74;
-    border-color: #122b40
-}
-
-.nbtn-primary.active,
-.nbtn-primary:active,
-.open>.dropdown-toggle.btn-primary {
-    background-image: none
-}
-
-.nbtn-primary.disabled.focus,
-.nbtn-primary.disabled:focus,
-.nbtn-primary.disabled:hover,
-.nbtn-primary[disabled].focus,
-.nbtn-primary[disabled]:focus,
-.nbtn-primary[disabled]:hover,
-fieldset[disabled] .nbtn-primary.focus,
-fieldset[disabled] .nbtn-primary:focus,
-fieldset[disabled] .nbtn-primary:hover {
-    background-color: #337ab7;
-    border-color: #2e6da4
-}
-
-.nbtn-primary .badge {
-    color: #337ab7;
-    background-color: #fff
-}
-
-.ninput-group .nform-control {
-    position: relative;
-    z-index: 2;
-    float: left;
-    width: 100%;
-    margin-bottom: 0
-}
-
-.nform-group {
-    margin-bottom: 0px;
-    margin-top: 10px;
-}
-
-.nform-group select {
-    font-family: 'Montserrat';
-}
-
-#ncontainer {
-    padding-top: 5em;
 }
