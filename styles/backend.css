@@ -361,7 +361,7 @@ img {
 
 .page-header__bottomline .logo {
     float: left;
-    padding-left: 5em;
+    padding-left: 0em;
     font-size: small;
 }
 

@@ -516,8 +516,8 @@ img {
 
 .page-header__bottomline .logo {
     float: left;
-    padding-left: 5em;
-    font-size: small;
+    padding-left: 0em;
+
 }
 
 .page-header__bottomline .logo__link {
