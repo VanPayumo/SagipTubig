@@ -109,6 +109,7 @@ body {
 }
 
 .btn-primary {
+    font-family: "Montserrat";
     color: rgb(255, 255, 255);
     background-color: #577BC1;
     border-color: #577BC1
@@ -170,6 +171,10 @@ body {
     box-sizing: border-box;
     padding: 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+#nbox {
+    border-radius: 10px;
 }
 
 #advantages {
@@ -335,6 +340,9 @@ body {
     background-color: #337ab7
 }
 
+
+/* Sidebar product categories Styles */
+
 #ncontainer {
     padding-top: 5em;
 }
@@ -345,7 +353,7 @@ body {
     border-radius: 25px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    height: 65em;
+    height: 40em;
 }
 
 .npanel-body {
@@ -471,6 +479,8 @@ body {
     margin: 30px -20px -20px;
     padding: 20px;
     border-top: solid 1px #eeeeee;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .box .box-footer:before,
@@ -776,7 +786,7 @@ body {
     right: 300px;
     top: 2290px;
     text-align: center;
-  /*   position: relative;
+    /*   position: relative;
     left: 29%;
     top: 108%;
     bottom: 26%;
@@ -791,7 +801,7 @@ body {
     left: 350px;
     right: 0px;
     top: 2550px;
-    text-align: center; 
+    text-align: center;
 }
 
 #trash {
@@ -831,7 +841,7 @@ body {
     left: 350px;
     right: 0px;
     top: 2260px;
-    text-align: center; 
+    text-align: center;
 }
 
 .mapping {
@@ -841,7 +851,7 @@ body {
     left: 0px;
     right: 250px;
     top: 2510px;
-    text-align: center; 
+    text-align: center;
 }
 
 .removal {
@@ -851,7 +861,7 @@ body {
     left: 310px;
     right: 0px;
     top: 2750px;
-    text-align: center; 
+    text-align: center;
 }
 
 .recycle {
@@ -869,7 +879,6 @@ body {
     height: 210px;
     background: #fffce7d5;
     border-radius: 20px;
-    
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -877,47 +886,44 @@ body {
     right: 0px;
     top: 2295px;
     padding-bottom: 30px;
-    text-align: justify; 
+    text-align: justify;
     outline: solid;
     outline-width: 2px;
     color: #000957;
-    
 }
 
-.idea2 p{
+.idea2 p {
     margin-left: 20px;
     margin-right: 20px;
-}   
+}
 
 .map2 {
     width: 400px;
     height: 180px;
     background: #fffce7d5;
     border-radius: 20px;
-
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0px;
     right: 520px;
     top: 2550px;
-    text-align: justify; 
+    text-align: justify;
     outline: solid;
     outline-width: 2px;
     color: #000957;
 }
 
-.map2 p{
+.map2 p {
     margin-left: 20px;
     margin-right: 20px;
-}   
+}
 
 .remove2 {
     width: 400px;
     height: 180px;
     background: #fffce7d5;
     border-radius: 20px;
-
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -931,10 +937,10 @@ body {
     color: #000957;
 }
 
-.remove2 p{
+.remove2 p {
     margin-left: 20px;
     margin-right: 20px;
-}   
+}
 
 .recy2 {
     width: 400px;
@@ -947,14 +953,13 @@ body {
     left: 0px;
     right: 520px;
     top: 3050px;
-    text-align: justify; 
+    text-align: justify;
     outline: solid;
     outline-width: 2px;
     color: #000957;
 }
 
-.recy2 p{
+.recy2 p {
     margin-left: 20px;
     margin-right: 20px;
-}   
-
+}

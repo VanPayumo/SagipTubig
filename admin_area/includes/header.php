@@ -12,6 +12,6 @@
   <link href="styles/bootstrap.min.css" rel="stylesheet">
   <link href="styles/backend.css" rel="stylesheet">
   <link href="styles/style.css" rel="stylesheet">
-  <link href="images/logo.png" rel="icon"
+  <link href="images/logo.png" rel="icon">
 
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">

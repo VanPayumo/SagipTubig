@@ -12,7 +12,7 @@
 if (!isset($_SESSION['customer_email'])) {
     echo "Welcome: <b>Guest</b>";
 } else {
-    echo "Welcome : <b>" . $_SESSION['customer_email'] . "</b";
+    echo "Welcome: <b>" . $_SESSION['customer_email'] . "</b";
 }
 ?>
           </a>

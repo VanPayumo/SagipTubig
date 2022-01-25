@@ -15,7 +15,7 @@ include "includes/main.php";
     <!-- HERO -->
     <div class="nero">
       <div class="nero__heading">
-        <span class="nero__bold">SHOP</span> Cart
+        <span class="nero__bold">Shop</span> Cart
       </div>
       <p class="nero__text">
       </p>
@@ -25,13 +25,13 @@ include "includes/main.php";
 
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div class="container" id="ncontainer" ><!-- container Starts -->
 
 
 
 <div class="col-md-9" id="cart" ><!-- col-md-9 Starts -->
 
-<div class="box" ><!-- box Starts -->
+<div class="box" id="nbox"  ><!-- box Starts -->
 
 <form action="cart.php" method="post" enctype="multipart-form-data" ><!-- form Starts -->
 
