@@ -445,7 +445,7 @@ if (!isset($_SESSION['admin_email'])) {
 
                             $i = 0;
 
-                            $get_order = "select * from pending_orders order by 1 ASCE LIMIT 0,5"; // DESC=Descending order, Limit=limit results
+                            $get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5"; // DESC=Descending order, Limit=limit results
                             $run_order = mysqli_query($con, $get_order);
 
                             while ($row_order = mysqli_fetch_array($run_order)) {
@@ -491,22 +491,22 @@ if (!isset($_SESSION['admin_email'])) {
                                         <?php
                                             if ($order_status == 'pending') {
 
-                                                    echo $order_status = 'pending';
+                                                 echo $order_status = 'pending';
 
-                                                } else if ($order_status == 'Returned') {
+                                            } else if ($order_status == 'Returned') {
 
-                                                    echo $order_status = 'Returned';
+                                                 echo $order_status = 'Returned';
 
-                                                } else if ($order_status == 'Refunded') {
+                                            } else if ($order_status == 'Refunded') {
 
-                                                    echo $order_status = 'Refunded';
+                                                 echo $order_status = 'Refunded';
 
-                                                } else {
+                                            } else {
 
-                                                    echo $order_status = 'Complete';
+                                                 echo $order_status = 'Complete';
 
                                             }
-
+                                                        
                                         ?>
                                     </td>
 
