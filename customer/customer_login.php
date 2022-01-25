@@ -8,7 +8,10 @@
 
 <div class="nbox-header" ><!-- box-header Starts -->
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <p class="text-muted" >
 
 </p>

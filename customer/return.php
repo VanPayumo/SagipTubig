@@ -27,79 +27,51 @@ if (!isset($_SESSION['customer_email'])) {
 
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+    <div class="container" ><!-- container Starts -->
+        <div class="col-md-3"><!-- col-md-3 Starts -->
 
+            <?php include "includes/sidebar.php";?>
 
-<div class="col-md-3"><!-- col-md-3 Starts -->
+        </div><!-- col-md-3 Ends -->
 
-<?php include "includes/sidebar.php";?>
-
-</div><!-- col-md-3 Ends -->
-
-<div class="col-md-9"><!-- col-md-9 Starts -->
-
-<div class="box"><!-- box Starts -->
+        <div class="col-md-9"><!-- col-md-9 Starts -->
+        <div class="box"><!-- box Starts -->
 
 <h1 align="center"> Return Product </h1>
-
-
 <form action="return.php?update_id=<?php echo $order_id; ?>" method="post" enctype="multipart/form-data"><!--- form Starts -->
 
-<div class="form-group"><!-- form-group Starts -->
+    <div class="form-group"><!-- form-group Starts -->
+        <label>Invoice No:</label>
+        <input type="text" class="form-control" name="invoice_no" value="<?php echo $invoice_no ?>">
+    </div><!-- form-group Ends -->
 
-<label>Invoice No:</label>
+    <div class="form-group"><!-- form-group Starts -->
+        <label>Total Amount:</label>
+        <input type="text" class="form-control" name="amount_sent" value="<?php echo $due_amount ?>">
+    </div><!-- form-group Ends -->
 
-<input type="text" class="form-control" name="invoice_no" value="<?php echo $invoice_no ?>">
+    <div class="form-group"><!-- form-group Starts -->
+        <label>Select Payment Mode:</label>
+        <select name="payment_mode" class="form-control" required><!-- select Starts -->
+            <option hidden="" disabled="disabled" value="">Select Payment Mode (other payment modes coming soon) </option>
+            <option selected="selected">Cash On Delivery (COD)</option>
+        </select><!-- select Ends -->
+    </div><!-- form-group Ends -->
 
-</div><!-- form-group Ends -->
-
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Total Amount:</label>
-
-<input type="text" class="form-control" name="amount_sent" value="<?php echo $due_amount ?>">
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Select Payment Mode:</label>
-
-<select name="payment_mode" class="form-control" required><!-- select Starts -->
-
-<option hidden="" disabled="disabled" value="">Select Payment Mode (other payment modes coming soon) </option>
-<option selected="selected">Cash On Delivery (COD)</option>
-
-</select><!-- select Ends -->
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-</div><!-- form-group Ends -->
+    <div class="form-group"><!-- form-group Starts -->
+    </div><!-- form-group Ends -->
+    </div><!-- form-group Ends -->
 
 
-</div><!-- form-group Ends -->
+    <div class="form-group"><!-- form-group Starts -->
+        <label>Order Date:</label>
+        <input type="text" class="form-control" name="date" value="<?php echo $order_date ?>">
+    </div><!-- form-group Ends -->
 
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label>Order Date:</label>
-
-<input type="text" class="form-control" name="date" value="<?php echo $order_date ?>">
-
-</div><!-- form-group Ends -->
-
-<div class="text-center"><!-- text-center Starts -->
-
-<button type="submit" name="confirm_return" class="btn btn-danger btn-lg">
-
-<i class="fa fa-user-md"></i> Confirm Return
-
-</button>
-
-</div><!-- text-center Ends -->
+    <div class="text-center"><!-- text-center Starts -->
+        <button type="submit" name="confirm_return" class="btn btn-danger btn-lg">
+        <i class="fa fa-user-md"></i> Confirm Return</button>
+    </div><!-- text-center Ends -->
 
 </form><!--- form Ends -->
 
@@ -158,10 +130,8 @@ if (!isset($_SESSION['customer_email'])) {
     ?>
 
 
-</div><!-- box Ends -->
-
-</div><!-- col-md-9 Ends -->
-
+        </div><!-- box Ends -->
+    </div><!-- col-md-9 Ends -->
 </div><!-- container Ends -->
 </div><!-- content Ends -->
 
@@ -169,9 +139,10 @@ if (!isset($_SESSION['customer_email'])) {
 <br><br><br><br><br><br><br><br><br>
 <?php include "../includes/footer.php";?>
 
-<script src="js/jquery.min.js"> </script>
 
+<script src="js/jquery.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
+
 
 </body>
 </html>

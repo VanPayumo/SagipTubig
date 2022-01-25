@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
 
 } else {
-    $admin_level = $_SESSION['admin_level'];
+    $admin_level = $_SESSION['admin_level']; // If you're not an admin with an access level of 1, your authorities as a user are limited.
 
     if ($admin_level == 2) {
         $hideme = 'display:none;';
@@ -447,7 +447,7 @@ if (!isset($_SESSION['admin_email'])) {
 
     $i = 0;
 
-    $get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
+    $get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5"; // DESC=Descending order, Limit=limit results
     $run_order = mysqli_query($con, $get_order);
 
     while ($row_order = mysqli_fetch_array($run_order)) {
@@ -509,7 +509,7 @@ if ($order_status == 'pending') {
 
         }
 
-        ?>
+?>
 </td>
 
 </tr>

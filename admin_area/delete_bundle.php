@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <?php
 
-    if (isset($_GET['delete_bundle'])) {
+    if (isset($_GET['delete_bundle'])) { // Delete bundle product from admin page
 
         $delete_id = $_GET['delete_bundle'];
 

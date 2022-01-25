@@ -73,7 +73,7 @@ if (!isset($_SESSION['admin_email'])) {
 
 <?php
 
-    $get_logs = "select * from customer_log_history";
+    $get_logs = "select * from customer_log_history"; // Kukunin at ididisplay lahat ng activity ng customers
 
     $run_logs = mysqli_query($con, $get_logs);
 
@@ -87,7 +87,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         $c_action = $row_logs['activity'];
 
-        ?>
+    ?>
 
 <tr><!-- tr Starts -->
 
@@ -103,7 +103,7 @@ if (!isset($_SESSION['admin_email'])) {
             echo "<td><b style='color:green;'>$c_action</b></td>";
         }
 
-        ?>
+?>
 
 
 

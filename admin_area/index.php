@@ -10,19 +10,19 @@ if (!isset($_SESSION['admin_email'])) {
 
 } else {
 
-    ?>
+?>
 
 <?php
 
-    $admin_session = $_SESSION['admin_email'];
+    $admin_session = $_SESSION['admin_email']; // Kukunin niya yung email ng admin na naka login
 
-    $get_admin = "select * from admins  where admin_email='$admin_session'";
+    $get_admin = "select * from admins  where admin_email='$admin_session'"; // magququery ng mga details ng admin
 
-    $run_admin = mysqli_query($con, $get_admin);
+    $run_admin = mysqli_query($con, $get_admin); // irurun yung query
 
-    $row_admin = mysqli_fetch_array($run_admin);
+    $row_admin = mysqli_fetch_array($run_admin); // kukunin yung details
 
-    $admin_id = $row_admin['admin_id'];
+    $admin_id = $row_admin['admin_id']; // bawat rows into variable
 
     $admin_name = $row_admin['admin_name'];
 
@@ -38,13 +38,13 @@ if (!isset($_SESSION['admin_email'])) {
 
     $admin_about = $row_admin['admin_about'];
 
-    $get_products = "SELECT * FROM products";
-    $run_products = mysqli_query($con, $get_products);
-    $count_products = mysqli_num_rows($run_products);
+    $get_products = "SELECT * FROM products"; // Kukunin lahat ng products
+    $run_products = mysqli_query($con, $get_products); // Irurun yung query ng products
+    $count_products = mysqli_num_rows($run_products); // Bibilangin kung ilang products ang meron currently
 
-    $get_customers = "SELECT * FROM customers";
-    $run_customers = mysqli_query($con, $get_customers);
-    $count_customers = mysqli_num_rows($run_customers);
+    $get_customers = "SELECT * FROM customers"; // Kukunin lahat ng customers
+    $run_customers = mysqli_query($con, $get_customers); // Irurun yung query ng customers
+    $count_customers = mysqli_num_rows($run_customers); // Bibilangin kung ilan ang customers registered
 
     $get_p_categories = "SELECT * FROM product_categories";
     $run_p_categories = mysqli_query($con, $get_p_categories);
@@ -62,11 +62,11 @@ if (!isset($_SESSION['admin_email'])) {
     $run_completed_orders = mysqli_query($con, $get_completed_orders);
     $count_completed_orders = mysqli_num_rows($run_completed_orders);
 
-    $get_total_earnings = "SELECT SUM( due_amount) as Total FROM customer_orders WHERE order_status = 'Complete'";
+    $get_total_earnings = "SELECT SUM(due_amount) as Total FROM customer_orders WHERE order_status = 'Complete'";
     $run_total_earnings = mysqli_query($con, $get_total_earnings);
     $row = mysqli_fetch_assoc($run_total_earnings);
     $count_total_earnings = $row['Total'];
-    if ($count_total_earnings == 0) {
+    if ($count_total_earnings == 0) { // Kapag wala pang earnings, mag
         $count_total_earnings = 0;
     } else {
         $count_total_earnings = $row['Total'];

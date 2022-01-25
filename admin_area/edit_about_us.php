@@ -152,7 +152,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         $about_desc = $_POST['about_desc'];
 
-        $update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'";
+        $update_about_us = "update about_us set about_heading='$about_heading',about_short_desc='$about_short_desc',about_desc='$about_desc'"; // Update about_us table from database
 
         $run_about_us = mysqli_query($con, $update_about_us);
 

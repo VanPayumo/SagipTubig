@@ -14,7 +14,7 @@ else {
 
 <?php
 
-if(isset($_GET['delete_coupon'])){
+if(isset($_GET['delete_coupon'])){ // Delete coupon of choice from admin page
 
 $delete_id = $_GET['delete_coupon'];
 
