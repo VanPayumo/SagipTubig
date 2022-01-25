@@ -8,7 +8,6 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 html {
-    font-family: 'Montserrat';
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
 }
@@ -3230,8 +3229,7 @@ input[type=search] {
 }
 
 .form-group {
-    margin-bottom: 15px;
-    font-family: 'Montserrat';
+    margin-bottom: 15px
 }
 
 .checkbox,
@@ -4801,7 +4799,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 15px
 }
 
 .nav>li>a:focus,
