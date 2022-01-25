@@ -256,30 +256,8 @@ if (!isset($_SESSION['admin_email'])) {
 
 
 
-<li style="<?php echo $hideme; ?>"><!-- terms li Starts -->
-
-<a href="#" data-toggle="collapse" data-target="#terms" ><!-- anchor Starts -->
-
-<i class="fa fa-fw fa-table"></i> Terms
-
-<i class="fa fa-fw fa-caret-down"></i>
-
-</a><!-- anchor Ends -->
-
-<ul id="terms" class="collapse"><!-- ul collapse Starts -->
-
-<li>
-<a href="index.php?insert_term"> Insert Terms </a>
-</li>
-
-<li>
-<a href="index.php?view_terms"> View Terms </a>
-</li>
-
-</ul><!-- ul collapse Ends -->
 
 
-</li><!-- terms li Ends -->
 
 
 <li style="<?php echo $hideme; ?>"><!-- li Starts -->

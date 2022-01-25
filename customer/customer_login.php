@@ -35,9 +35,6 @@
 <input type="password" class="nform-control" name="c_pass" required >
 
 <h5 align="center">
-<br>
-<a href="forgot_pass.php"> Forgot Password </a> 
-<br><br>
 
 
 
