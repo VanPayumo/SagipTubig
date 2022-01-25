@@ -2,7 +2,7 @@
 
 <div class="ncontainer" ><!-- box Starts -->
     <div class="nbox-header" ><!-- box-header Starts -->
-        <center> <h1>Login</h1> </center>
+        <center> <h1><b>Login</b></h1> </center>
         <p class="text-muted" ></p>
     </div><!-- box-header Ends -->
 
@@ -37,10 +37,28 @@
 
 <center><!-- center Starts -->
     <a href="customer_register.php" >
-    <h5>👉New ? Register Here👈</h5>
+    <br>
+   
+
+<div style="
+position: relative;
+width: 250px;
+height: 35px;
+
+border: 1px solid #9B9B9B;
+box-sizing: border-box;
+border-radius: 40px">
+    <h5> <b>👉New ? Register Here👈</b></h5>
     </a>
+</div>
+<br><br>
+<br>
+<br>
+
+
+
     <a href="http://localhost/SagipTubig/admin_area/login.php">
-    <h5>Manual Login</h5>
+    <h7 style = "border: 2px; color:black; ">  <u>ℹ  Manual Login for site admins</u></h7>
     </a>
 </center><!-- center Ends -->
 

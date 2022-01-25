@@ -948,7 +948,7 @@ body {
 
 .recy2 {
     width: 400px;
-    height: 180px;
+    height: 135px;
     background: #fffce7d5;
     border-radius: 20px;
     position: absolute;
@@ -956,7 +956,7 @@ body {
     margin-right: auto;
     left: 0px;
     right: 520px;
-    top: 3050px;
+    top: 3070px;
     text-align: justify;
     outline: solid;
     outline-width: 2px;

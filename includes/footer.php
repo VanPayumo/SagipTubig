@@ -8,11 +8,13 @@
 			</div>
 
 			<div class="developer">
-				Developed by G3 CS3A
+				<a style= "color: white" href = http://localhost/SagipTubig/crew.php><u>Developed by G3 CS3A</u</a>
 			</div>
 
 			<div class="designby">
-				Design by LALS, MTC, ACMDG
+
+			<a style= "color: white" href = http://localhost/SagipTubig/crew.php><u>Design by LALS, MTC, ACMDG</u</a>
+				
 			</div>
 		</div>
 	</div>

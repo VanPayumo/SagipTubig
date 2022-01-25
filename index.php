@@ -115,15 +115,21 @@ getPro();
       <div class="remove2">
         <br> <p>
         
-        The said project ta</p>
+        The said project will be inviting different <b>Non-Government Organizations </b>to coordinate on different locations on targeting different bodies of waters
+        and tap different communities to the said project. The project aims to reduce the pollution on different bodies of water in the Philippines by <b>79% by this coming 2025.</b>
+      
+      </p>
       </div>
 
       <div class="recy2">
-        <br> <p>This is some dummy text.
-        This is some dummy text.This is some dummy text.This is some dummy text.
-        This is some dummy text.This is some dummy text.This is some dummy text.
-        This is some dummy text.This is some dummy text.This is some dummy text.
-        This is some dummy text.This is some dummy text.This is some dummy text.
+        <br> <p>
+          
+          As we head to the world full of e-waste, the project would also like to support the <b>production of sustainable products</b>
+          and the project guarantees that their products are made of recyclable and safe materials.
+
+
+
+
         </p>
       </div>
       </div>
