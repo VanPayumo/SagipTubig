@@ -137,7 +137,6 @@
 
 <script> function createBarcode(code, id){
     JsBarcode(`#barcode-${code}`, code);
-    console.log(code, id);
 }
 </script>
 
