@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2022 at 07:38 AM
+-- Generation Time: Jan 26, 2022 at 10:04 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -129,7 +129,7 @@ CREATE TABLE `coupons` (
 --
 
 INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`, `coupon_code`, `coupon_limit`, `coupon_used`) VALUES
-(3, 13, 'SagipTumbler', '3000', 'SGPTBGTMBLR', 5, 0);
+(3, 13, 'SagipTumbler', '750', 'SGPTBGTMBLR', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -499,7 +499,8 @@ INSERT INTO `user_log_history` (`log_id`, `u_id`, `u_email`, `log_time`, `activi
 (37, 7, 'testing@mail.com', '2022-01-26 06:02:52', 'Registered'),
 (38, 7, 'testing@mail.com', '2022-01-26 06:03:34', 'Logged in'),
 (39, 5, 'rammedina@gmail.com', '2022-01-26 06:04:58', 'Logged in'),
-(40, 5, 'rammedina@gmail.com', '2022-01-26 06:32:47', 'Logged in');
+(40, 5, 'rammedina@gmail.com', '2022-01-26 06:32:47', 'Logged in'),
+(41, 1, 'payumo.van657@gmail.com', '2022-01-26 06:54:50', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -713,7 +714,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `user_log_history`
 --
 ALTER TABLE `user_log_history`
-  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
