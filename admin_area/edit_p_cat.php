@@ -34,92 +34,90 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="row"><!-- 1 row Starts -->
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<ol class="breadcrumb"><!-- breadcrumb Starts -->
+        <ol class="breadcrumb"><!-- breadcrumb Starts -->
 
-<li>
+            <li>
 
-<i class="fa fa-dashboard"></i> Dashboard / Edit Product Category
+             <i class="fa fa-dashboard"></i> Dashboard / Edit Product Category
 
-</li>
+            </li>
 
-</ol><!-- breadcrumb Ends -->
+        </ol><!-- breadcrumb Ends -->
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- 1 row Ends -->
 
 <div class="row"><!-- 2 row Starts -->
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<div class="panel panel-default"><!-- panel panel-default Starts -->
+        <div class="panel panel-default"><!-- panel panel-default Starts -->
 
-<div class="panel-heading" ><!-- panel-heading Starts -->
+            <div class="panel-heading" ><!-- panel-heading Starts -->
 
-<h3 class="panel-title" ><!-- panel-title Starts -->
+                <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> Edit Product Category
+                    <i class="fa fa-money fa-fw" ></i> Edit Product Category
 
-</h3><!-- panel-title Ends -->
+                </h3><!-- panel-title Ends -->
 
+            </div><!-- panel-heading Ends -->
 
-</div><!-- panel-heading Ends -->
+            <div class="panel-body" ><!-- panel-body Starts -->
 
+                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" ><!-- form-horizontal Starts -->
 
-<div class="panel-body" ><!-- panel-body Starts -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<form class="form-horizontal" action="" method="post" enctype="multipart/form-data" ><!-- form-horizontal Starts -->
+                        <label class="col-md-3 control-label" >Product Category Title</label>
 
-<div class="form-group" ><!-- form-group Starts -->
+                        <div class="col-md-6" >
 
-<label class="col-md-3 control-label" >Product Category Title</label>
+                            <input type="text" name="p_cat_title" class="form-control" value="<?php echo $p_cat_title; ?>" required >
 
-<div class="col-md-6" >
+                        </div>
 
-<input type="text" name="p_cat_title" class="form-control" value="<?php echo $p_cat_title; ?>" required >
+                    </div><!-- form-group Ends -->
 
-</div>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-</div><!-- form-group Ends -->
+                        <label class="col-md-3 control-label" > Select Product Category Image</label>
 
-<div class="form-group" ><!-- form-group Starts -->
+                        <div class="col-md-6" >
 
-<label class="col-md-3 control-label" > Select Product Category Image</label>
+                            <input type="file" name="p_cat_image" class="form-control" >
 
-<div class="col-md-6" >
+                            <br>
 
-<input type="file" name="p_cat_image" class="form-control" >
+                            <img src="other_images/<?php echo $p_cat_image; ?>" width="70" height="70" >
 
-<br>
+                        </div>
 
-<img src="other_images/<?php echo $p_cat_image; ?>" width="70" height="70" >
+                    </div><!-- form-group Ends -->
 
-</div>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-</div><!-- form-group Ends -->
+                        <label class="col-md-3 control-label" ></label>
 
-<div class="form-group" ><!-- form-group Starts -->
+                        <div class="col-md-6" >
 
-<label class="col-md-3 control-label" ></label>
+                            <input type="submit" name="update" value="Update Now" class="btn btn-primary form-control" >
 
-<div class="col-md-6" >
+                        </div>
 
-<input type="submit" name="update" value="Update Now" class="btn btn-primary form-control" >
+                    </div><!-- form-group Ends -->
 
-</div>
+                </form><!-- form-horizontal Ends -->
 
-</div><!-- form-group Ends -->
-
-</form><!-- form-horizontal Ends -->
-
-</div><!-- panel-body Ends -->
+            </div><!-- panel-body Ends -->
 
 
-</div><!-- panel panel-default Ends -->
+        </div><!-- panel panel-default Ends -->
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
 

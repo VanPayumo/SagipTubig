@@ -44,19 +44,19 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="row"><!-- 1 row Starts -->
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<ol class="breadcrumb"><!-- breadcrumb Starts -->
+        <ol class="breadcrumb"><!-- breadcrumb Starts -->
 
-<li class="active">
+            <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / Edit Terms
+                <i class="fa fa-dashboard"></i> Dashboard / Edit Terms
 
-</li>
+            </li>
 
-</ol><!-- breadcrumb Ends -->
+        </ol><!-- breadcrumb Ends -->
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- 1 row Ends -->
 
@@ -65,83 +65,83 @@ if (!isset($_SESSION['admin_email'])) {
 <div class="row"><!-- 2 row Starts -->
 
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
 
-<div class="panel panel-default"><!-- panel panel-default Starts -->
+        <div class="panel panel-default"><!-- panel panel-default Starts -->
 
-<div class="panel-heading"><!-- panel-heading Starts -->
+            <div class="panel-heading"><!-- panel-heading Starts -->
 
-<h3 class="panel-title"><!-- panel-title Starts -->
+                <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> Edit Terms
+                    <i class="fa fa-money fa-fw"></i> Edit Terms
 
-</h3><!-- panel-title Ends -->
+                </h3><!-- panel-title Ends -->
 
-</div><!-- panel-heading Ends -->
+            </div><!-- panel-heading Ends -->
 
-<div class="panel-body"><!-- panel-body Starts -->
+            <div class="panel-body"><!-- panel-body Starts -->
 
-<form class="form-horizontal" action="" method="post"><!-- form-horizontal Starts -->
+                <form class="form-horizontal" action="" method="post"><!-- form-horizontal Starts -->
 
-<div class="form-group"><!-- form-group Starts -->
+                    <div class="form-group"><!-- form-group Starts -->
 
-<label class="col-md-3 control-label"> Term Title </label>
+                        <label class="col-md-3 control-label"> Term Title </label>
 
-<div class="col-md-6"><!-- col-md-6 Starts -->
+                        <div class="col-md-6"><!-- col-md-6 Starts -->
 
-<input type="text" name="term_title" class="form-control" value="<?php echo $term_title; ?>">
+                            <input type="text" name="term_title" class="form-control" value="<?php echo $term_title; ?>">
 
-</div><!-- col-md-6 Ends -->
+                        </div><!-- col-md-6 Ends -->
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+                    <div class="form-group"><!-- form-group Starts -->
 
-<label class="col-md-3 control-label"> Term Description </label>
+                        <label class="col-md-3 control-label"> Term Description </label>
 
-<div class="col-md-6"><!-- col-md-6 Starts -->
+                        <div class="col-md-6"><!-- col-md-6 Starts -->
 
-<textarea name="term_desc" class="form-control" rows="6" cols="19" >
-<?php echo $term_desc; ?>
-</textarea>
+                            <textarea name="term_desc" class="form-control" rows="6" cols="19" >
+                                <?php echo $term_desc; ?>
+                            </textarea>
 
-</div><!-- col-md-6 Ends -->
+                        </div><!-- col-md-6 Ends -->
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+                    <div class="form-group"><!-- form-group Starts -->
 
-<label class="col-md-3 control-label"> Term Link </label>
+                        <label class="col-md-3 control-label"> Term Link </label>
 
-<div class="col-md-6"><!-- col-md-6 Starts -->
+                        <div class="col-md-6"><!-- col-md-6 Starts -->
 
-<input type="text" name="term_link" class="form-control" value="<?php echo $term_link; ?>">
+                            <input type="text" name="term_link" class="form-control" value="<?php echo $term_link; ?>">
 
-</div><!-- col-md-6 Ends -->
+                        </div><!-- col-md-6 Ends -->
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-<div class="form-group"><!-- form-group Starts -->
+                    <div class="form-group"><!-- form-group Starts -->
 
-<label class="col-md-3 control-label"> </label>
+                        <label class="col-md-3 control-label"> </label>
 
-<div class="col-md-6"><!-- col-md-6 Starts -->
+                        <div class="col-md-6"><!-- col-md-6 Starts -->
 
-<input type="submit" name="update" value="Update Term" class="btn btn-primary form-control" >
+                            <input type="submit" name="update" value="Update Term" class="btn btn-primary form-control" >
 
-</div><!-- col-md-6 Ends -->
+                        </div><!-- col-md-6 Ends -->
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-</form><!-- form-horizontal Ends -->
+                 </form><!-- form-horizontal Ends -->
 
-</div><!-- panel-body Ends -->
+            </div><!-- panel-body Ends -->
 
-</div><!-- panel panel-default Ends -->
+        </div><!-- panel panel-default Ends -->
 
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
 
