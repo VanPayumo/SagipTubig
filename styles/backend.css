@@ -403,8 +403,8 @@ img {
 .page-header__bottomline .main-nav .categories__link {
     position: relative;
     display: block;
-    padding-top: 35px;
-    padding-bottom: 53px;
+    padding-top: 30px;
+    padding-bottom: 40px;
     font-size: 20px;
     color: #fff;
     text-transform: uppercase;
@@ -957,7 +957,6 @@ tac {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     top: 708px;
     background: #FFFDED;
-    
     border-radius: 44px;
 }
 
