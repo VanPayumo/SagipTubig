@@ -58,7 +58,7 @@ $about_desc = $row_about_us['about_desc'];
 </div><!-- content Ends -->
 
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
 
 include "includes/footer.php";

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2022 at 02:41 AM
+-- Generation Time: Jan 26, 2022 at 04:15 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -346,12 +346,12 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_psp_price`, `product_desc`, `product_features`, `product_stock`, `product_keywords`, `product_label`, `status`) VALUES
 (1, 7, 0, 0, '2022-01-24 12:27:17', 'Sagip Jacket', 'sagip-jacket', 'SagipJacket1.png', 'SagipJacket1.png', 'SagipJacket1.png', 1500, 1000, '\r\nTBD\r\n', '\r\nTBD\r\n', 5, 'Sagip Jacket', 'New', 'bundle'),
 (3, 6, 0, 0, '2022-01-26 01:33:30', 'Sagip Sweatshirt', 'sagip-sweatshirt', 'Sagip Sweatshirt 2 .png', 'Sagip Sweatshirt 1.png', 'Sagip Sweatshirt 2 .png', 1500, 750, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 7, 'Sweatshirt', 'Sale', 'product'),
-(4, 16, 0, 0, '2022-01-26 01:22:51', 'Sagip Bag', 'sagip-bag', 'SagipPad3.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Bag', 'New', 'product'),
+(4, 16, 0, 0, '2022-01-26 03:11:49', 'Sagip Bag', 'sagip-bag', 'Sagib Bag 1.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Bag', 'New', 'product'),
 (5, 9, 0, 0, '2022-01-24 12:17:53', 'Sagip Tumbler', 'sagip-tumbler', 'Sagip Water 1.png', 'Sagip Water 2.png', 'Sagip Water 1.png', 5000, 4000, 'TBD\r\n\r\n', '\r\n\r\n\r\nTBD\r\n\r\n\r\n', 8, 'Tumbler', 'New', 'product'),
 (7, 12, 0, 0, '2022-01-26 01:05:47', 'SagipMask', 'sagip-mask', 'sagipmask2.png', 'sagipmask1.png', 'sagipmask.png', 200, 190, '\r\n\r\ntest\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 100, 'mask', 'New', 'bundle'),
 (8, 16, 0, 0, '2022-01-25 19:24:59', 'SagipMug', 'sagip-mug', 'sagipmug1.png', 'sagipmug2.png', 'sagipmug3.png', 200, 180, '\r\ntest\r\n', '\r\n\r\n', 100, 'mug', 'New', 'product'),
 (10, 14, 0, 0, '2022-01-26 01:21:48', 'Sagip Hat', 'sagip-hat', 'bhat1.png', 'bhat2.png', 'bhat3.png', 350, 300, '\r\n\r\n\r\nTBD\r\n', '\r\n\r\n\r\n\r\n', 10, 'Hat', 'New', 'product'),
-(11, 12, 0, 0, '2022-01-26 01:20:34', 'sadf', 'asdf', 'Black Blouse Versace Coat1.jpg', 'Black Blouse Versace Coat2.jpg', 'Black Blouse Versace Coat3.jpg', 1500, 1350, '\r\n\r\nTBD', '\r\n\r\n', 10, 'sdaf', 'New', 'product');
+(12, 13, 0, 0, '2022-01-26 03:15:20', 'SagipNeck', 'sagip-neck', 'sagipneck1.png', 'sagipneck2.png', 'sagipneck3.png', 1000, 999, '\r\n\r\ntest\r\n\r\n', '\r\n\r\n\r\n\r\n', 100, 'neck', 'New', 'product');
 
 -- --------------------------------------------------------
 
@@ -376,7 +376,8 @@ INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `p_cat_image`) VALU
 (13, 'Pillows', 'pillow.png'),
 (14, 'Headwear', 'fa-solid_hat-cowboy.png'),
 (15, 'Peripherals', 'mousepad.png'),
-(16, 'Mugs', 'fa-solid_mug-hot.png');
+(16, 'Mugs', 'fa-solid_mug-hot.png'),
+(17, 'Bags', 'fluent_shopping-bag-24-filled.png');
 
 -- --------------------------------------------------------
 
@@ -473,7 +474,8 @@ INSERT INTO `user_log_history` (`log_id`, `u_id`, `u_email`, `log_time`, `activi
 (29, 2, 'subalouis@gmail.com', '2022-01-26 00:53:35', 'Logged in'),
 (30, 1, 'payumo.van657@gmail.com', '2022-01-26 01:05:29', 'Logged in'),
 (31, 6, 'accesslevel2@gmail.com', '2022-01-26 01:08:36', 'Logged in'),
-(32, 1, 'payumo.van657@gmail.com', '2022-01-26 01:16:25', 'Logged in');
+(32, 1, 'payumo.van657@gmail.com', '2022-01-26 01:16:25', 'Logged in'),
+(33, 2, 'subalouis@gmail.com', '2022-01-26 03:15:06', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -663,13 +665,13 @@ ALTER TABLE `pending_orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `returns`
@@ -687,7 +689,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `user_log_history`
 --
 ALTER TABLE `user_log_history`
-  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
