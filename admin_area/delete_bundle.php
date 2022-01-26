@@ -18,11 +18,7 @@ if (!isset($_SESSION['admin_email'])) {
 
         $run_delete = mysqli_query($con, $delete_pro);
 
-        $delete_rel = "delete from bundle_product_relation where bundle_id='$delete_id'";
-
-        $run_rel = mysqli_query($con, $delete_rel);
-
-        if ($run_rel) {
+        if ($run_delete) {
 
             echo "<script>alert('One Bundle Has been deleted')</script>";
 

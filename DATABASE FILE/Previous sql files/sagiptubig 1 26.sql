@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2022 at 07:38 AM
+-- Generation Time: Jan 26, 2022 at 04:15 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -70,8 +70,7 @@ INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `ad
 (3, 'Michenne Cortez', 'mich.cortez@gmail.com', 'admin01', 'Space_Day_Nautilus_profileicon.png', '09000000000', 'Philippines', 'Front-end Designer', 'Dasayn is my passion', 1),
 (4, 'Ann Catherine De Guia', 'acdeguia@gmail.com', 'admin01', 'Space_Day_Nautilus_profileicon.png', '09000000000', 'Philippines', 'Front-End Designer', 'Dasayn is my passion ', 1),
 (5, 'Ram Keazar Medina', 'rammedina@gmail.com', 'admin01', 'Space_Day_Nautilus_profileicon.png', '09000000000', 'Philippines', 'Website Developer', 'Pro-gamer', 1),
-(6, 'Level Two', 'accesslevel2@gmail.com', 'level2', 'user-profile-min.png', '09000000000', 'Philippines', 'Manager', 'Fewer features compared to Level 1 (Superadmin)', 2),
-(7, 'admin02', 'testing@mail.com', 'admin', 'dpdc.jpg', '0900000000', 'Philippines', 'Coderist', ' Coders', 2);
+(6, 'Level Two', 'accesslevel2@gmail.com', 'level2', 'user-profile-min.png', '09000000000', 'Philippines', 'Manager', 'Fewer features compared to Level 1 (Superadmin)', 2);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,7 @@ CREATE TABLE `coupons` (
 --
 
 INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`, `coupon_code`, `coupon_limit`, `coupon_used`) VALUES
-(3, 13, 'SagipTumbler', '3000', 'SGPTBGTMBLR', 5, 0);
+(1, 5, 'SagipTumbler', '3000', 'SGPTBGTMBLR', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -158,8 +157,7 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
 (1, 'Customer One', 'c1@mail.com', 'customer1', 'Philippines', 'Porac', '09000000000', 'Porac, Pampanga', 'user-icn-min.png', '::1', '1500724236'),
 (2, 'Customer Two', 'c2@mail.com', 'c2', 'Philippines', 'Porac', '09000000002', 'Porac, Pampanga', 'user-icn-min.png', '::1', '1322407311'),
-(3, 'Customer Three', 'c3@mail.com', 'c3', 'Philippines', 'Nowhere', '0900 000 0003', 'Nowhere', 'sample_image.jpg', '::1', ''),
-(5, 'Ram Medina', 'test@mail.com', '123abc', 'Philippines', 'Pampanga', '0900000000', 'Floridablanca,Pampanga', 'dpdc.jpg', '::1', '');
+(3, 'Customer Three', 'c3@mail.com', 'c3', 'Philippines', 'Nowhere', '0900 000 0003', 'Nowhere', 'sample_image.jpg', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -198,13 +196,7 @@ INSERT INTO `customer_log_history` (`log_id`, `cid`, `c_email`, `log_time`, `act
 (16, 3, 'c3@mail.com', '2022-01-25 01:44:28', 'Logged in'),
 (17, 1, 'c1@mail.com', '2022-01-25 03:20:59', 'Logged in'),
 (18, 1, 'c1@mail.com', '2022-01-25 03:24:10', 'Logged in'),
-(19, 1, 'c1@mail.com', '2022-01-25 19:17:51', 'Logged in'),
-(20, 1, 'c1@mail.com', '2022-01-26 04:28:49', 'Logged in'),
-(21, 1, 'c1@mail.com', '2022-01-26 04:41:04', 'Logged in'),
-(22, 4, 'test@gmail.com', '2022-01-26 04:43:00', 'Registered'),
-(23, 1, 'c1@mail.com', '2022-01-26 04:46:30', 'Logged in'),
-(24, 1, 'c1@mail.com', '2022-01-26 05:52:03', 'Logged in'),
-(25, 5, 'test@mail.com', '2022-01-26 05:55:05', 'Registered');
+(19, 1, 'c1@mail.com', '2022-01-25 19:17:51', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -228,7 +220,7 @@ CREATE TABLE `customer_orders` (
 --
 
 INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
-(1, 1, 1500, 503609498, 1, 'Small', '2022-01-22 14:22:15', 'Refunded'),
+(1, 1, 1500, 503609498, 1, 'Small', '2022-01-22 14:22:15', 'Returned'),
 (2, 1, 600, 524728322, 2, 'Medium', '2022-01-22 14:23:31', 'Complete'),
 (3, 1, 1000, 1684061789, 1, ' Small ', '2022-01-22 18:03:16', 'Complete'),
 (4, 1, 498, 1684061789, 2, 'Medium', '2022-01-22 18:03:16', 'pending'),
@@ -239,11 +231,7 @@ INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice
 (9, 2, 6000, 131924124, 2, 'Small', '2022-01-24 12:17:53', 'Complete'),
 (10, 3, 1500, 1107354270, 1, 'Small', '2022-01-24 12:27:17', 'Complete'),
 (11, 3, 1500, 2057823277, 2, 'Small', '2022-01-24 12:28:59', 'Refunded'),
-(12, 1, 800, 1562823817, 4, 'Small', '2022-01-25 19:18:14', 'pending'),
-(13, 1, 1000, 1095164695, 1, 'Small', '2022-01-26 04:31:05', 'Complete'),
-(14, 1, 350, 294306054, 1, 'Medium', '2022-01-26 05:53:50', 'pending'),
-(15, 5, 1000, 647003186, 1, 'Medium', '2022-01-26 05:56:24', 'pending'),
-(16, 5, 200, 647003186, 1, 'Medium', '2022-01-26 05:56:24', 'pending');
+(12, 1, 800, 1562823817, 4, 'Small', '2022-01-25 19:18:14', 'pending');
 
 -- --------------------------------------------------------
 
@@ -285,7 +273,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_id`, `order_id`, `invoice_no`, `amount`, `payment_mode`, `payment_date`, `status`) VALUES
-(1, 1, 503609498, 1500, 'Cash On Delivery (COD)', '2022-01-22 22:22:41', 'Refunded'),
+(1, 1, 503609498, 1500, 'Cash On Delivery (COD)', '2022-01-22 22:22:41', 'Returned'),
 (2, 2, 524728322, 600, 'Cash On Delivery (COD)', '2022-01-22 22:23:42', 'Paid'),
 (3, 3, 1684061789, 1000, 'Cash On Delivery (COD)', '2022-01-23 02:03:25', 'Paid'),
 (4, 6, 467067830, 300, 'Cash On Delivery (COD)', '2022-01-23 13:54:52', 'Returned'),
@@ -293,8 +281,7 @@ INSERT INTO `payments` (`payment_id`, `order_id`, `invoice_no`, `amount`, `payme
 (6, 8, 1090552124, 1245, 'Cash On Delivery (COD)', '2022-01-24 19:23:19', 'Paid'),
 (7, 9, 131924124, 6000, 'Cash On Delivery (COD)', '2022-01-24 20:17:59', 'Paid'),
 (8, 10, 1107354270, 1500, 'Cash On Delivery (COD)', '2022-01-24 20:27:26', 'Paid'),
-(9, 11, 2057823277, 1500, 'Cash On Delivery (COD)', '2022-01-24 20:29:04', 'Refunded'),
-(10, 13, 1095164695, 1000, 'Cash On Delivery (COD)', '2022-01-26 12:31:18', 'Paid');
+(9, 11, 2057823277, 1500, 'Cash On Delivery (COD)', '2022-01-24 20:29:04', 'Refunded');
 
 -- --------------------------------------------------------
 
@@ -317,16 +304,13 @@ CREATE TABLE `pending_orders` (
 --
 
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`) VALUES
-(1, 1, 503609498, '1', 1, 'Small', 'Refunded'),
+(1, 1, 503609498, '1', 1, 'Small', 'Returned'),
 (3, 1, 1684061789, '1', 1, ' Small ', 'Complete'),
 (5, 1, 1684061789, '3', 1, 'Medium', 'pending'),
 (7, 2, 1090552124, '1', 2, ' Small ', 'Complete'),
+(9, 2, 131924124, '5', 2, 'Small', 'Complete'),
 (10, 3, 1107354270, '1', 1, 'Small', 'Complete'),
-(11, 3, 2057823277, '3', 2, 'Small', 'Refunded'),
-(13, 1, 1095164695, '12', 1, 'Small', 'Complete'),
-(14, 1, 294306054, '10', 1, 'Medium', 'pending'),
-(15, 5, 647003186, '1', 1, 'Medium', 'pending'),
-(16, 5, 647003186, '7', 1, 'Medium', 'pending');
+(11, 3, 2057823277, '3', 2, 'Small', 'Refunded');
 
 -- --------------------------------------------------------
 
@@ -360,14 +344,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_psp_price`, `product_desc`, `product_features`, `product_stock`, `product_keywords`, `product_label`, `status`) VALUES
-(1, 7, 0, 0, '2022-01-26 05:56:24', 'Sagip Jacket', 'sagip-jacket', 'SagipJacket1.png', 'SagipJacket1.png', 'SagipJacket1.png', 1500, 1000, '\r\nTBD\r\n', '\r\nTBD\r\n', 4, 'Sagip Jacket', 'New', 'bundle'),
+(1, 7, 0, 0, '2022-01-24 12:27:17', 'Sagip Jacket', 'sagip-jacket', 'SagipJacket1.png', 'SagipJacket1.png', 'SagipJacket1.png', 1500, 1000, '\r\nTBD\r\n', '\r\nTBD\r\n', 5, 'Sagip Jacket', 'New', 'bundle'),
 (3, 6, 0, 0, '2022-01-26 01:33:30', 'Sagip Sweatshirt', 'sagip-sweatshirt', 'Sagip Sweatshirt 2 .png', 'Sagip Sweatshirt 1.png', 'Sagip Sweatshirt 2 .png', 1500, 750, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 7, 'Sweatshirt', 'Sale', 'product'),
-(4, 16, 0, 0, '2022-01-26 06:06:03', 'Sagip Bag', 'sagip-bag', 'Sagib Bag 1.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n                                        \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n                                    ', '\r\n                                        \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n                                    ', 0, 'Bag', 'New', 'product'),
-(7, 12, 0, 0, '2022-01-26 05:56:25', 'SagipMask', 'sagip-mask', 'sagipmask2.png', 'sagipmask1.png', 'sagipmask.png', 200, 190, '\r\n\r\ntest\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 99, 'mask', 'New', 'bundle'),
+(4, 16, 0, 0, '2022-01-26 03:11:49', 'Sagip Bag', 'sagip-bag', 'Sagib Bag 1.png', 'Sagib Bag 1.png', 'SagipBag2 .png', 1400, 1150, '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nTBD\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n', 10, 'Bag', 'New', 'product'),
+(5, 9, 0, 0, '2022-01-24 12:17:53', 'Sagip Tumbler', 'sagip-tumbler', 'Sagip Water 1.png', 'Sagip Water 2.png', 'Sagip Water 1.png', 5000, 4000, 'TBD\r\n\r\n', '\r\n\r\n\r\nTBD\r\n\r\n\r\n', 8, 'Tumbler', 'New', 'product'),
+(7, 12, 0, 0, '2022-01-26 01:05:47', 'SagipMask', 'sagip-mask', 'sagipmask2.png', 'sagipmask1.png', 'sagipmask.png', 200, 190, '\r\n\r\ntest\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 100, 'mask', 'New', 'bundle'),
 (8, 16, 0, 0, '2022-01-25 19:24:59', 'SagipMug', 'sagip-mug', 'sagipmug1.png', 'sagipmug2.png', 'sagipmug3.png', 200, 180, '\r\ntest\r\n', '\r\n\r\n', 100, 'mug', 'New', 'product'),
-(10, 14, 0, 0, '2022-01-26 05:53:50', 'Sagip Hat', 'sagip-hat', 'bhat1.png', 'bhat2.png', 'bhat3.png', 350, 300, '\r\n\r\n\r\nTBD\r\n', '\r\n\r\n\r\n\r\n', 9, 'Hat', 'New', 'product'),
-(12, 13, 0, 0, '2022-01-26 04:31:05', 'SagipNeck', 'sagip-neck', 'sagipneck1.png', 'sagipneck2.png', 'sagipneck3.png', 1000, 999, '\r\n\r\ntest\r\n\r\n', '\r\n\r\n\r\n\r\n', 99, 'neck', 'New', 'product'),
-(13, 18, 0, 0, '2022-01-26 05:04:26', 'Sagip Tumbler', 'sagip-tumbler', 'Sagip Water 1.png', 'Sagip Water 2.png', 'Sagip Water 1.png', 1000, 500, '\r\n                                        \r\n\r\n\r\n                                    ', '\r\n                                        \r\n\r\n\r\n                                    ', 10, 'Tumbler', 'New', 'product');
+(10, 14, 0, 0, '2022-01-26 01:21:48', 'Sagip Hat', 'sagip-hat', 'bhat1.png', 'bhat2.png', 'bhat3.png', 350, 300, '\r\n\r\n\r\nTBD\r\n', '\r\n\r\n\r\n\r\n', 10, 'Hat', 'New', 'product'),
+(12, 13, 0, 0, '2022-01-26 03:15:20', 'SagipNeck', 'sagip-neck', 'sagipneck1.png', 'sagipneck2.png', 'sagipneck3.png', 1000, 999, '\r\n\r\ntest\r\n\r\n', '\r\n\r\n\r\n\r\n', 100, 'neck', 'New', 'product');
 
 -- --------------------------------------------------------
 
@@ -393,8 +377,7 @@ INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `p_cat_image`) VALU
 (14, 'Headwear', 'fa-solid_hat-cowboy.png'),
 (15, 'Peripherals', 'mousepad.png'),
 (16, 'Mugs', 'fa-solid_mug-hot.png'),
-(17, 'Bags', 'fluent_shopping-bag-24-filled.png'),
-(18, 'Tumbler', 'Sagip Water 1.png');
+(17, 'Bags', 'fluent_shopping-bag-24-filled.png');
 
 -- --------------------------------------------------------
 
@@ -492,14 +475,7 @@ INSERT INTO `user_log_history` (`log_id`, `u_id`, `u_email`, `log_time`, `activi
 (30, 1, 'payumo.van657@gmail.com', '2022-01-26 01:05:29', 'Logged in'),
 (31, 6, 'accesslevel2@gmail.com', '2022-01-26 01:08:36', 'Logged in'),
 (32, 1, 'payumo.van657@gmail.com', '2022-01-26 01:16:25', 'Logged in'),
-(33, 2, 'subalouis@gmail.com', '2022-01-26 03:15:06', 'Logged in'),
-(34, 5, 'rammedina@gmail.com', '2022-01-26 04:15:11', 'Logged in'),
-(35, 5, 'rammedina@gmail.com', '2022-01-26 04:48:48', 'Logged in'),
-(36, 5, 'rammedina@gmail.com', '2022-01-26 05:58:23', 'Logged in'),
-(37, 7, 'testing@mail.com', '2022-01-26 06:02:52', 'Registered'),
-(38, 7, 'testing@mail.com', '2022-01-26 06:03:34', 'Logged in'),
-(39, 5, 'rammedina@gmail.com', '2022-01-26 06:04:58', 'Logged in'),
-(40, 5, 'rammedina@gmail.com', '2022-01-26 06:32:47', 'Logged in');
+(33, 2, 'subalouis@gmail.com', '2022-01-26 03:15:06', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -641,7 +617,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -653,49 +629,49 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `coupon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `coupon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer_log_history`
 --
 ALTER TABLE `customer_log_history`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `returns`
@@ -713,7 +689,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `user_log_history`
 --
 ALTER TABLE `user_log_history`
-  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `log_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

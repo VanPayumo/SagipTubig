@@ -95,318 +95,323 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="row"><!-- row Starts -->
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<ol class="breadcrumb"><!-- breadcrumb Starts -->
+        <ol class="breadcrumb"><!-- breadcrumb Starts -->
 
-<li class="active">
+            <li class="active">
 
-<i class="fa fa-dashboard"> </i> Dashboard / Edit Products
+                <i class="fa fa-dashboard"> </i> Dashboard / Edit Products
 
-</li>
+            </li>
 
-</ol><!-- breadcrumb Ends -->
+        </ol><!-- breadcrumb Ends -->
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- row Ends -->
 
 
 <div class="row"><!-- 2 row Starts -->
 
-<div class="col-lg-12"><!-- col-lg-12 Starts -->
+    <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<div class="panel panel-default"><!-- panel panel-default Starts -->
+        <div class="panel panel-default"><!-- panel panel-default Starts -->
 
-<div class="panel-heading"><!-- panel-heading Starts -->
+            <div class="panel-heading"><!-- panel-heading Starts -->
 
-<h3 class="panel-title">
+                <h3 class="panel-title">
 
-<i class="fa fa-money fa-fw"></i> Edit Products
+                    <i class="fa fa-money fa-fw"></i> Edit Products
 
-</h3>
+                </h3>
 
-</div><!-- panel-heading Ends -->
+            </div><!-- panel-heading Ends -->
 
-<div class="panel-body"><!-- panel-body Starts -->
+            <div   div class="panel-body"><!-- panel-body Starts -->
 
-<form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
+                <form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
 
-<div class="form-group" ><!-- form-group Starts -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Title </label>
+                        <label class="col-md-3 control-label" > Product Title </label>
 
-<div class="col-md-6" >
+                        <div class="col-md-6" >
 
-<input type="text" name="product_title" class="form-control" required value="<?php echo $p_title; ?>">
+                            <input type="text" name="product_title" class="form-control" required value="<?php echo $p_title; ?>">
 
-</div>
+                        </div>
 
-</div><!-- form-group Ends -->
+                     </div><!-- form-group Ends -->
 
 
-<div class="form-group" ><!-- form-group Starts -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Url </label>
+                        <label class="col-md-3 control-label" > Product Url </label>
 
-<div class="col-md-6" >
+                        <div class="col-md-6" >
 
-<input type="text" name="product_url" class="form-control" required value="<?php echo $p_url; ?>" >
+                            <input type="text" name="product_url" class="form-control" required value="<?php echo $p_url; ?>" >
 
-<br>
+                                <br>
 
-<p style="font-size:15px; font-weight:bold;">
+                            <p style="font-size:15px; font-weight:bold;">
 
-Product Url Example : navy-blue-t-shirt
+                             Product Url Example : navy-blue-t-shirt
 
-</p>
+                            </p>
 
-</div>
+                        </div>
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Category </label>
+                        <label class="col-md-3 control-label" > Product Category </label>
 
-<div class="col-md-6" >
+                        <div   div class="col-md-6" >
 
+<<<<<<< Updated upstream
 <select name="product_cat" class="form-control" required>
 
 <option hidden="" selected="selected" value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
+=======
+                            <select name="product_cat" class="form-control" >
 
+                                <option hidden="" disabled="disabled" selected="selected" value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
+>>>>>>> Stashed changes
 
-<?php
 
-    $get_p_cats = "select * from product_categories";
+                                <?php
 
-    $run_p_cats = mysqli_query($con, $get_p_cats);
+                                    $get_p_cats = "select * from product_categories";
 
-    while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
+                                    $run_p_cats = mysqli_query($con, $get_p_cats);
 
-        $p_cat_id = $row_p_cats['p_cat_id'];
+                                    while ($row_p_cats = mysqli_fetch_array($run_p_cats)) {
 
-        $p_cat_title = $row_p_cats['p_cat_title'];
+                                        $p_cat_id = $row_p_cats['p_cat_id'];
 
-        echo "<option value='$p_cat_id' >$p_cat_title</option>";
+                                        $p_cat_title = $row_p_cats['p_cat_title'];
 
-    }
+                                        echo "<option value='$p_cat_id' >$p_cat_title</option>";
 
-    ?>
+                                    }
 
+                                ?>
 
-</select>
 
-</div>
+                            </select>
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Bundle </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Bundle </label>
 
-<select name="status" class="form-control" >
+                        <div class="col-md-6" >
 
-<option><?php if ($p_status == 'product') {
-        echo 'product</option>
-        <option>bundle</option>';
-    } else if ($p_status == 'bundle') {
-        echo 'bundle</option>
-        <option>product</option>';
-    }
+                            <select name="status" class="form-control" >
 
-    ?></option>
+                                <option><?php if ($p_status == 'product') {
+                                        echo 'product</option>
+                                        <option>bundle</option>';
+                                    } else if ($p_status == 'bundle') {
+                                        echo 'bundle</option>
+                                        <option>product</option>';
+                                    }
 
-</select>
+                                ?></option>
 
-</div>
+                            </select>
 
-</div><!-- form-group Ends -->
+                         </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Image 1 </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Image 1 </label>
 
-<input type="file" name="product_img1" class="form-control" >
-<br><img src="product_images/<?php echo $p_image1; ?>" width="70" height="70" >
+                        <div class="col-md-6" >
 
-</div>
+                            <input type="file" name="product_img1" class="form-control" >
+                            <br><img src="product_images/<?php echo $p_image1; ?>" width="70" height="70" >
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Image 2 </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Image 2 </label>
 
-<input type="file" name="product_img2" class="form-control" >
-<br><img src="product_images/<?php echo $p_image2; ?>" width="70" height="70" >
+                        <div class="col-md-6" >
 
-</div>
+                            <input type="file" name="product_img2" class="form-control" >
+                            <br><img src="product_images/<?php echo $p_image2; ?>" width="70" height="70" >
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Image 3 </label>
+                        <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                            <label class="col-md-3 control-label" > Product Image 3 </label>
 
-<input type="file" name="product_img3" class="form-control" >
-<br><img src="product_images/<?php echo $p_image3; ?>" width="70" height="70" >
+                            <div class="col-md-6" >
 
-</div>
+                                <input type="file" name="product_img3" class="form-control" >
+                            <br><img src="product_images/<?php echo $p_image3; ?>" width="70" height="70" >
 
-</div><!-- form-group Ends -->
+                            </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Price </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Price </label>
 
-<input type="text" name="product_price" class="form-control" required value="<?php echo $p_price; ?>" >
+                        <div class="col-md-6" >
 
-</div>
+                            <input type="text" name="product_price" class="form-control" required value="<?php echo $p_price; ?>" >
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Sale Price </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Sale Price </label>
 
-<input type="text" name="psp_price" class="form-control" required value="<?php echo $psp_price; ?>">
+                        <div class="col-md-6" >
 
-</div>
+                         <input type="text" name="psp_price" class="form-control" required value="<?php echo $psp_price; ?>">
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Keywords </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Keywords </label>
 
-<input type="text" name="product_keywords" class="form-control" required value="<?php echo $p_keywords; ?>" >
+                        <div class="col-md-6" >
 
-</div>
+                         <input type="text" name="product_keywords" class="form-control" required value="<?php echo $p_keywords; ?>" >
 
-</div><!-- form-group Ends -->
+                        </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Stock </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Stock </label>
 
-<input type="text" name="product_stock" class="form-control" required value="<?php echo $p_stock; ?>" >
+                            <div class="col-md-6" >
 
-</div>
+                                <input type="text" name="product_stock" class="form-control" required value="<?php echo $p_stock; ?>" >
 
-</div><!-- form-group Ends -->
+                            </div>
 
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
 
-<label class="col-md-3 control-label" > Product Tabs </label>
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<div class="col-md-6" >
+                        <label class="col-md-3 control-label" > Product Tabs </label>
 
-<ul class="nav nav-tabs"><!-- nav nav-tabs Starts -->
+                        <div class="col-md-6" >
 
-<li class="active">
+                            <ul class="nav nav-tabs"><!-- nav nav-tabs Starts -->
 
-<a data-toggle="tab" href="#description"> Product Description </a>
+                                <li class="active">
 
-</li>
+                                    <a data-toggle="tab" href="#description"> Product Description </a>
 
-<li>
+                                </li>
 
-<a data-toggle="tab" href="#features"> Product Features </a>
+                                <li>
 
-</li>
+                                <a data-toggle="tab" href="#features"> Product Features </a>
 
-</ul><!-- nav nav-tabs Ends -->
+                                </li>
 
-<div class="tab-content"><!-- tab-content Starts -->
+                            </ul><!-- nav nav-tabs Ends -->
 
-<div id="description" class="tab-pane fade in active"><!-- description tab-pane fade in active Starts -->
+                            <div class="tab-content"><!-- tab-content Starts -->
 
-<br>
+                                <div id="description" class="tab-pane fade in active"><!-- description tab-pane fade in active Starts -->
 
-<textarea name="product_desc" class="form-control" rows="15" id="product_desc">
+                                    <br>
 
-<?php echo $p_desc; ?>
+                                    <textarea name="product_desc" class="form-control" rows="15" id="product_desc">
 
-</textarea>
+                                        <?php echo $p_desc; ?>
 
-</div><!-- description tab-pane fade in active Ends -->
+                                    </textarea>
 
+                                </div><!-- description tab-pane fade in active Ends -->
 
-<div id="features" class="tab-pane fade in"><!-- features tab-pane fade in Starts -->
+                                <div id="features" class="tab-pane fade in"><!-- features tab-pane fade in Starts -->
 
-<br>
+                                    <br>
 
-<textarea name="product_features" class="form-control" rows="15" id="product_features">
+                                    <textarea name="product_features" class="form-control" rows="15" id="product_features">
 
-<?php echo $p_features; ?>
+                                        <?php echo $p_features; ?>
 
-</textarea>
+                                    </textarea>
 
-</div><!-- features tab-pane fade in Ends -->
+                                </div><!-- features tab-pane fade in Ends -->
 
-</div><!-- tab-content Ends -->
+                            </div><!-- tab-content Ends -->
 
-</div>
+                        </div>
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Product Label </label>
+                        <label class="col-md-3 control-label" > Product Label </label>
 
-<div class="col-md-6" >
+                        <div class="col-md-6" >
 
-<select name="product_label" class="form-control" required >
-<?php if ($p_label == 'New') {
-        echo '<option> New </option>
-    <option> Sale </option>';
-    } else {
-        echo '<option> Sale </option>
-    <option> New </option>';
-    }?>
+                            <select name="product_label" class="form-control" required >
+                                <?php if ($p_label == 'New') {
+                                        echo '<option> New </option>
+                                    <option> Sale </option>';
+                                    } else {
+                                        echo '<option> Sale </option>
+                                    <option> New </option>';
+                                    }?>
 
 
-</select>
+                            </select>
 
-</div>
+                        </div>
 
-</div><!-- form-group Ends -->
-<div class="form-group" ><!-- form-group Starts -->
+                    </div><!-- form-group Ends -->
+                    <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" ></label>
+                        <label class="col-md-3 control-label" ></label>
 
-<div class="col-md-6" >
+                        <div class="col-md-6" >
 
-<input type="submit" name="update" value="Update Product" class="btn btn-primary form-control" >
+                            <input type="submit" name="update" value="Update Product" class="btn btn-primary form-control" >
 
-</div>
+                        </div>
 
-</div><!-- form-group Ends -->
+                    </div><!-- form-group Ends -->
 
-</form><!-- form-horizontal Ends -->
+                 </form><!-- form-horizontal Ends -->
 
-</div><!-- panel-body Ends -->
+            </div><!-- panel-body Ends -->
 
-</div><!-- panel panel-default Ends -->
+        </div><!-- panel panel-default Ends -->
 
-</div><!-- col-lg-12 Ends -->
+    </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
 
