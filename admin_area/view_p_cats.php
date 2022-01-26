@@ -8,6 +8,15 @@ echo "<script>window.open('login.php','_self')</script>";
 
 else {
 
+    $admin_level = $_SESSION['admin_level']; // If you're not an admin with an access level of 1, your authorities as a user are limited.
+
+    if ($admin_level == 2) {
+        $hideme = 'display:none;';
+    } else {
+        $hideme = '';
+    }
+
+
 ?>
 
 
@@ -96,7 +105,7 @@ $i++;
 
 <td> 
 
-<a href="index.php?delete_p_cat=<?php echo $p_cat_id; ?>">
+<a style="<?php echo $hideme; ?>" href="index.php?delete_p_cat=<?php echo $p_cat_id; ?>">
 
 <i class="fa fa-trash-o"></i> Delete
 

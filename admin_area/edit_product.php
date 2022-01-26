@@ -171,9 +171,9 @@ Product Url Example : navy-blue-t-shirt
 
 <div class="col-md-6" >
 
-<select name="product_cat" class="form-control" >
+<select name="product_cat" class="form-control" required>
 
-<option hidden="" disabled="disabled" selected="selected" value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
+<option hidden="" selected="selected" value="<?php echo $p_cat; ?>" > <?php echo $p_cat_title; ?> </option>
 
 
 <?php
@@ -423,7 +423,7 @@ Product Url Example : navy-blue-t-shirt
 
         $product_title = $_POST['product_title'];
         if (!isset($_POST['product_cat'])) {
-            $product_cat = $p_cat_id;
+            $product_cat = $p_cat_title;
         } else {
             $product_cat = $_POST['product_cat'];
         }

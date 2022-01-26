@@ -179,10 +179,6 @@ if (!isset($_SESSION['admin_email'])) {
 
 <ul id="bundles" class="collapse">
 
-<li style="<?php echo $hideme; ?>">
-<a href="index.php?insert_bundle"> Insert Bundle </a>
-</li>
-
 <li>
 <a href="index.php?view_bundles"> View Bundles </a>
 </li>

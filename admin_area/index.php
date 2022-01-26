@@ -309,12 +309,6 @@ if (!isset($_SESSION['admin_email'])) {
 
     }
 
-    if (isset($_GET['insert_bundle'])) {
-
-        include "insert_bundle.php";
-
-    }
-
     if (isset($_GET['view_bundles'])) {
 
         include "view_bundles.php";
