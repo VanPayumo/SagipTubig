@@ -45,6 +45,8 @@ if (!isset($_SESSION['admin_email'])) {
 
 <div class="panel-body"><!-- panel-body Starts -->
 
+<form method="post" action="export_orders.php"><input type="submit" class="btn btn-primary" name="export_orders" value="Export CSV" /></form><br>
+
 <div class="table-responsive"><!-- table-responsive Starts -->
 
 <table class="table table-bordered table-hover table-striped"><!-- table table-bordered table-hover table-striped Starts -->
@@ -154,7 +156,7 @@ if (!isset($_SESSION['admin_email'])) {
         ?>
 </td>
 
-<td>$<?php echo $due_amount; ?></td>
+<td>₱<?php echo $due_amount; ?></td>
 
 <td>
 <?php

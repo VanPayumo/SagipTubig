@@ -6,7 +6,7 @@ if (isset($_POST["export_weekly_payments"])) {
     header('Content-TypeL text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=weekly_payments.csv');
     $output = fopen("php://output", "w");
-    fputcsv($output, array('order_id', 'payment_id', 'invoice_no', 'amount', 'payment_mode', 'payment_date'));
+    fputcsv($output, array('order_id', 'payment_id', 'invoice_no', 'amount', 'payment_mode', 'payment_date', 'status'));
     $query = "select * from payments where status='Paid' and WEEKOFYEAR(payment_date) = WEEKOFYEAR(NOW())";
     $result = mysqli_query($connect, $query);
 
